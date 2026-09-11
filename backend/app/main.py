@@ -19,10 +19,11 @@ app = FastAPI(
     description="LANDSAFE / LANDGUARD AI - Early Warning, Route Risk Checker & Multi-Hazard Command HUD (North-Eastern Region of India)"
 )
 
-# Enable CORS for React frontend
+# Enable CORS for React frontend (Local, Vercel, and custom domains)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
+    allow_origin_regex=r"https?://.*",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

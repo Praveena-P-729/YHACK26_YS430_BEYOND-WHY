@@ -1,4 +1,12 @@
-const API_BASE = 'http://127.0.0.1:8000/api';
+const getApiBaseUrl = () => {
+  const envUrl = import.meta.env.VITE_API_URL || import.meta.env.VITE_API_BASE_URL;
+  if (envUrl) {
+    return envUrl.endsWith('/api') ? envUrl : `${envUrl.replace(/\/+$/, '')}/api`;
+  }
+  return 'http://127.0.0.1:8000/api';
+};
+
+const API_BASE = getApiBaseUrl();
 
 async function request(endpoint, options = {}) {
   const token = localStorage.getItem('landguard_token');

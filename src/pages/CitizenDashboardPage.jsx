@@ -175,35 +175,35 @@ export default function CitizenDashboardPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0A100D] text-[#F5F1EA] selection:bg-[#10B981] selection:text-[#0A100D] bg-ner-backdrop">
-      <header className="border-b border-white/10 bg-[#0D1714]/92 backdrop-blur-md sticky top-0 z-30 px-4 lg:px-8 py-3.5 shadow-lg">
+    <div className="min-h-screen text-slate-900 selection:bg-emerald-600 selection:text-white bg-ner-backdrop">
+      <header className="border-b border-slate-200/90 bg-white/92 backdrop-blur-md sticky top-0 z-30 px-4 lg:px-8 py-3.5 shadow-sm">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#10B981] to-[#047857] flex items-center justify-center shadow-md shadow-[#10B981]/30">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#10B981] to-[#047857] flex items-center justify-center shadow-md shadow-emerald-500/30">
               <Mountain className="w-5 h-5 text-white" />
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <span className="font-display font-extrabold text-white tracking-tight text-lg text-contrast-glow">LANDSAFE</span>
-                <span className="text-[10px] px-1.5 py-0.5 rounded bg-[#10B981]/20 text-[#10B981] font-mono font-bold uppercase border border-[#10B981]/30">
+                <span className="font-display font-extrabold text-slate-900 tracking-tight text-lg">LANDSAFE</span>
+                <span className="text-[10px] px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-800 font-mono font-bold uppercase border border-emerald-300">
                   CITIZEN RESIDENT
                 </span>
               </div>
-              <p className="text-[10px] text-[#CBD1D6] text-subtle-glow">AI Landslide Hazard Warning &amp; Safe Travel Route Grid</p>
+              <p className="text-[10px] text-slate-600 font-medium">AI Landslide Hazard Warning &amp; Safe Travel Route Grid</p>
             </div>
           </div>
 
           <div className="flex items-center gap-4">
-            <div className="hidden sm:flex items-center gap-2 bg-[#121E1A] px-3.5 py-1.5 rounded-full border border-white/10 text-xs">
-              <Radio className="w-3.5 h-3.5 text-[#10B981] animate-pulse" />
-              <span className="text-[#A8ADB2]">Disaster Grid:</span>
-              <span className="text-[#10B981] font-semibold font-mono">LIVE (24/7)</span>
+            <div className="hidden sm:flex items-center gap-2 bg-slate-100 px-3.5 py-1.5 rounded-full border border-slate-200 text-xs">
+              <Radio className="w-3.5 h-3.5 text-emerald-600 animate-pulse" />
+              <span className="text-slate-600 font-medium">Disaster Grid:</span>
+              <span className="text-emerald-700 font-bold font-mono">LIVE (24/7)</span>
             </div>
 
             <div className="flex items-center gap-3">
               <div className="text-right hidden sm:block">
-                <div className="text-xs font-semibold text-white">{user?.full_name || 'Praveena'}</div>
-                <div className="text-[10px] text-[#10B981] font-mono">Resident Community</div>
+                <div className="text-xs font-bold text-slate-900">{user?.full_name || 'Praveena'}</div>
+                <div className="text-[10px] text-emerald-700 font-mono font-bold">Resident Community</div>
               </div>
 
               <button
@@ -211,7 +211,7 @@ export default function CitizenDashboardPage() {
                   logout();
                   navigate('/login');
                 }}
-                className="p-2 rounded-xl bg-[#121E1A] border border-white/10 text-[#A8ADB2] hover:text-white hover:border-red-500/50 transition cursor-pointer"
+                className="p-2 rounded-xl bg-slate-100 border border-slate-200 text-slate-600 hover:text-red-600 hover:bg-red-50 hover:border-red-300 transition cursor-pointer"
                 title="Sign Out"
               >
                 <LogOut className="w-4 h-4" />
@@ -222,27 +222,27 @@ export default function CitizenDashboardPage() {
       </header>
 
       <main className="max-w-7xl mx-auto p-4 lg:p-8 space-y-6">
-        <div className="command-card rounded-3xl p-5 border border-white/10 bg-gradient-to-r from-red-950/40 via-[#121E1A] to-[#121E1A] flex flex-col md:flex-row items-start md:items-center justify-between gap-4 shadow-2xl">
+        <div className="command-card-solid rounded-3xl p-5 border border-slate-200 bg-white/95 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 shadow-xl">
           <div className="space-y-1">
             <div className="flex items-center gap-2">
-              <span className="text-xs font-mono font-bold text-red-400 uppercase tracking-wider flex items-center gap-1.5">
+              <span className="text-xs font-mono font-bold text-red-600 uppercase tracking-wider flex items-center gap-1.5">
                 <AlertTriangle className="w-4 h-4 animate-pulse" />
                 <span>CURRENT REGIONAL RISK STATUS</span>
               </span>
-              <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-white/5 text-[#A8ADB2]">
+              <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 text-slate-600 font-medium">
                 Last Updated: Just Now
               </span>
             </div>
 
             <div className="flex flex-wrap items-center gap-3 pt-1">
-              <div className="flex items-center gap-1.5 px-3 py-1 rounded-xl bg-red-500/20 text-red-300 border border-red-500/40 text-xs font-bold font-mono">
-                <span className="w-2 h-2 rounded-full bg-red-400 animate-ping" />
+              <div className="flex items-center gap-1.5 px-3 py-1 rounded-xl bg-red-100 text-red-800 border border-red-300 text-xs font-bold font-mono">
+                <span className="w-2 h-2 rounded-full bg-red-600 animate-ping" />
                 <span>3 Critical Zones Nearby</span>
               </div>
-              <div className="flex items-center gap-1.5 px-3 py-1 rounded-xl bg-orange-500/20 text-orange-300 border border-orange-500/40 text-xs font-bold font-mono">
+              <div className="flex items-center gap-1.5 px-3 py-1 rounded-xl bg-amber-100 text-amber-800 border border-amber-300 text-xs font-bold font-mono">
                 <span>7 High Risk Zones</span>
               </div>
-              <div className="flex items-center gap-1.5 px-3 py-1 rounded-xl bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 text-xs font-bold font-mono">
+              <div className="flex items-center gap-1.5 px-3 py-1 rounded-xl bg-emerald-100 text-emerald-800 border border-emerald-300 text-xs font-bold font-mono">
                 <span>12 Safe Corridors</span>
               </div>
             </div>
@@ -250,15 +250,15 @@ export default function CitizenDashboardPage() {
 
           <div className="flex items-center gap-2.5 w-full md:w-auto">
             {sosStatus === 'SENT' ? (
-              <div className="px-4 py-2.5 rounded-xl bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 text-xs font-bold flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4" />
+              <div className="px-4 py-2.5 rounded-xl bg-emerald-100 text-emerald-800 border border-emerald-300 text-xs font-bold flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-emerald-700" />
                 <span>SOS Signal Dispatched!</span>
               </div>
             ) : (
               <button
                 onClick={handleSosTrigger}
                 disabled={sosStatus === 'SENDING'}
-                className="px-4 py-2.5 rounded-xl bg-red-600 hover:bg-red-500 text-white text-xs font-bold transition flex items-center justify-center gap-2 shadow-lg shadow-red-600/30 cursor-pointer"
+                className="px-4 py-2.5 rounded-xl bg-red-600 hover:bg-red-700 text-white text-xs font-bold transition flex items-center justify-center gap-2 shadow-md shadow-red-600/30 cursor-pointer"
               >
                 <Radio className="w-4 h-4 animate-pulse" />
                 <span>1-Click SOS Distress</span>
@@ -267,62 +267,62 @@ export default function CitizenDashboardPage() {
 
             <a
               href="tel:108"
-              className="px-4 py-2.5 rounded-xl bg-[#152420] hover:bg-[#10B981] hover:text-[#0A100D] border border-white/10 text-white text-xs font-semibold transition flex items-center gap-2 shadow-lg"
+              className="px-4 py-2.5 rounded-xl bg-emerald-50 hover:bg-emerald-100 border border-emerald-300 text-emerald-800 text-xs font-bold transition flex items-center gap-2 shadow-sm"
               title="Emergency Ambulance & Disaster Control"
             >
-              <PhoneCall className="w-4 h-4 text-[#10B981]" />
+              <PhoneCall className="w-4 h-4 text-emerald-700" />
               <span>Call Emergency 108</span>
             </a>
           </div>
         </div>
 
-        <div className="command-card rounded-3xl p-6 border border-white/10 space-y-5 relative overflow-hidden">
-          <div className="flex items-center justify-between border-b border-white/5 pb-3">
+        <div className="command-card-solid rounded-3xl p-6 border border-slate-200 space-y-5 relative overflow-hidden shadow-xl">
+          <div className="flex items-center justify-between border-b border-slate-200 pb-3">
             <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-xl bg-[#10B981]/20 text-[#10B981] flex items-center justify-center">
+              <div className="w-8 h-8 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center border border-emerald-300">
                 <Route className="w-4 h-4" />
               </div>
               <div>
-                <h3 className="text-base font-bold text-white font-heading">Interactive Route Landslide Risk Checker</h3>
-                <p className="text-xs text-[#8E959E]">Spatial intersection check between your route and AI-predicted hazard zones</p>
+                <h3 className="text-base font-bold text-slate-900 font-heading">Interactive Route Landslide Risk Checker</h3>
+                <p className="text-xs text-slate-600 font-medium">Spatial intersection check between your route and AI-predicted hazard zones</p>
               </div>
             </div>
-            <span className="text-[10px] font-mono text-[#10B981] uppercase px-2.5 py-1 rounded-full bg-[#10B981]/10 border border-[#10B981]/30">
+            <span className="text-[10px] font-mono text-emerald-800 uppercase px-2.5 py-1 rounded-full bg-emerald-100 border border-emerald-300 font-bold">
               Live AI Navigation
             </span>
           </div>
 
           <form onSubmit={handleRouteCheck} className="grid grid-cols-1 md:grid-cols-12 gap-3.5 items-end">
             <div className="md:col-span-5">
-              <label className="block text-[11px] font-semibold uppercase tracking-wider text-[#A8ADB2] mb-1">
+              <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-700 mb-1">
                 From (Starting Point)
               </label>
               <div className="relative">
-                <MapPin className="w-4 h-4 text-[#10B981] absolute left-3.5 top-3" />
+                <MapPin className="w-4 h-4 text-emerald-600 absolute left-3.5 top-3" />
                 <input
                   type="text"
                   required
                   value={origin}
                   onChange={(e) => setOrigin(e.target.value)}
                   placeholder="e.g. Guwahati or Silchar"
-                  className="w-full pl-10 pr-3 py-2.5 rounded-xl bg-[#0D1714] border border-white/10 text-xs text-white focus:outline-none focus:border-[#10B981]"
+                  className="w-full pl-10 pr-3 py-2.5 rounded-xl bg-white border border-slate-300 text-xs text-slate-900 focus:outline-none focus:border-emerald-600 focus:ring-2 focus:ring-emerald-500/20 font-medium"
                 />
               </div>
             </div>
 
             <div className="md:col-span-5">
-              <label className="block text-[11px] font-semibold uppercase tracking-wider text-[#A8ADB2] mb-1">
+              <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-700 mb-1">
                 To (Destination)
               </label>
               <div className="relative">
-                <Navigation className="w-4 h-4 text-[#10B981] absolute left-3.5 top-3" />
+                <Navigation className="w-4 h-4 text-emerald-600 absolute left-3.5 top-3" />
                 <input
                   type="text"
                   required
                   value={destination}
                   onChange={(e) => setDestination(e.target.value)}
                   placeholder="e.g. Shillong (NH-6) or Noney (NH-37)"
-                  className="w-full pl-10 pr-3 py-2.5 rounded-xl bg-[#0D1714] border border-white/10 text-xs text-white focus:outline-none focus:border-[#10B981]"
+                  className="w-full pl-10 pr-3 py-2.5 rounded-xl bg-white border border-slate-300 text-xs text-slate-900 focus:outline-none focus:border-emerald-600 focus:ring-2 focus:ring-emerald-500/20 font-medium"
                 />
               </div>
             </div>
@@ -331,10 +331,10 @@ export default function CitizenDashboardPage() {
               <button
                 type="submit"
                 disabled={routeLoading}
-                className="w-full py-2.5 px-4 rounded-xl bg-[#10B981] hover:bg-[#059669] text-[#0A100D] font-bold text-xs transition shadow-lg shadow-[#10B981]/25 flex items-center justify-center gap-1.5 cursor-pointer disabled:opacity-60"
+                className="w-full py-2.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs transition shadow-md shadow-emerald-600/30 flex items-center justify-center gap-1.5 cursor-pointer disabled:opacity-60"
               >
                 {routeLoading ? (
-                  <div className="w-4 h-4 border-2 border-[#0A100D]/40 border-t-[#0A100D] rounded-full animate-spin" />
+                  <div className="w-4 h-4 border-2 border-white/40 border-t-white rounded-full animate-spin" />
                 ) : (
                   <>
                     <Search className="w-4 h-4" />
@@ -345,86 +345,86 @@ export default function CitizenDashboardPage() {
             </div>
           </form>
 
-          <div className="flex items-center gap-2 pt-1 text-[11px] text-[#8E959E] flex-wrap">
+          <div className="flex items-center gap-2 pt-1 text-[11px] text-slate-600 flex-wrap font-medium">
             <span>Try sample routes:</span>
             <button
               type="button"
               onClick={() => { setOrigin('Guwahati ISBT'); setDestination('Shillong Peak (NH-6)'); }}
-              className="px-2.5 py-1 rounded-lg bg-[#0D1714] border border-white/10 text-[#CBD1D6] hover:text-[#10B981] transition cursor-pointer"
+              className="px-2.5 py-1 rounded-lg bg-slate-100 border border-slate-200 text-slate-700 hover:text-emerald-700 hover:bg-emerald-50 transition cursor-pointer font-medium"
             >
               Guwahati to Shillong (NH-6)
             </button>
             <button
               type="button"
               onClick={() => { setOrigin('Silchar Junction'); setDestination('Imphal via Noney (NH-37)'); }}
-              className="px-2.5 py-1 rounded-lg bg-[#0D1714] border border-white/10 text-[#CBD1D6] hover:text-[#10B981] transition cursor-pointer"
+              className="px-2.5 py-1 rounded-lg bg-slate-100 border border-slate-200 text-slate-700 hover:text-emerald-700 hover:bg-emerald-50 transition cursor-pointer font-medium"
             >
               Silchar to Imphal (NH-37 High Risk)
             </button>
             <button
               type="button"
               onClick={() => { setOrigin('Dimapur Bypass'); setDestination('Kohima Zubza Pass (NH-29)'); }}
-              className="px-2.5 py-1 rounded-lg bg-[#0D1714] border border-white/10 text-[#CBD1D6] hover:text-[#10B981] transition cursor-pointer"
+              className="px-2.5 py-1 rounded-lg bg-slate-100 border border-slate-200 text-slate-700 hover:text-emerald-700 hover:bg-emerald-50 transition cursor-pointer font-medium"
             >
               Dimapur to Kohima (NH-29 Pass)
             </button>
           </div>
 
           {routeResult && (
-            <div className="mt-4 p-5 rounded-2xl bg-[#0D1714] border border-white/10 space-y-4 animate-fade-in">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/5 pb-3">
+            <div className="mt-4 p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-4 animate-fade-in shadow-sm">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-200 pb-3">
                 <div className="flex items-center gap-2.5">
-                  <div className={`w-3 h-3 rounded-full ${routeResult.route_status === 'LOW_RISK' ? 'bg-emerald-400' : 'bg-red-400 animate-ping'}`} />
-                  <h4 className="text-sm font-extrabold text-white font-heading">
+                  <div className={`w-3 h-3 rounded-full ${routeResult.route_status === 'LOW_RISK' ? 'bg-emerald-500' : 'bg-red-500 animate-ping'}`} />
+                  <h4 className="text-sm font-extrabold text-slate-900 font-heading">
                     {routeResult.safety_verdict}
                   </h4>
                 </div>
 
-                <div className="flex items-center gap-4 text-xs font-mono">
-                  <span className="text-[#CBD1D6] flex items-center gap-1">
-                    <Car className="w-3.5 h-3.5 text-[#10B981]" />
+                <div className="flex items-center gap-4 text-xs font-mono font-semibold">
+                  <span className="text-slate-700 flex items-center gap-1">
+                    <Car className="w-3.5 h-3.5 text-emerald-600" />
                     <span>Distance: {routeResult.distance_km} km</span>
                   </span>
-                  <span className="text-[#CBD1D6] flex items-center gap-1">
-                    <Clock className="w-3.5 h-3.5 text-[#10B981]" />
+                  <span className="text-slate-700 flex items-center gap-1">
+                    <Clock className="w-3.5 h-3.5 text-emerald-600" />
                     <span>Est. Time: {routeResult.estimated_time}</span>
                   </span>
                 </div>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <div className="p-3.5 rounded-xl bg-[#121E1A] border border-white/5 space-y-1">
-                  <div className="text-[10px] uppercase text-[#8E959E]">Direct Hazards Encountered</div>
-                  <div className="text-sm font-bold text-white">
+                <div className="p-3.5 rounded-xl bg-white border border-slate-200 space-y-1 shadow-sm">
+                  <div className="text-[10px] uppercase text-slate-500 font-bold">Direct Hazards Encountered</div>
+                  <div className="text-sm font-bold text-slate-900">
                     {routeResult.critical_areas_count > 0 ? (
-                      <span className="text-red-400">{routeResult.critical_areas_count} Critical + {routeResult.high_risk_areas_count} High Risk Zones</span>
+                      <span className="text-red-600">{routeResult.critical_areas_count} Critical + {routeResult.high_risk_areas_count} High Risk Zones</span>
                     ) : (
-                      <span className="text-emerald-400">0 Critical Zones - Clear Passage</span>
+                      <span className="text-emerald-700">0 Critical Zones - Clear Passage</span>
                     )}
                   </div>
-                  <p className="text-[11px] text-[#A8ADB2] mt-0.5">{routeResult.summary_text}</p>
+                  <p className="text-[11px] text-slate-600 mt-0.5 font-medium">{routeResult.summary_text}</p>
                 </div>
 
                 {routeResult.alternative_route ? (
-                  <div className="p-3.5 rounded-xl bg-emerald-950/20 border border-emerald-500/30 space-y-1.5">
+                  <div className="p-3.5 rounded-xl bg-emerald-50 border border-emerald-300 space-y-1.5 shadow-sm">
                     <div className="flex items-center justify-between">
-                      <span className="text-[10px] uppercase text-emerald-400 font-bold font-mono">Recommended Alternative Route</span>
-                      <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold">LOW RISK</span>
+                      <span className="text-[10px] uppercase text-emerald-800 font-bold font-mono">Recommended Alternative Route</span>
+                      <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-200 text-emerald-900 font-bold">LOW RISK</span>
                     </div>
-                    <div className="text-xs font-bold text-white font-heading">
+                    <div className="text-xs font-bold text-slate-900 font-heading">
                       {routeResult.alternative_route.name}
                     </div>
-                    <p className="text-[11px] text-[#CBD1D6] leading-relaxed">
+                    <p className="text-[11px] text-slate-700 leading-relaxed font-medium">
                       {routeResult.alternative_route.safety_note}
                     </p>
-                    <div className="text-[10px] font-mono text-[#10B981]">
+                    <div className="text-[10px] font-mono text-emerald-700 font-bold">
                       {routeResult.alternative_route.distance_km} km &bull; {routeResult.alternative_route.estimated_time}
                     </div>
                   </div>
                 ) : (
-                  <div className="p-3.5 rounded-xl bg-emerald-950/20 border border-emerald-500/30 flex items-center gap-3">
-                    <CheckCircle2 className="w-6 h-6 text-emerald-400 flex-shrink-0" />
-                    <div className="text-xs text-[#CBD1D6]">
+                  <div className="p-3.5 rounded-xl bg-emerald-50 border border-emerald-300 flex items-center gap-3 shadow-sm">
+                    <CheckCircle2 className="w-6 h-6 text-emerald-600 flex-shrink-0" />
+                    <div className="text-xs text-slate-700 font-medium">
                       Road conditions stable. Maintain standard mountain driving precautions and check rain radar.
                     </div>
                   </div>
@@ -433,17 +433,17 @@ export default function CitizenDashboardPage() {
 
               {routeResult.hazard_locations && routeResult.hazard_locations.length > 0 && (
                 <div className="space-y-2 pt-1">
-                  <div className="text-[11px] font-semibold uppercase tracking-wider text-red-300">
+                  <div className="text-[11px] font-bold uppercase tracking-wider text-red-700">
                     Specific Critical Hazard Points on Selected Route:
                   </div>
                   <div className="space-y-1.5">
                     {routeResult.hazard_locations.map((hz, idx) => (
-                      <div key={idx} className="p-2.5 rounded-xl bg-red-950/30 border border-red-500/30 flex items-start justify-between text-xs gap-2">
+                      <div key={idx} className="p-2.5 rounded-xl bg-red-50 border border-red-300 flex items-start justify-between text-xs gap-2 shadow-sm">
                         <div>
-                          <span className="font-bold text-white">{hz.name} ({hz.region})</span>
-                          <p className="text-[11px] text-[#CBD1D6] mt-0.5">{hz.hazard_cause}</p>
+                          <span className="font-bold text-slate-900">{hz.name} ({hz.region})</span>
+                          <p className="text-[11px] text-slate-600 mt-0.5 font-medium">{hz.hazard_cause}</p>
                         </div>
-                        <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-red-500/30 text-red-200 font-bold uppercase flex-shrink-0">
+                        <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-red-100 text-red-800 border border-red-300 font-bold uppercase flex-shrink-0">
                           {hz.risk_level} ({hz.risk_score})
                         </span>
                       </div>
@@ -456,33 +456,33 @@ export default function CitizenDashboardPage() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-          <div className="lg:col-span-8 command-card rounded-3xl p-6 border border-white/10 space-y-4">
+          <div className="lg:col-span-8 command-card-solid rounded-3xl p-6 border border-slate-200 space-y-4 shadow-xl">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
               <div>
-                <h3 className="text-base font-bold text-white font-heading flex items-center gap-2">
-                  <Compass className="w-4 h-4 text-[#10B981]" />
+                <h3 className="text-base font-bold text-slate-900 font-heading flex items-center gap-2">
+                  <Compass className="w-4 h-4 text-emerald-600" />
                   <span>Live Landslide GIS Risk Map (AI ML Connected)</span>
                 </h3>
-                <p className="text-xs text-[#8E959E]">Dynamic spatial zones driven by ML probability &amp; sensor saturation</p>
+                <p className="text-xs text-slate-600 font-medium">Dynamic spatial zones driven by ML probability &amp; sensor saturation</p>
               </div>
 
-              <div className="flex items-center gap-2 text-[10px] font-mono">
-                <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-emerald-400" /> Low</span>
-                <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-amber-400" /> Med</span>
-                <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-orange-400" /> High</span>
-                <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-red-400" /> Crit</span>
+              <div className="flex items-center gap-2 text-[10px] font-mono font-bold">
+                <span className="flex items-center gap-1 text-emerald-700"><span className="w-2 h-2 rounded-full bg-emerald-500" /> Low</span>
+                <span className="flex items-center gap-1 text-amber-700"><span className="w-2 h-2 rounded-full bg-amber-500" /> Med</span>
+                <span className="flex items-center gap-1 text-orange-700"><span className="w-2 h-2 rounded-full bg-orange-500" /> High</span>
+                <span className="flex items-center gap-1 text-red-700"><span className="w-2 h-2 rounded-full bg-red-500" /> Crit</span>
               </div>
             </div>
 
-            <div className="flex items-center gap-2 flex-wrap text-xs">
-              <span className="text-[10px] font-mono uppercase text-[#8E959E] flex items-center gap-1">
-                <Layers className="w-3 h-3 text-[#10B981]" /> Layers:
+            <div className="flex items-center gap-2 flex-wrap text-xs font-semibold">
+              <span className="text-[10px] font-mono uppercase text-slate-500 font-bold flex items-center gap-1">
+                <Layers className="w-3 h-3 text-emerald-600" /> Layers:
               </span>
               <button
                 type="button"
                 onClick={() => setLayerRiskZones(!layerRiskZones)}
-                className={`px-2.5 py-1 rounded-lg border text-[11px] font-semibold transition cursor-pointer ${
-                  layerRiskZones ? 'bg-[#10B981]/20 border-[#10B981] text-white' : 'bg-[#0D1714] border-white/10 text-[#8E959E]'
+                className={`px-2.5 py-1 rounded-lg border text-[11px] font-bold transition cursor-pointer ${
+                  layerRiskZones ? 'bg-emerald-100 border-emerald-400 text-emerald-900 shadow-sm' : 'bg-slate-100 border-slate-200 text-slate-600'
                 }`}
               >
                 Risk Zones
@@ -490,8 +490,8 @@ export default function CitizenDashboardPage() {
               <button
                 type="button"
                 onClick={() => setLayerRoads(!layerRoads)}
-                className={`px-2.5 py-1 rounded-lg border text-[11px] font-semibold transition cursor-pointer ${
-                  layerRoads ? 'bg-[#10B981]/20 border-[#10B981] text-white' : 'bg-[#0D1714] border-white/10 text-[#8E959E]'
+                className={`px-2.5 py-1 rounded-lg border text-[11px] font-bold transition cursor-pointer ${
+                  layerRoads ? 'bg-emerald-100 border-emerald-400 text-emerald-900 shadow-sm' : 'bg-slate-100 border-slate-200 text-slate-600'
                 }`}
               >
                 Roads &amp; Passes
@@ -499,8 +499,8 @@ export default function CitizenDashboardPage() {
               <button
                 type="button"
                 onClick={() => setLayerVillages(!layerVillages)}
-                className={`px-2.5 py-1 rounded-lg border text-[11px] font-semibold transition cursor-pointer ${
-                  layerVillages ? 'bg-[#10B981]/20 border-[#10B981] text-white' : 'bg-[#0D1714] border-white/10 text-[#8E959E]'
+                className={`px-2.5 py-1 rounded-lg border text-[11px] font-bold transition cursor-pointer ${
+                  layerVillages ? 'bg-emerald-100 border-emerald-400 text-emerald-900 shadow-sm' : 'bg-slate-100 border-slate-200 text-slate-600'
                 }`}
               >
                 Villages
@@ -508,8 +508,8 @@ export default function CitizenDashboardPage() {
               <button
                 type="button"
                 onClick={() => setLayerRivers(!layerRivers)}
-                className={`px-2.5 py-1 rounded-lg border text-[11px] font-semibold transition cursor-pointer ${
-                  layerRivers ? 'bg-[#10B981]/20 border-[#10B981] text-white' : 'bg-[#0D1714] border-white/10 text-[#8E959E]'
+                className={`px-2.5 py-1 rounded-lg border text-[11px] font-bold transition cursor-pointer ${
+                  layerRivers ? 'bg-emerald-100 border-emerald-400 text-emerald-900 shadow-sm' : 'bg-slate-100 border-slate-200 text-slate-600'
                 }`}
               >
                 Streams / Rivers
@@ -517,15 +517,15 @@ export default function CitizenDashboardPage() {
               <button
                 type="button"
                 onClick={() => setLayerIncidents(!layerIncidents)}
-                className={`px-2.5 py-1 rounded-lg border text-[11px] font-semibold transition cursor-pointer ${
-                  layerIncidents ? 'bg-[#10B981]/20 border-[#10B981] text-white' : 'bg-[#0D1714] border-white/10 text-[#8E959E]'
+                className={`px-2.5 py-1 rounded-lg border text-[11px] font-bold transition cursor-pointer ${
+                  layerIncidents ? 'bg-emerald-100 border-emerald-400 text-emerald-900 shadow-sm' : 'bg-slate-100 border-slate-200 text-slate-600'
                 }`}
               >
                 Incidents
               </button>
             </div>
 
-            <div className="w-full">
+            <div className="w-full rounded-2xl overflow-hidden border border-slate-200 shadow-md">
               <RiskMap isOnline={navigator.onLine} />
             </div>
 
@@ -534,19 +534,19 @@ export default function CitizenDashboardPage() {
                 <button
                   key={zone.id}
                   onClick={() => setSelectedZone(zone)}
-                  className={`p-2.5 rounded-xl text-left border transition cursor-pointer ${
+                  className={`p-2.5 rounded-xl text-left border transition cursor-pointer shadow-sm ${
                     selectedZone?.id === zone.id
-                      ? 'bg-[#10B981]/20 border-[#10B981] text-white'
-                      : 'bg-[#121E1A] border-white/5 text-[#CBD1D6] hover:text-white'
+                      ? 'bg-emerald-50 border-emerald-400 text-emerald-950 ring-2 ring-emerald-400/30'
+                      : 'bg-white border-slate-200 text-slate-800 hover:bg-slate-50'
                   }`}
                 >
                   <div className="flex items-center justify-between">
                     <span className="text-xs font-bold font-heading truncate">{zone.name}</span>
-                    <span className={`w-2 h-2 rounded-full ${zone.level === 'Critical' ? 'bg-red-400 animate-pulse' : zone.level === 'High' ? 'bg-orange-400' : 'bg-emerald-400'}`} />
+                    <span className={`w-2 h-2 rounded-full ${zone.level === 'Critical' ? 'bg-red-500 animate-pulse' : zone.level === 'High' ? 'bg-orange-500' : 'bg-emerald-500'}`} />
                   </div>
-                  <div className="text-[10px] text-[#8E959E]">{zone.region}</div>
-                  <div className="mt-1 flex items-center justify-between text-[10px] font-mono">
-                    <span className="font-bold text-[#10B981]">{zone.score}%</span>
+                  <div className="text-[10px] text-slate-500 font-medium">{zone.region}</div>
+                  <div className="mt-1 flex items-center justify-between text-[10px] font-mono font-bold">
+                    <span className="text-emerald-700">{zone.score}%</span>
                     <span className="uppercase opacity-75">{zone.level}</span>
                   </div>
                 </button>
@@ -554,14 +554,14 @@ export default function CitizenDashboardPage() {
             </div>
           </div>
 
-          <div className="lg:col-span-4 command-card rounded-3xl p-6 border border-white/10 space-y-4">
+          <div className="lg:col-span-4 command-card-solid rounded-3xl p-6 border border-slate-200 space-y-4 shadow-xl">
             <div className="flex items-center justify-between">
-              <span className="text-xs font-mono uppercase text-[#8E959E]">Zone Inspector</span>
+              <span className="text-xs font-mono uppercase text-slate-500 font-bold">Zone Inspector</span>
               {selectedZone && (
                 <span className={`text-[10px] font-mono px-2.5 py-0.5 rounded-full font-bold uppercase ${
-                  selectedZone.level === 'Critical' ? 'bg-red-500/20 text-red-300 border border-red-500/40' :
-                  selectedZone.level === 'High' ? 'bg-orange-500/20 text-orange-300 border border-orange-500/40' :
-                  'bg-emerald-500/20 text-emerald-300 border border-emerald-500/40'
+                  selectedZone.level === 'Critical' ? 'bg-red-100 text-red-800 border border-red-300' :
+                  selectedZone.level === 'High' ? 'bg-orange-100 text-orange-800 border border-orange-300' :
+                  'bg-emerald-100 text-emerald-800 border border-emerald-300'
                 }`}>
                   {selectedZone.level} ({selectedZone.score})
                 </span>
@@ -571,22 +571,22 @@ export default function CitizenDashboardPage() {
             {selectedZone && (
               <div className="space-y-3">
                 <div>
-                  <h4 className="text-base font-bold text-white font-heading">{selectedZone.name}</h4>
-                  <p className="text-xs text-[#8E959E]">{selectedZone.region} Corridor &bull; {selectedZone.lat}, {selectedZone.lon}</p>
+                  <h4 className="text-base font-bold text-slate-900 font-heading">{selectedZone.name}</h4>
+                  <p className="text-xs text-slate-600 font-medium">{selectedZone.region} Corridor &bull; {selectedZone.lat}, {selectedZone.lon}</p>
                 </div>
 
-                <div className="p-3.5 rounded-2xl bg-[#0D1714] border border-white/5 space-y-2 text-xs">
+                <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200 space-y-2 text-xs shadow-sm">
                   <div className="flex justify-between">
-                    <span className="text-[#8E959E]">ML Probability:</span>
-                    <span className="text-white font-bold font-mono">{selectedZone.score}%</span>
+                    <span className="text-slate-500 font-medium">ML Probability:</span>
+                    <span className="text-slate-900 font-bold font-mono">{selectedZone.score}%</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-[#8E959E]">Nearby Assets:</span>
-                    <span className="text-white font-mono text-[11px]">{selectedZone.nearby}</span>
+                    <span className="text-slate-500 font-medium">Nearby Assets:</span>
+                    <span className="text-slate-900 font-mono text-[11px] font-semibold">{selectedZone.nearby}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-[#8E959E]">Safety Advice:</span>
-                    <span className="text-red-400 font-semibold font-mono">
+                    <span className="text-slate-500 font-medium">Safety Advice:</span>
+                    <span className="text-red-700 font-bold font-mono">
                       {selectedZone.level === 'Critical' ? 'Evacuate low slope' : 'Caution advised'}
                     </span>
                   </div>
@@ -594,50 +594,50 @@ export default function CitizenDashboardPage() {
               </div>
             )}
 
-            <div className="pt-2 border-t border-white/5">
+            <div className="pt-2 border-t border-slate-200">
               <button
                 type="button"
                 onClick={() => setReportingOpen(!reportingOpen)}
-                className="w-full py-2.5 px-3 rounded-xl bg-[#152420] hover:bg-[#10B981] hover:text-[#0A100D] border border-white/10 text-xs font-semibold text-[#10B981] transition flex items-center justify-center gap-1.5 cursor-pointer"
+                className="w-full py-2.5 px-3 rounded-xl bg-emerald-50 hover:bg-emerald-100 border border-emerald-300 text-xs font-bold text-emerald-800 transition flex items-center justify-center gap-1.5 cursor-pointer shadow-sm"
               >
-                <AlertOctagon className="w-4 h-4" />
+                <AlertOctagon className="w-4 h-4 text-emerald-700" />
                 <span>{reportingOpen ? 'Close Reporter' : 'Report Slope Crack / Landslide'}</span>
               </button>
 
               {reportingOpen && (
-                <form onSubmit={handleCrackReport} className="mt-3 space-y-2.5 p-3.5 rounded-2xl bg-[#0D1714] border border-white/10 animate-fade-in">
+                <form onSubmit={handleCrackReport} className="mt-3 space-y-2.5 p-3.5 rounded-2xl bg-white border border-slate-200 animate-fade-in shadow-md">
                   {crackSuccess ? (
-                    <div className="p-3 rounded-xl bg-emerald-500/20 text-emerald-300 text-xs flex items-center gap-2">
-                      <CheckCircle2 className="w-4 h-4 flex-shrink-0" />
+                    <div className="p-3 rounded-xl bg-emerald-100 text-emerald-800 text-xs flex items-center gap-2 font-bold">
+                      <CheckCircle2 className="w-4 h-4 flex-shrink-0 text-emerald-700" />
                       <span>Observation dispatched to Response Team!</span>
                     </div>
                   ) : (
                     <>
                       <div>
-                        <label className="block text-[10px] uppercase font-bold text-[#8E959E] mb-1">Landmark / Road</label>
+                        <label className="block text-[10px] uppercase font-bold text-slate-700 mb-1">Landmark / Road</label>
                         <input
                           type="text"
                           required
                           value={crackLocation}
                           onChange={(e) => setCrackLocation(e.target.value)}
                           placeholder="e.g. Near Shillong NH-6 km 48.5"
-                          className="w-full px-3 py-2 rounded-xl bg-[#121E1A] border border-white/10 text-xs text-white focus:outline-none focus:border-[#10B981]"
+                          className="w-full px-3 py-2 rounded-xl bg-white border border-slate-300 text-xs text-slate-900 focus:outline-none focus:border-emerald-600 font-medium"
                         />
                       </div>
                       <div>
-                        <label className="block text-[10px] uppercase font-bold text-[#8E959E] mb-1">Observation</label>
+                        <label className="block text-[10px] uppercase font-bold text-slate-700 mb-1">Observation</label>
                         <textarea
                           rows={2}
                           required
                           value={crackDescription}
                           onChange={(e) => setCrackDescription(e.target.value)}
                           placeholder="e.g. Fresh 2-inch crack across road surface"
-                          className="w-full px-3 py-2 rounded-xl bg-[#121E1A] border border-white/10 text-xs text-white focus:outline-none focus:border-[#10B981]"
+                          className="w-full px-3 py-2 rounded-xl bg-white border border-slate-300 text-xs text-slate-900 focus:outline-none focus:border-emerald-600 font-medium"
                         />
                       </div>
                       <button
                         type="submit"
-                        className="w-full py-2 rounded-xl bg-[#10B981] text-[#0A100D] font-bold text-xs hover:bg-[#059669] transition cursor-pointer flex items-center justify-center gap-1"
+                        className="w-full py-2 rounded-xl bg-emerald-600 text-white font-bold text-xs hover:bg-emerald-700 transition cursor-pointer flex items-center justify-center gap-1 shadow-sm"
                       >
                         <Send className="w-3.5 h-3.5" />
                         <span>Submit Field Report</span>
@@ -650,30 +650,30 @@ export default function CitizenDashboardPage() {
           </div>
         </div>
 
-        <div className="command-card rounded-3xl p-6 border border-white/10 space-y-4">
+        <div className="command-card-solid rounded-3xl p-6 border border-slate-200 space-y-4 shadow-xl">
           <div className="flex items-center justify-between">
             <div>
-              <h3 className="text-base font-bold text-white font-heading">Safe Evacuation Relief Shelters</h3>
-              <p className="text-xs text-[#8E959E]">Verified SDMA &amp; NDMA Community Shelters</p>
+              <h3 className="text-base font-bold text-slate-900 font-heading">Safe Evacuation Relief Shelters</h3>
+              <p className="text-xs text-slate-600 font-medium">Verified SDMA &amp; NDMA Community Shelters</p>
             </div>
-            <span className="text-xs font-mono text-[#10B981] px-2.5 py-1 rounded-full bg-[#10B981]/10 border border-[#10B981]/30 font-bold">
+            <span className="text-xs font-mono text-emerald-800 px-2.5 py-1 rounded-full bg-emerald-100 border border-emerald-300 font-bold">
               {shelters.length} OPEN CAMPS
             </span>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {shelters.map((s) => (
-              <div key={s.id} className="p-4 rounded-2xl bg-[#0D1714] border border-white/5 space-y-2.5">
+              <div key={s.id} className="p-4 rounded-2xl bg-white border border-slate-200 space-y-2.5 shadow-sm">
                 <div className="flex items-start justify-between">
-                  <h4 className="text-xs font-bold text-white font-heading">{s.name}</h4>
-                  <span className="text-[9px] font-mono px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold uppercase">
+                  <h4 className="text-xs font-bold text-slate-900 font-heading">{s.name}</h4>
+                  <span className="text-[9px] font-mono px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 font-bold uppercase border border-emerald-300">
                     {s.status}
                   </span>
                 </div>
-                <p className="text-[11px] text-[#8E959E]">{s.address}</p>
-                <div className="flex items-center justify-between pt-2 border-t border-white/5 text-xs">
-                  <span className="text-[#CBD1D6] font-mono">Cap: {s.capacity}</span>
-                  <a href={`tel:${s.contact_phone}`} className="text-[#10B981] font-semibold hover:underline flex items-center gap-1">
+                <p className="text-[11px] text-slate-600 font-medium">{s.address}</p>
+                <div className="flex items-center justify-between pt-2 border-t border-slate-200 text-xs">
+                  <span className="text-slate-700 font-mono font-bold">Cap: {s.capacity}</span>
+                  <a href={`tel:${s.contact_phone}`} className="text-emerald-700 font-bold hover:underline flex items-center gap-1">
                     <PhoneCall className="w-3.5 h-3.5" />
                     <span>Contact</span>
                   </a>

@@ -71,11 +71,8 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0A100D] text-[#F5F1EA] flex items-center justify-center p-4 relative overflow-hidden selection:bg-[#10B981] selection:text-white bg-ner-backdrop">
+    <div className="min-h-screen text-slate-900 flex items-center justify-center p-4 relative overflow-hidden selection:bg-emerald-600 selection:text-white bg-ner-backdrop">
       
-      {/* Subtle Dark Radial Gradient Vignette for text contrast */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0A100D]/80 via-[#0A100D]/65 to-[#0A100D]/90 pointer-events-none" />
-
       <div className="w-full max-w-5xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
         
         {/* Left Side: Clean Glass Card Login Form */}
@@ -83,76 +80,76 @@ export default function LoginPage() {
           
           {/* Brand Header */}
           <div className="flex items-center gap-3 mb-6">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#10B981] to-[#047857] flex items-center justify-center shadow-lg shadow-[#10B981]/30 ring-1 ring-white/20">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#10B981] to-[#047857] flex items-center justify-center shadow-md shadow-emerald-500/30 ring-1 ring-emerald-500/20">
               <Mountain className="w-5 h-5 text-white" />
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <span className="text-xl font-display font-bold text-white tracking-tight text-contrast-glow">LANDGUARD</span>
-                <span className="text-[10px] px-1.5 py-0.5 rounded bg-[#10B981]/20 text-[#10B981] font-mono font-bold tracking-widest uppercase border border-[#10B981]/30">AI</span>
+                <span className="text-xl font-display font-bold text-slate-900 tracking-tight">LANDGUARD</span>
+                <span className="text-[10px] px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-800 font-mono font-bold tracking-widest uppercase border border-emerald-300">AI</span>
               </div>
-              <p className="text-[10px] text-[#CBD1D6] text-subtle-glow">AI Landslide Early Warning &amp; Monitoring</p>
+              <p className="text-[10px] text-slate-600 font-medium">AI Landslide Early Warning &amp; Monitoring</p>
             </div>
           </div>
 
-          {/* Main Card Container with Frosted Glass & Strong Contrast */}
-          <div className="command-card rounded-3xl p-7 md:p-8 shadow-2xl relative overflow-hidden border border-white/20 backdrop-blur-2xl bg-[#0C1613]/92">
+          {/* Main Card Container with Solid Frosted Glass & Strong Contrast */}
+          <div className="command-card-solid rounded-3xl p-7 md:p-8 shadow-2xl relative overflow-hidden border border-slate-200/90">
             {/* Top emerald highlight line */}
             <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#10B981] to-transparent" />
 
             <div className="mb-5">
-              <h2 className="text-2xl font-bold text-white font-heading text-contrast-glow">Welcome Back</h2>
-              <p className="text-xs text-[#CBD1D6] mt-1 font-medium">
+              <h2 className="text-2xl font-bold text-slate-900 font-heading">Welcome Back</h2>
+              <p className="text-xs text-slate-600 mt-1 font-medium">
                 Sign in to access real-time landslide monitoring &amp; emergency alerts.
               </p>
             </div>
 
             {/* Role Switcher Pill Tabs (Citizen vs Field Officer vs Admin) */}
-            <div className="mb-5 p-1 rounded-2xl bg-[#08100D] border border-white/10 grid grid-cols-3 gap-1">
+            <div className="mb-5 p-1 rounded-2xl bg-slate-100/90 border border-slate-200 grid grid-cols-3 gap-1">
               <button
                 type="button"
                 onClick={() => handleRoleSelect('citizen')}
-                className={`py-2 text-xs font-semibold rounded-xl transition cursor-pointer flex flex-col items-center ${
+                className={`py-2 text-xs font-bold rounded-xl transition cursor-pointer flex flex-col items-center ${
                   selectedRole === 'citizen'
-                    ? 'bg-[#10B981] text-white shadow-md shadow-[#10B981]/30'
-                    : 'text-[#8E959E] hover:text-white'
+                    ? 'bg-emerald-600 text-white shadow-md shadow-emerald-600/30'
+                    : 'text-slate-600 hover:text-slate-900'
                 }`}
               >
                 <span>Citizen</span>
-                <span className="text-[9px] opacity-80">Resident Safety</span>
+                <span className="text-[9px] opacity-90 font-medium">Resident Safety</span>
               </button>
 
               <button
                 type="button"
                 onClick={() => handleRoleSelect('field_officer')}
-                className={`py-2 text-xs font-semibold rounded-xl transition cursor-pointer flex flex-col items-center ${
+                className={`py-2 text-xs font-bold rounded-xl transition cursor-pointer flex flex-col items-center ${
                   selectedRole === 'field_officer'
-                    ? 'bg-[#10B981] text-white shadow-md shadow-[#10B981]/30'
-                    : 'text-[#8E959E] hover:text-white'
+                    ? 'bg-emerald-600 text-white shadow-md shadow-emerald-600/30'
+                    : 'text-slate-600 hover:text-slate-900'
                 }`}
               >
                 <span>Field Officer</span>
-                <span className="text-[9px] opacity-80">Officer Portal</span>
+                <span className="text-[9px] opacity-90 font-medium">Officer Portal</span>
               </button>
 
               <button
                 type="button"
                 onClick={() => handleRoleSelect('admin')}
-                className={`py-2 text-xs font-semibold rounded-xl transition cursor-pointer flex flex-col items-center ${
+                className={`py-2 text-xs font-bold rounded-xl transition cursor-pointer flex flex-col items-center ${
                   selectedRole === 'admin'
-                    ? 'bg-[#10B981] text-white shadow-md shadow-[#10B981]/30'
-                    : 'text-[#8E959E] hover:text-white'
+                    ? 'bg-emerald-600 text-white shadow-md shadow-emerald-600/30'
+                    : 'text-slate-600 hover:text-slate-900'
                 }`}
               >
                 <span>Admin</span>
-                <span className="text-[9px] opacity-80">Disaster Mgmt</span>
+                <span className="text-[9px] opacity-90 font-medium">Disaster Mgmt</span>
               </button>
             </div>
 
             {/* Error Banner */}
             {error && (
-              <div className="mb-4 p-3.5 rounded-xl bg-red-500/15 border border-red-500/40 text-red-300 text-xs flex items-center gap-2 animate-fade-in">
-                <AlertCircle className="w-4 h-4 flex-shrink-0" />
+              <div className="mb-4 p-3.5 rounded-xl bg-red-50 border border-red-300 text-red-700 text-xs flex items-center gap-2 animate-fade-in font-medium">
+                <AlertCircle className="w-4 h-4 flex-shrink-0 text-red-600" />
                 <span>{error}</span>
               </div>
             )}
@@ -161,11 +158,11 @@ export default function LoginPage() {
             <form onSubmit={handleSubmit} className="space-y-4">
               {/* Email / Phone Input */}
               <div>
-                <label className="block text-xs font-semibold uppercase tracking-wider text-[#A8ADB2] mb-1.5">
+                <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
                   Email Address or Phone Number
                 </label>
                 <div className="relative">
-                  <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-[#7E8793]">
+                  <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
                     <Mail className="w-4 h-4" />
                   </div>
                   <input
@@ -177,7 +174,7 @@ export default function LoginPage() {
                       if (error) setError('');
                     }}
                     placeholder="e.g. praveena@landguard.ai or +91 94432 98765"
-                    className="w-full pl-10 pr-4 py-3 rounded-xl bg-[#0D1714] border border-white/10 text-sm text-[#F5F1EA] placeholder-[#606774] focus:outline-none focus:border-[#10B981] focus:ring-2 focus:ring-[#10B981]/20 transition"
+                    className="w-full pl-10 pr-4 py-3 rounded-xl bg-white border border-slate-300 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-emerald-600 focus:ring-2 focus:ring-emerald-500/20 transition font-medium"
                   />
                 </div>
               </div>
@@ -185,7 +182,7 @@ export default function LoginPage() {
               {/* Password Input with Show/Hide Toggle */}
               <div>
                 <div className="flex items-center justify-between mb-1.5">
-                  <label className="block text-xs font-semibold uppercase tracking-wider text-[#A8ADB2]">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700">
                     Password
                   </label>
                   <a
@@ -194,13 +191,13 @@ export default function LoginPage() {
                       e.preventDefault();
                       alert('Demo reset instructions sent to registered recovery channel.');
                     }}
-                    className="text-xs text-[#10B981] hover:underline"
+                    className="text-xs text-emerald-700 font-semibold hover:underline"
                   >
                     Forgot password?
                   </a>
                 </div>
                 <div className="relative">
-                  <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-[#7E8793]">
+                  <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
                     <Lock className="w-4 h-4" />
                   </div>
                   <input
@@ -212,12 +209,12 @@ export default function LoginPage() {
                       if (error) setError('');
                     }}
                     placeholder="••••••••"
-                    className="w-full pl-10 pr-11 py-3 rounded-xl bg-[#0D1714] border border-white/10 text-sm text-[#F5F1EA] placeholder-[#606774] focus:outline-none focus:border-[#10B981] focus:ring-2 focus:ring-[#10B981]/20 transition"
+                    className="w-full pl-10 pr-11 py-3 rounded-xl bg-white border border-slate-300 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-emerald-600 focus:ring-2 focus:ring-emerald-500/20 transition font-medium"
                   />
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
-                    className="absolute inset-y-0 right-0 pr-3.5 flex items-center text-[#7E8793] hover:text-white transition cursor-pointer"
+                    className="absolute inset-y-0 right-0 pr-3.5 flex items-center text-slate-400 hover:text-slate-700 transition cursor-pointer"
                     title={showPassword ? 'Hide password' : 'Show password'}
                   >
                     {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
@@ -231,9 +228,9 @@ export default function LoginPage() {
                   <input
                     type="checkbox"
                     defaultChecked
-                    className="w-4 h-4 rounded bg-[#0D1714] border-white/20 accent-[#10B981] cursor-pointer"
+                    className="w-4 h-4 rounded bg-white border-slate-300 accent-emerald-600 cursor-pointer"
                   />
-                  <span className="text-xs text-[#A8ADB2]">Keep me signed in on this device</span>
+                  <span className="text-xs text-slate-600 font-medium">Keep me signed in on this device</span>
                 </label>
               </div>
 
@@ -241,7 +238,7 @@ export default function LoginPage() {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full mt-2 py-3.5 px-4 rounded-xl bg-[#10B981] hover:bg-[#059669] active:scale-[0.99] text-white font-semibold text-sm transition-all duration-200 shadow-lg shadow-[#10B981]/30 emerald-btn-glow flex items-center justify-center gap-2 cursor-pointer disabled:opacity-60"
+                className="w-full mt-2 py-3.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 active:scale-[0.99] text-white font-bold text-sm transition-all duration-200 shadow-md shadow-emerald-600/30 emerald-btn-glow flex items-center justify-center gap-2 cursor-pointer disabled:opacity-60"
               >
                 {loading ? (
                   <div className="flex items-center gap-2">
@@ -258,9 +255,9 @@ export default function LoginPage() {
             </form>
 
             {/* Footer Registration Link */}
-            <div className="mt-6 pt-5 border-t border-white/10 text-center text-xs text-[#8E959E]">
+            <div className="mt-6 pt-5 border-t border-slate-200 text-center text-xs text-slate-600 font-medium">
               <span>Don't have an account yet? </span>
-              <Link to="/register" className="text-[#10B981] font-semibold hover:underline">
+              <Link to="/register" className="text-emerald-700 font-bold hover:underline">
                 Create new resident or officer account
               </Link>
             </div>
@@ -268,28 +265,26 @@ export default function LoginPage() {
         </div>
 
         {/* Right Side: Mountain Imagery & Safety Showcase */}
-        <div className="hidden lg:flex flex-col justify-between lg:col-span-6 h-[660px] rounded-3xl bg-[#0C1613]/92 border border-white/20 p-8 shadow-2xl relative overflow-hidden backdrop-blur-2xl">
-          <div className="absolute top-10 right-10 w-72 h-72 bg-[#10B981]/15 rounded-full blur-3xl pointer-events-none" />
-
+        <div className="hidden lg:flex flex-col justify-between lg:col-span-6 h-[660px] rounded-3xl command-card-solid border border-slate-200/90 p-8 shadow-2xl relative overflow-hidden backdrop-blur-2xl">
           <div className="flex items-center justify-between relative z-10">
-            <span className="text-[11px] font-mono px-3 py-1 rounded-full bg-[#14221E] border border-white/20 text-[#10B981] font-bold shadow-md">
+            <span className="text-[11px] font-mono px-3 py-1 rounded-full bg-emerald-50 border border-emerald-300 text-emerald-800 font-bold shadow-sm">
               ROLE-BASED DISASTER INTELLIGENCE (RBAC)
             </span>
-            <span className="text-xs text-[#CBD1D6] font-medium">NDMA &bull; GSI Synchronized</span>
+            <span className="text-xs text-slate-600 font-medium">NDMA &bull; GSI Synchronized</span>
           </div>
 
           <div className="my-auto space-y-5 relative z-10">
             {/* Visual Callout Card */}
-            <div className="p-6 rounded-2xl bg-[#08100D]/90 border border-white/15 space-y-3 shadow-xl">
-              <div className="text-xs font-mono text-[#10B981] font-bold uppercase tracking-wider">
+            <div className="p-6 rounded-2xl bg-white/90 border border-slate-200 space-y-3 shadow-md">
+              <div className="text-xs font-mono text-emerald-700 font-bold uppercase tracking-wider">
                 {selectedRole === 'citizen' ? 'PUBLIC RESIDENT SAFETY GRID' : 'DISASTER OPERATIONS CONSOLE'}
               </div>
-              <h3 className="text-2xl font-bold text-white font-heading leading-snug text-contrast-glow">
+              <h3 className="text-2xl font-bold text-slate-900 font-heading leading-snug">
                 {selectedRole === 'citizen'
                   ? 'Real-time safety advisories & safe relief shelters for local hill communities.'
                   : 'Predicting slope failure before the mountain moves with 24/7 AI telemetry.'}
               </h3>
-              <p className="text-xs text-[#E2E8F0] leading-relaxed font-normal">
+              <p className="text-xs text-slate-600 leading-relaxed font-medium">
                 {selectedRole === 'citizen'
                   ? 'Access nearby safe evacuation camps across Assam, Meghalaya, Manipur, and Sikkim, receive instant flash flood alerts, and report hillside cracks directly to disaster responders.'
                   : 'Real-time telemetry ingestion across 12 high-hazard corridors with explainable SHAP weights and multi-horizon failure forecasts.'}
@@ -297,27 +292,27 @@ export default function LoginPage() {
 
               {/* Mini Stats */}
               <div className="grid grid-cols-3 gap-2.5 pt-3">
-                <div className="p-3 rounded-xl bg-[#0F1B16] border border-white/10 text-center shadow-md">
-                  <div className="text-lg font-bold text-[#10B981] font-heading">
+                <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 text-center shadow-sm">
+                  <div className="text-lg font-bold text-emerald-700 font-heading">
                     {selectedRole === 'citizen' ? '4 Shelters' : '12 Stations'}
                   </div>
-                  <div className="text-[10px] text-[#CBD1D6] font-medium">
+                  <div className="text-[10px] text-slate-500 font-medium">
                     {selectedRole === 'citizen' ? 'Open & Ready' : 'Active Telemetry'}
                   </div>
                 </div>
-                <div className="p-3 rounded-xl bg-[#0F1B16] border border-white/10 text-center shadow-md">
-                  <div className="text-lg font-bold text-white font-heading text-contrast-glow">
+                <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 text-center shadow-sm">
+                  <div className="text-lg font-bold text-slate-900 font-heading">
                     {selectedRole === 'citizen' ? '108' : '6-24h'}
                   </div>
-                  <div className="text-[10px] text-[#CBD1D6] font-medium">
+                  <div className="text-[10px] text-slate-500 font-medium">
                     {selectedRole === 'citizen' ? 'Helpline 108' : 'Lead Time'}
                   </div>
                 </div>
-                <div className="p-3 rounded-xl bg-[#0F1B16] border border-white/10 text-center shadow-md">
-                  <div className="text-lg font-bold text-emerald-400 font-heading text-contrast-glow">
+                <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 text-center shadow-sm">
+                  <div className="text-lg font-bold text-emerald-700 font-heading">
                     {selectedRole === 'citizen' ? 'Free SOS' : '92.4%'}
                   </div>
-                  <div className="text-[10px] text-[#CBD1D6] font-medium">
+                  <div className="text-[10px] text-slate-500 font-medium">
                     {selectedRole === 'citizen' ? 'Direct Dispatch' : 'Model Accuracy'}
                   </div>
                 </div>
@@ -325,9 +320,9 @@ export default function LoginPage() {
             </div>
           </div>
 
-          <div className="flex items-center justify-between text-xs text-[#CBD1D6] pt-4 border-t border-white/15 relative z-10">
-            <span className="font-medium">256-bit SSL Encrypted Token Verification</span>
-            <Link to="/" className="text-emerald-400 font-semibold hover:underline">Return to Home &rarr;</Link>
+          <div className="flex items-center justify-between text-xs text-slate-600 pt-4 border-t border-slate-200 relative z-10 font-medium">
+            <span>256-bit SSL Encrypted Token Verification</span>
+            <Link to="/" className="text-emerald-700 font-bold hover:underline">Return to Home &rarr;</Link>
           </div>
         </div>
       </div>

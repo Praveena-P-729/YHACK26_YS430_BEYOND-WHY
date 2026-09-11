@@ -4,41 +4,58 @@
 
 @layer base {
   body {
-    background-color: #0A100D;
-    color: #F5F1EA;
+    background-color: #F8FAFC;
+    color: #0F172A;
     font-family: 'Inter', system-ui, sans-serif;
+    background-image: linear-gradient(to bottom, rgba(248, 250, 252, 0.78), rgba(241, 245, 249, 0.88)), url('/images/ner-mountains.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    min-height: 100vh;
   }
   
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Outfit', 'Inter', system-ui, sans-serif;
     letter-spacing: -0.02em;
+    color: #0F172A;
   }
 }
 
 .command-card {
-  background: rgba(12, 22, 18, 0.88);
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(203, 213, 225, 0.85);
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.06), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
+  color: #0F172A;
+}
+
+.command-card-solid {
+  background: rgba(255, 255, 255, 0.97);
   backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(226, 232, 240, 0.95);
+  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08);
+  color: #0F172A;
 }
 
 .text-contrast-glow {
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.9), 0 0 2px rgba(0, 0, 0, 0.9);
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.9);
 }
 
 .text-subtle-glow {
-  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.8);
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
 }
 
 .bg-ner-backdrop {
-  background-image: linear-gradient(to bottom, rgba(10, 16, 13, 0.78), rgba(10, 16, 13, 0.92)), url('/images/ner-mountains.jpg');
+  background-image: linear-gradient(to bottom, rgba(248, 250, 252, 0.78), rgba(241, 245, 249, 0.88)), url('/images/ner-mountains.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
 }
 
 .bg-ner-hero {
-  background-image: linear-gradient(180deg, rgba(10, 16, 13, 0.65) 0%, rgba(10, 16, 13, 0.88) 70%, #0A100D 100%), url('/images/ner-mountains.jpg');
+  background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.72) 0%, rgba(248, 250, 252, 0.90) 70%, #F8FAFC 100%), url('/images/ner-mountains.jpg');
   background-size: cover;
   background-position: center 30%;
 }
@@ -47,13 +64,13 @@
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .command-card-hover:hover {
-  border-color: rgba(16, 185, 129, 0.4);
-  box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.6);
+  border-color: rgba(16, 185, 129, 0.6);
+  box-shadow: 0 16px 32px -8px rgba(16, 185, 129, 0.2), 0 8px 16px -4px rgba(0, 0, 0, 0.05);
   transform: translateY(-2px);
 }
 
 .emerald-btn-glow {
-  box-shadow: 0 4px 20px -2px rgba(16, 185, 129, 0.5);
+  box-shadow: 0 4px 16px 0 rgba(16, 185, 129, 0.35);
 }
 
 .custom-scrollbar::-webkit-scrollbar {
@@ -61,10 +78,10 @@
   height: 6px;
 }
 .custom-scrollbar::-webkit-scrollbar-track {
-  background: #0A100D;
+  background: rgba(241, 245, 249, 0.6);
 }
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: #1C2E28;
+  background: #CBD5E1;
   border-radius: 9999px;
 }
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {

@@ -9,7 +9,7 @@ export default function DashboardLayout() {
   const [simulationOpen, setSimulationOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-[#0A100D] text-[#F5F1EA] flex flex-col selection:bg-[#10B981] selection:text-white">
+    <div className="min-h-screen text-slate-900 flex flex-col selection:bg-emerald-600 selection:text-white bg-ner-backdrop">
       <Navbar onOpenSimulation={() => setSimulationOpen(true)} />
       
       <div className="flex flex-1">

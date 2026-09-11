@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { BrainCircuit, Sparkles, AlertCircle } from 'lucide-react';
-import ExplainableFactorBar from '../components/common/ExplainableFactorBar';
 import HorizonTimeline from '../components/common/HorizonTimeline';
 
 export default function PredictionPage() {
@@ -16,7 +15,7 @@ export default function PredictionPage() {
   return (
     <div className="space-y-6">
       <div className="command-card-solid p-6 rounded-3xl border border-slate-300 shadow-xl">
-        <h1 className="text-2xl sm:text-3xl font-black text-slate-950 font-heading tracking-tight">AI Risk Prediction &amp; SHAP Explainer</h1>
+        <h1 className="text-2xl sm:text-3xl font-black text-slate-950 font-heading tracking-tight">AI Multi-Horizon Risk Predictions</h1>
         <p className="text-xs sm:text-sm text-slate-800 font-medium mt-1">Ensemble Machine Learning (Random Forest + XGBoost) failure forecasts across Northeast India</p>
       </div>
 
@@ -27,18 +26,6 @@ export default function PredictionPage() {
         </div>
 
         <HorizonTimeline forecasts={forecasts} />
-
-        <div className="pt-4 border-t border-slate-200 space-y-4">
-          <h4 className="text-sm font-extrabold text-slate-950 font-heading">Explainable Factor Contributions (SHAP)</h4>
-          <ExplainableFactorBar
-            factors={{
-              "Cumulative Rainfall (72h)": 42.5,
-              "Hydrostatic Pore Pressure": 28.0,
-              "Soil Moisture Saturation": 18.5,
-              "Slope Tilt & Surface Displacement": 11.0
-            }}
-          />
-        </div>
       </div>
     </div>
   );

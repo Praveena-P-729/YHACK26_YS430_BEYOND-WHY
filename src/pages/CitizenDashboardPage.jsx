@@ -22,6 +22,7 @@ import {
 import { useAuth } from '../context/AuthContext';
 import { api } from '../services/api';
 import RiskMap from '../components/RiskMap';
+import OnlineStatus from '../components/OnlineStatus';
 
 export default function CitizenDashboardPage() {
   const { user, logout } = useAuth();
@@ -39,6 +40,9 @@ export default function CitizenDashboardPage() {
   const [layerVillages, setLayerVillages] = useState(true);
   const [layerRivers, setLayerRivers] = useState(true);
   const [layerIncidents, setLayerIncidents] = useState(true);
+
+  // Online / Offline Status
+  const [isOnline, setIsOnline] = useState(navigator.onLine);
 
   // Selected Zone Inspector
   const [selectedZone, setSelectedZone] = useState(null);
@@ -207,6 +211,9 @@ export default function CitizenDashboardPage() {
       </header>
 
       <main className="max-w-7xl mx-auto p-4 lg:p-8 space-y-6">
+        {/* Offline Simulation & Cloud Synchronization Banner */}
+        <OnlineStatus onStatusChange={(status) => setIsOnline(status.isOnline)} />
+
         <div className="command-card-solid rounded-3xl p-5 border border-slate-300 bg-white/95 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 shadow-xl">
           <div className="space-y-1">
             <div className="flex items-center gap-2">
@@ -511,7 +518,7 @@ export default function CitizenDashboardPage() {
             </div>
 
             <div className="w-full rounded-2xl overflow-hidden border border-slate-300 shadow-md">
-              <RiskMap isOnline={navigator.onLine} />
+              <RiskMap isOnline={isOnline} />
             </div>
 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-2">

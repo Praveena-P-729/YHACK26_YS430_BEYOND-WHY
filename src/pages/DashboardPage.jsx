@@ -26,7 +26,6 @@ import {
 } from 'lucide-react';
 import StatCard from '../components/common/StatCard';
 import RiskBadge from '../components/common/RiskBadge';
-import ExplainableFactorBar from '../components/common/ExplainableFactorBar';
 import HorizonTimeline from '../components/common/HorizonTimeline';
 import SimulationModal from '../components/common/SimulationModal';
 import RiskMap from '../components/RiskMap';
@@ -451,30 +450,6 @@ export default function DashboardPage() {
                 { horizon: "+24h", risk_score: 97.2, risk_level: "Severe" }
               ]} 
             />
-          </div>
-
-          {/* Explainable Factor Weights (SHAP Analysis) */}
-          <div className="command-card-solid rounded-3xl p-5 border border-slate-300 shadow-lg space-y-4">
-            <div>
-              <h3 className="text-sm font-extrabold text-slate-950 font-heading">Explainable Factor Weights (SHAP)</h3>
-              <p className="text-xs text-slate-700 font-medium">Physics features driving current hazard score</p>
-            </div>
-
-            <ExplainableFactorBar
-              factors={{
-                "Rainfall Accumulation (72h)": 42.5,
-                "Hydrostatic Pore Pressure": 28.0,
-                "Soil Moisture Saturation": 18.5,
-                "Slope Inclinometer Tilt": 11.0
-              }}
-            />
-
-            <div className="p-3 rounded-2xl bg-slate-50 border border-slate-200 text-[11px] text-slate-800 space-y-1">
-              <span className="text-slate-950 font-bold">Diagnostic Takeaway:</span>
-              <p className="font-medium">
-                Continuous rainfall of 142mm has supersaturated the laterite layer, exceeding the critical pore threshold (32 kPa).
-              </p>
-            </div>
           </div>
         </div>
       </div>

@@ -36,7 +36,7 @@ export default function Sidebar() {
   return (
     <aside className="w-64 border-r border-slate-200/90 bg-white/90 backdrop-blur-md flex flex-col justify-between p-4 hidden md:flex min-h-[calc(100vh-4rem)] shadow-sm">
       <div className="space-y-1">
-        <div className="px-3 py-2 text-[10px] font-mono uppercase tracking-wider text-slate-500 font-bold">
+        <div className="px-3 py-2 text-[10px] font-mono uppercase tracking-wider text-slate-800 font-black">
           Operational Modules
         </div>
 
@@ -47,10 +47,10 @@ export default function Sidebar() {
               key={item.path}
               to={item.path}
               className={({ isActive }) =>
-                `flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs font-bold transition-all ${
+                `flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs font-black transition-all ${
                   isActive
-                    ? 'bg-emerald-600 text-white shadow-md shadow-emerald-600/30'
-                    : 'text-slate-700 hover:bg-emerald-50 hover:text-emerald-900'
+                    ? 'bg-emerald-700 text-white shadow-md shadow-emerald-700/30'
+                    : 'text-slate-800 hover:bg-emerald-50 hover:text-emerald-950'
                 }`
               }
             >
@@ -61,24 +61,24 @@ export default function Sidebar() {
         })}
 
         {/* Quick link to citizen portal for officers */}
-        <div className="pt-3 border-t border-slate-200">
+        <div className="pt-3 border-t border-slate-300">
           <NavLink
             to="/citizen-dashboard"
-            className="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs font-bold text-emerald-800 bg-emerald-50 border border-emerald-300 hover:bg-emerald-100 transition shadow-sm"
+            className="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs font-black text-emerald-950 bg-emerald-100 border border-emerald-300 hover:bg-emerald-200 transition shadow-sm"
           >
-            <Users className="w-4 h-4 flex-shrink-0 text-emerald-700" />
+            <Users className="w-4 h-4 flex-shrink-0 text-emerald-800" />
             <span>Public Resident Portal</span>
           </NavLink>
         </div>
       </div>
 
       {/* Footer System Pill */}
-      <div className="p-3 rounded-2xl bg-slate-50/90 border border-slate-200 text-[11px] text-slate-600 space-y-1 shadow-sm">
-        <div className="flex items-center justify-between text-slate-900 font-mono font-bold">
+      <div className="p-3 rounded-2xl bg-white border border-slate-300 text-[11px] text-slate-800 space-y-1 shadow-sm">
+        <div className="flex items-center justify-between text-slate-950 font-mono font-black">
           <span>AI Engine</span>
-          <span className="text-emerald-700 font-bold">ONLINE</span>
+          <span className="text-emerald-800 font-black">ONLINE</span>
         </div>
-        <div className="text-slate-500 font-medium">Model: Ensemble-RF-XGB-v2.1</div>
+        <div className="text-slate-700 font-bold">Model: Ensemble-RF-XGB-v2.1</div>
       </div>
     </aside>
   );

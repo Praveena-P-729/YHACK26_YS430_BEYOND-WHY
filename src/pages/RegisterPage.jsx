@@ -473,9 +473,9 @@ export default function RegisterPage() {
                 <Mountain className="w-4 h-4" />
               </div>
               <div>
-                <h4 className="text-xs font-black text-slate-950 font-heading">Verified Safe Relief Shelters</h4>
+                <h4 className="text-xs font-black text-slate-950 font-heading">Real-Time Mountain GIS Corridors</h4>
                 <p className="text-[11px] text-slate-700 mt-0.5 leading-relaxed font-bold">
-                  Live occupancy, contact numbers, and turn-by-turn evacuation routes to NDMA-cleared community halls and shelters.
+                  Interactive spatial maps with real-time risk overlays across all 8 North-Eastern states and critical highways.
                 </p>
               </div>
             </div>

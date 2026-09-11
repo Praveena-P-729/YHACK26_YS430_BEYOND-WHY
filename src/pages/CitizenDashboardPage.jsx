@@ -43,8 +43,7 @@ export default function CitizenDashboardPage() {
   // Selected Zone Inspector
   const [selectedZone, setSelectedZone] = useState(null);
 
-  // Shelters & SOS State
-  const [shelters, setShelters] = useState([]);
+  // SOS & Crack State
   const [sosStatus, setSosStatus] = useState(null);
   const [crackLocation, setCrackLocation] = useState('');
   const [crackDescription, setCrackDescription] = useState('');
@@ -65,20 +64,6 @@ export default function CitizenDashboardPage() {
 
   useEffect(() => {
     setSelectedZone(riskZones[0]);
-    const fetchShelters = async () => {
-      try {
-        const data = await api.getShelters();
-        setShelters(data);
-      } catch (e) {
-        setShelters([
-          { id: 1, name: 'Guwahati Sarusajai Emergency Disaster Relief Center', address: 'NH-27 Lokhra, Guwahati, Assam', capacity: 1200, current_occupancy: 140, contact_phone: '108 / 0361-2237000', status: 'OPEN' },
-          { id: 2, name: 'Shillong JN Stadium Indoor Emergency Base Camp', address: 'Polo Grounds, Shillong, Meghalaya', capacity: 850, current_occupancy: 210, contact_phone: '108 / 0364-2224010', status: 'OPEN' },
-          { id: 3, name: 'Cherrapunji Govt Higher Secondary Relief Hall', address: 'Sohra Bazar, Cherrapunji', capacity: 500, current_occupancy: 95, contact_phone: '108 / 03637-234201', status: 'OPEN' },
-          { id: 4, name: 'Noney Community Disaster Center', address: 'Longmai Town Center, Noney, Manipur', capacity: 600, current_occupancy: 180, contact_phone: '108 / 0387-223401', status: 'OPEN' }
-        ]);
-      }
-    };
-    fetchShelters();
   }, [riskZones]);
 
   const handleRouteCheck = async (e) => {
@@ -647,39 +632,6 @@ export default function CitizenDashboardPage() {
                 </form>
               )}
             </div>
-          </div>
-        </div>
-
-        <div className="command-card-solid rounded-3xl p-6 border border-slate-300 space-y-4 shadow-xl">
-          <div className="flex items-center justify-between">
-            <div>
-              <h3 className="text-base font-black text-slate-950 font-heading">Safe Evacuation Relief Shelters</h3>
-              <p className="text-xs text-slate-700 font-bold">Verified SDMA &amp; NDMA Community Shelters</p>
-            </div>
-            <span className="text-xs font-mono text-emerald-950 px-2.5 py-1 rounded-full bg-emerald-100 border border-emerald-300 font-black">
-              {shelters.length} OPEN CAMPS
-            </span>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {shelters.map((s) => (
-              <div key={s.id} className="p-4 rounded-2xl bg-white border border-slate-300 space-y-2.5 shadow-sm">
-                <div className="flex items-start justify-between">
-                  <h4 className="text-xs font-black text-slate-950 font-heading">{s.name}</h4>
-                  <span className="text-[9px] font-mono px-2 py-0.5 rounded bg-emerald-100 text-emerald-950 font-black uppercase border border-emerald-300">
-                    {s.status}
-                  </span>
-                </div>
-                <p className="text-[11px] text-slate-700 font-bold">{s.address}</p>
-                <div className="flex items-center justify-between pt-2 border-t border-slate-300 text-xs">
-                  <span className="text-slate-800 font-mono font-black">Cap: {s.capacity}</span>
-                  <a href={`tel:${s.contact_phone}`} className="text-emerald-800 font-black hover:underline flex items-center gap-1">
-                    <PhoneCall className="w-3.5 h-3.5" />
-                    <span>Contact</span>
-                  </a>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </main>

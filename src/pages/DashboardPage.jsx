@@ -22,11 +22,11 @@ import {
   Filter,
   Eye,
   AlertOctagon,
-  RefreshCw
+  RefreshCw,
+  Mountain
 } from 'lucide-react';
 import StatCard from '../components/common/StatCard';
 import RiskBadge from '../components/common/RiskBadge';
-import HorizonTimeline from '../components/common/HorizonTimeline';
 import SimulationModal from '../components/common/SimulationModal';
 import RiskMap from '../components/RiskMap';
 import { api } from '../services/api';
@@ -427,29 +427,51 @@ export default function DashboardPage() {
           </div>
         </div>
 
-        {/* Right 4 Cols: Physics Telemetry & Explainable AI */}
-        <div className="lg:col-span-4 space-y-4">
-          
-          {/* Multi-Horizon Timeline Forecast */}
-          <div className="command-card-solid rounded-3xl p-5 border border-slate-300 shadow-lg space-y-4">
-            <div className="flex items-center justify-between">
-              <div>
-                <h3 className="text-sm font-extrabold text-slate-950 font-heading">Multi-Horizon AI Trajectory</h3>
-                <p className="text-xs text-slate-700 font-medium">Ensemble failure projection over 24h</p>
+        {/* Right 4 Cols: NER Mountain Terrain & Live Escarpment Monitor */}
+        <div className="lg:col-span-4 h-full">
+          <div className="command-card-solid rounded-3xl p-5 border border-slate-300 shadow-lg flex flex-col justify-between h-full relative overflow-hidden group">
+            <div className="relative z-10 space-y-1">
+              <div className="flex items-center justify-between">
+                <span className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-950 font-black uppercase border border-emerald-300">
+                  NER Mountain Terrain
+                </span>
+                <span className="text-[10px] font-mono text-slate-800 font-bold flex items-center gap-1.5">
+                  <span className="w-2 h-2 rounded-full bg-emerald-600 animate-pulse" />
+                  Live Satellite Feed
+                </span>
               </div>
-              <span className="px-2 py-0.5 rounded bg-emerald-100 text-emerald-900 font-mono text-[10px] font-bold border border-emerald-300">
-                LIVE MODEL
-              </span>
+              <h3 className="text-sm font-black text-slate-950 font-heading pt-1">
+                {selectedStation?.name || 'Shillong Ridge (NH-6)'}
+              </h3>
+              <p className="text-xs text-slate-700 font-bold">
+                {selectedStation?.state || 'Meghalaya'} &bull; Elevation: {selectedStation?.elevation || '1520'}m &bull; Slope: {selectedStation?.slope || '36.5'}°
+              </p>
             </div>
 
-            <HorizonTimeline 
-              forecasts={horizons.length > 0 ? horizons : [
-                { horizon: "Now", risk_score: 84.5, risk_level: "Severe" },
-                { horizon: "+6h", risk_score: 89.0, risk_level: "Severe" },
-                { horizon: "+12h", risk_score: 93.7, risk_level: "Severe" },
-                { horizon: "+24h", risk_score: 97.2, risk_level: "Severe" }
-              ]} 
-            />
+            {/* Mountain Image Frame */}
+            <div className="relative my-3 rounded-2xl overflow-hidden border border-slate-300 shadow-md h-52 w-full">
+              <img 
+                src="/images/ner-mountains.jpg" 
+                alt="Northeast India Mountain Ridge" 
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent flex items-end p-3.5">
+                <div className="text-white space-y-0.5">
+                  <div className="text-xs font-black tracking-wide flex items-center gap-1.5">
+                    <Mountain className="w-4 h-4 text-emerald-400 shrink-0" />
+                    <span>Northeast Mountain Pass &amp; Slope Corridor</span>
+                  </div>
+                  <div className="text-[10px] font-mono opacity-90 text-slate-200">
+                    GPS: {selectedStation?.latitude || '25.5788'}° N, {selectedStation?.longitude || '91.8933'}° E
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="pt-2 border-t border-slate-200 flex items-center justify-between text-[11px] text-slate-800 font-bold">
+              <span className="text-slate-700">Geological Formation:</span>
+              <span className="text-slate-950 font-mono font-black">{selectedStation?.soil_type || 'Lateritic Clay & Colluvium'}</span>
+            </div>
           </div>
         </div>
       </div>

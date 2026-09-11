@@ -168,6 +168,7 @@ class Alert(Base):
     message = Column(Text, nullable=True)
     alert_message = Column(Text, nullable=True)
     recommended_action = Column(Text, nullable=True)
+    source = Column(String(50), default="weather_prediction") # weather_prediction, field_report, local_inference, sensor_telemetry
     status = Column(String(30), default="ACTIVE", index=True) # ACTIVE, ACKNOWLEDGED, RESOLVED
     is_active = Column(Boolean, default=True)
     created_at = Column(DateTime, default=datetime.datetime.utcnow, index=True)
@@ -237,3 +238,24 @@ class ThresholdConfig(Base):
     warning_threshold = Column(Float, nullable=False)
     evacuate_threshold = Column(Float, nullable=False)
     updated_at = Column(DateTime, default=datetime.datetime.utcnow)
+
+class FieldReport(Base):
+    __tablename__ = "field_reports"
+
+    id = Column(Integer, primary_key=True, index=True)
+    report_id = Column(String(100), unique=True, index=True, nullable=False)
+    officer_id = Column(String(100), default="OFFICER-01", index=True)
+    road_id = Column(String(100), index=True, nullable=False)
+    state = Column(String(100), default="Assam")
+    latitude = Column(Float, nullable=False)
+    longitude = Column(Float, nullable=False)
+    description = Column(Text, nullable=False)
+    observed_condition = Column(String(100), default="Normal") # Normal, Minor Tension Cracks, Active Soil Creep, Severe Debris Slump
+    rainfall_observation = Column(String(100), default="Moderate Rain") # None, Light Drizzle, Moderate Rain, Heavy Torrential Downpour
+    road_blocked = Column(Boolean, default=False)
+    landslide_observed = Column(Boolean, default=False)
+    photo = Column(Text, nullable=True) # Base64 or image URL
+    sync_status = Column(String(30), default="synced", index=True) # synced, pending, offline_cached
+    timestamp = Column(DateTime, default=datetime.datetime.utcnow, index=True)
+    created_at = Column(DateTime, default=datetime.datetime.utcnow)
+

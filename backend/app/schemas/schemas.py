@@ -122,6 +122,7 @@ class AlertBase(BaseModel):
     message: Optional[str] = None
     alert_message: Optional[str] = None
     recommended_action: Optional[str] = None
+    source: Optional[str] = "weather_prediction"
     status: Optional[str] = "ACTIVE"
     broadcast_channels: Optional[str] = "SMS, Push, Siren, NDMA Hub, WebSocket"
 
@@ -137,6 +138,47 @@ class AlertResponse(AlertBase):
 
     class Config:
         from_attributes = True
+
+# Field Report Schemas (Offline-First)
+class FieldReportBase(BaseModel):
+    report_id: Optional[str] = None
+    officer_id: Optional[str] = "OFFICER-01"
+    road_id: str
+    state: Optional[str] = "Assam"
+    latitude: float
+    longitude: float
+    description: str
+    observed_condition: Optional[str] = "Normal"
+    rainfall_observation: Optional[str] = "Moderate Rain"
+    road_blocked: Optional[bool] = False
+    landslide_observed: Optional[bool] = False
+    photo: Optional[str] = None
+    sync_status: Optional[str] = "synced"
+    timestamp: Optional[datetime.datetime] = None
+
+class FieldReportCreate(FieldReportBase):
+    pass
+
+class FieldReportResponse(FieldReportBase):
+    id: int
+    created_at: datetime.datetime
+
+    class Config:
+        from_attributes = True
+
+class SyncPayload(BaseModel):
+    pending_reports: List[FieldReportCreate] = []
+    last_sync_timestamp: Optional[str] = None
+    client_version: Optional[str] = "2.0.0"
+
+class SyncResponse(BaseModel):
+    status: str
+    synced_reports_count: int
+    server_timestamp: str
+    latest_weather: Optional[dict] = None
+    latest_road_risks_count: int = 0
+    message: str
+
 
 # Incident Schemas
 class IncidentCreate(BaseModel):

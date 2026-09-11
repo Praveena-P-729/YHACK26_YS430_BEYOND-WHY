@@ -285,6 +285,7 @@ class AlertService:
                 message=alert_message,
                 alert_message=alert_message,
                 recommended_action=recommended_action,
+                source="weather_prediction",
                 status="ACTIVE",
                 is_active=True,
                 created_at=now,

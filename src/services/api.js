@@ -85,6 +85,31 @@ export const api = {
     body: JSON.stringify({ road_id: roadId, force_refresh: forceRefresh })
   }),
 
+  // Field Reports (Offline-First Supported)
+  getFieldReports: (roadId = null, officerId = null) => {
+    let url = '/field-reports';
+    const params = [];
+    if (roadId) params.push(`road_id=${encodeURIComponent(roadId)}`);
+    if (officerId) params.push(`officer_id=${encodeURIComponent(officerId)}`);
+    if (params.length > 0) url += `?${params.join('&')}`;
+    return request(url);
+  },
+  submitFieldReport: (data) => request('/field-reports', {
+    method: 'POST',
+    body: JSON.stringify(data)
+  }),
+  syncOfflineData: (payload) => request('/sync', {
+    method: 'POST',
+    body: JSON.stringify(payload)
+  }),
+
+  // Roads & Direct Prediction
+  getRoads: () => request('/roads'),
+  predictRawFeatures: (features) => request('/predict', {
+    method: 'POST',
+    body: JSON.stringify(features)
+  }),
+
   // Incidents
   getIncidents: () => request('/incidents'),
   reportIncident: (data) => request('/incidents', {

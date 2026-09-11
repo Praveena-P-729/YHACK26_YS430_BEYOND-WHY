@@ -6,7 +6,7 @@ from app.database import engine, Base
 from app.routes import (
     auth, locations, monitoring, predictions, alerts, 
     incidents, shelters, analytics, reports, simulation, notifications,
-    routes_risk, officer_ops, weather, multi_hazard
+    routes_risk, officer_ops, weather, multi_hazard, field_reports, sync
 )
 from app.seed import seed_database
 
@@ -45,11 +45,15 @@ app.include_router(routes_risk.router, prefix=settings.API_V1_STR)
 app.include_router(officer_ops.router, prefix=settings.API_V1_STR)
 app.include_router(weather.router, prefix=settings.API_V1_STR)
 app.include_router(multi_hazard.router, prefix=settings.API_V1_STR)
+app.include_router(field_reports.router, prefix=settings.API_V1_STR)
+app.include_router(sync.router, prefix=settings.API_V1_STR)
 
-# Also mount weather, multi_hazard, and alerts at root level for direct compatibility
+# Also mount routes at root level for direct endpoint compatibility
 app.include_router(weather.router)
 app.include_router(multi_hazard.router)
 app.include_router(alerts.router)
+app.include_router(field_reports.router)
+app.include_router(sync.router)
 
 from fastapi import WebSocket, WebSocketDisconnect
 from app.services.websocket_manager import websocket_manager

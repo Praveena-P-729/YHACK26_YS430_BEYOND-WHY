@@ -21,6 +21,7 @@ import {
 } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { api } from '../services/api';
+import RiskMap from '../components/RiskMap';
 
 export default function CitizenDashboardPage() {
   const { user, logout } = useAuth();
@@ -141,7 +142,7 @@ export default function CitizenDashboardPage() {
       await api.sendSOS({
         user_id: user?.id || user?.user_id,
         user_name: user?.full_name,
-        location: 'GPS (11.4034, 76.6958)',
+        location: 'GPS (25.5788, 91.8933) - Shillong Corridor',
         timestamp: new Date().toISOString()
       });
       setSosStatus('SENT');
@@ -522,49 +523,32 @@ export default function CitizenDashboardPage() {
               </button>
             </div>
 
-            <div className="h-[380px] rounded-2xl bg-[#080E0B] border border-white/10 relative overflow-hidden flex flex-col justify-between p-4">
-              <div 
-                className="absolute inset-0 opacity-25 pointer-events-none"
-                style={{
-                  backgroundImage: 'radial-gradient(#10B981 1.5px, transparent 1.5px)',
-                  backgroundSize: '28px 28px'
-                }}
-              />
+            <div className="w-full">
+              <RiskMap isOnline={navigator.onLine} />
+            </div>
 
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 border border-[#10B981]/20 rounded-full pointer-events-none">
-                <div className="w-full h-full border border-[#10B981]/15 rounded-full animate-radar origin-center" />
-              </div>
-
-              <div className="relative z-10 flex items-center justify-between">
-                <div className="px-3 py-1.5 rounded-full bg-[#121E1A] border border-[#10B981]/40 text-xs text-[#10B981] font-mono flex items-center gap-1.5 shadow-lg">
-                  <span className="w-2 h-2 rounded-full bg-[#10B981] animate-ping" />
-                  <span>GPS Location: Shillong (25.5788 N, 91.8933 E) - Meghalaya</span>
-                </div>
-              </div>
-
-              <div className="relative z-10 grid grid-cols-2 sm:grid-cols-3 gap-2.5 bg-[#0D1714]/85 backdrop-blur p-3 rounded-2xl border border-white/10">
-                {riskZones.map((zone) => (
-                  <button
-                    key={zone.id}
-                    onClick={() => setSelectedZone(zone)}
-                    className={`p-2.5 rounded-xl text-left border transition cursor-pointer ${
-                      selectedZone?.id === zone.id
-                        ? 'bg-[#10B981]/20 border-[#10B981] text-white'
-                        : 'bg-[#121E1A] border-white/5 text-[#CBD1D6] hover:text-white'
-                    }`}
-                  >
-                    <div className="flex items-center justify-between">
-                      <span className="text-xs font-bold font-heading truncate">{zone.name}</span>
-                      <span className={`w-2 h-2 rounded-full ${zone.level === 'Critical' ? 'bg-red-400 animate-pulse' : zone.level === 'High' ? 'bg-orange-400' : 'bg-emerald-400'}`} />
-                    </div>
-                    <div className="text-[10px] text-[#8E959E]">{zone.region}</div>
-                    <div className="mt-1 flex items-center justify-between text-[10px] font-mono">
-                      <span className="font-bold text-[#10B981]">{zone.score}/100</span>
-                      <span className="uppercase opacity-75">{zone.level}</span>
-                    </div>
-                  </button>
-                ))}
-              </div>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-2">
+              {riskZones.slice(0, 4).map((zone) => (
+                <button
+                  key={zone.id}
+                  onClick={() => setSelectedZone(zone)}
+                  className={`p-2.5 rounded-xl text-left border transition cursor-pointer ${
+                    selectedZone?.id === zone.id
+                      ? 'bg-[#10B981]/20 border-[#10B981] text-white'
+                      : 'bg-[#121E1A] border-white/5 text-[#CBD1D6] hover:text-white'
+                  }`}
+                >
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-bold font-heading truncate">{zone.name}</span>
+                    <span className={`w-2 h-2 rounded-full ${zone.level === 'Critical' ? 'bg-red-400 animate-pulse' : zone.level === 'High' ? 'bg-orange-400' : 'bg-emerald-400'}`} />
+                  </div>
+                  <div className="text-[10px] text-[#8E959E]">{zone.region}</div>
+                  <div className="mt-1 flex items-center justify-between text-[10px] font-mono">
+                    <span className="font-bold text-[#10B981]">{zone.score}%</span>
+                    <span className="uppercase opacity-75">{zone.level}</span>
+                  </div>
+                </button>
+              ))}
             </div>
           </div>
 

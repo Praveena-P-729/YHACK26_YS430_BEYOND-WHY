@@ -29,6 +29,7 @@ import RiskBadge from '../components/common/RiskBadge';
 import ExplainableFactorBar from '../components/common/ExplainableFactorBar';
 import HorizonTimeline from '../components/common/HorizonTimeline';
 import SimulationModal from '../components/common/SimulationModal';
+import RiskMap from '../components/RiskMap';
 import { api } from '../services/api';
 import { useAuth } from '../context/AuthContext';
 
@@ -366,105 +367,9 @@ export default function DashboardPage() {
               </div>
             </div>
 
-            {/* Interactive Vector Terrain Canvas */}
-            <div className="relative h-96 w-full rounded-2xl bg-[#09110E] border border-white/10 overflow-hidden flex items-center justify-center p-4">
-              {/* Radar scanning circle effect */}
-              <div className="absolute inset-0 opacity-25 pointer-events-none bg-[radial-gradient(circle_at_50%_50%,rgba(16,185,129,0.15),transparent_70%)]"></div>
-
-              {/* SVG Map Graphics */}
-              <svg className="w-full h-full" viewBox="0 0 800 450" fill="none" xmlns="http://www.w3.org/2000/svg">
-                {/* Elevation Contours */}
-                <path d="M 50,80 Q 200,40 380,90 T 750,70" stroke="#162D24" strokeWidth="1.5" strokeDasharray="4 4" />
-                <path d="M 30,160 Q 220,120 420,180 T 780,140" stroke="#162D24" strokeWidth="1.5" strokeDasharray="4 4" />
-                <path d="M 70,250 Q 260,210 460,270 T 760,230" stroke="#162D24" strokeWidth="1.5" strokeDasharray="4 4" />
-                <path d="M 40,350 Q 240,310 480,360 T 770,330" stroke="#162D24" strokeWidth="1.5" strokeDasharray="4 4" />
-
-                {/* River Basin Layer */}
-                <path d="M 200,450 C 230,320 280,220 320,150 C 350,90 390,40 430,0" stroke="#0284C7" strokeWidth="3" opacity="0.6" strokeLinecap="round" />
-                <text x="335" y="160" fill="#38BDF8" fontSize="10" fontFamily="sans-serif">Alaknanda Stream</text>
-
-                {/* Major Arterial Roads Layer */}
-                {layerRoads && (
-                  <>
-                    <path d="M 0,380 C 180,360 300,280 460,240 C 620,200 700,120 800,90" stroke="#E2E8F0" strokeWidth="3.5" opacity="0.8" strokeLinecap="round" />
-                    <text x="480" y="235" fill="#E2E8F0" fontSize="10" fontFamily="sans-serif" fontWeight="bold">NH-181 Highway</text>
-                    
-                    {/* Alternate Pass Road */}
-                    <path d="M 50,420 C 150,300 240,160 400,100 C 560,40 680,80 780,60" stroke="#10B981" strokeWidth="2.5" strokeDasharray="6 4" opacity="0.9" />
-                    <text x="210" y="195" fill="#34D399" fontSize="10" fontFamily="sans-serif">Route A (Emergency Ridge Corridor)</text>
-                  </>
-                )}
-
-                {/* Critical Hazard Zones (Polygons) */}
-                {layerHeatmap && (
-                  <>
-                    {/* Zone 1: Coonoor Ghat km 14 */}
-                    <g className="cursor-pointer" onClick={() => setSelectedLocationId(1)}>
-                      <circle cx="460" cy="240" r="42" fill="#EF4444" fillOpacity="0.25" stroke="#EF4444" strokeWidth="2" strokeDasharray="4 2" className="animate-pulse" />
-                      <circle cx="460" cy="240" r="7" fill="#EF4444" />
-                      <text x="475" y="245" fill="#FCA5A5" fontSize="11" fontWeight="bold">Coonoor Ghat (84.5% - Critical)</text>
-                    </g>
-
-                    {/* Zone 2: Wayanad Meppadi */}
-                    <g className="cursor-pointer" onClick={() => setSelectedLocationId(3)}>
-                      <circle cx="280" cy="180" r="50" fill="#DC2626" fillOpacity="0.3" stroke="#DC2626" strokeWidth="2.5" />
-                      <circle cx="280" cy="180" r="8" fill="#DC2626" />
-                      <text x="295" y="185" fill="#F87171" fontSize="11" fontWeight="bold">Meppadi Chooralmala (91.2% - Extreme)</text>
-                    </g>
-
-                    {/* Zone 3: Kotagiri Pass */}
-                    <g className="cursor-pointer" onClick={() => setSelectedLocationId(2)}>
-                      <circle cx="620" cy="190" r="32" fill="#F59E0B" fillOpacity="0.25" stroke="#F59E0B" strokeWidth="1.5" />
-                      <circle cx="620" cy="190" r="6" fill="#F59E0B" />
-                      <text x="635" y="195" fill="#FCD34D" fontSize="10">Kotagiri Pass (72.0% - High)</text>
-                    </g>
-                  </>
-                )}
-
-                {/* Verified Relief Shelters */}
-                {layerShelters && (
-                  <>
-                    <g transform="translate(180, 290)">
-                      <circle cx="0" cy="0" r="10" fill="#059669" stroke="#34D399" strokeWidth="2" />
-                      <text x="14" y="4" fill="#6EE7B7" fontSize="10" fontWeight="bold">Shelter: Coonoor Govt College</text>
-                    </g>
-                    <g transform="translate(640, 80)">
-                      <circle cx="0" cy="0" r="10" fill="#059669" stroke="#34D399" strokeWidth="2" />
-                      <text x="14" y="4" fill="#6EE7B7" fontSize="10" fontWeight="bold">Shelter: Kotagiri Community Hall</text>
-                    </g>
-                  </>
-                )}
-
-                {/* Citizen Incident Reports Layer */}
-                {layerReports && (
-                  <>
-                    <g transform="translate(435, 220)">
-                      <polygon points="0,-12 10,6 -10,6" fill="#F59E0B" stroke="#B45309" strokeWidth="1" />
-                      <text x="14" y="2" fill="#FBBF24" fontSize="10" fontWeight="bold">Citizen: Tension Crack Fissure</text>
-                    </g>
-                    <g transform="translate(250, 160)">
-                      <polygon points="0,-12 10,6 -10,6" fill="#EF4444" stroke="#7F1D1D" strokeWidth="1" />
-                      <text x="14" y="2" fill="#FCA5A5" fontSize="10" fontWeight="bold">Citizen: Debris Liquefaction</text>
-                    </g>
-                  </>
-                )}
-              </svg>
-
-              {/* Map Legend Overlay */}
-              <div className="absolute bottom-3 left-3 bg-[#0D1714]/90 backdrop-blur-md px-3 py-2 rounded-xl border border-white/10 text-[10px] space-y-1">
-                <div className="flex items-center gap-2">
-                  <span className="w-2.5 h-2.5 rounded-full bg-red-500"></span>
-                  <span className="text-white">Critical Zone (&gt;80%)</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="w-2.5 h-2.5 rounded-full bg-amber-500"></span>
-                  <span className="text-white">High Zone (60-80%)</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
-                  <span className="text-white">Safe Evacuation Shelter</span>
-                </div>
-              </div>
+            {/* Real-time Interactive Leaflet GIS Risk Map */}
+            <div className="w-full">
+              <RiskMap isOnline={navigator.onLine} />
             </div>
 
             {/* Quick Sector Selector Buttons */}
@@ -754,7 +659,7 @@ export default function DashboardPage() {
                 className="w-full px-4 py-2.5 rounded-2xl bg-[#0D1714] border border-white/10 text-xs text-white focus:outline-none focus:border-emerald-500"
               >
                 <option value="NDRF Quick Response Team 4">NDRF Quick Response Team 4</option>
-                <option value="Nilgiris District QRT Patrol">Nilgiris District QRT Patrol</option>
+                <option value="Meghalaya & Assam State Disaster QRT Patrol">Meghalaya &amp; Assam State Disaster QRT Patrol</option>
                 <option value="SDRF Heavy Clearing Convoy">SDRF Heavy Clearing Convoy</option>
                 <option value="Fire & Rescue Emergency Ambulance Unit">Fire & Rescue Emergency Ambulance Unit</option>
               </select>

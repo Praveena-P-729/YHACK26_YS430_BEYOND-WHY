@@ -76,9 +76,14 @@ export const api = {
   getLatestPredictions: () => request('/predictions/latest'),
   getPredictionHorizons: (locationId) => request(`/predictions/horizons/${locationId}`),
 
-  // Alerts
+  // Alerts (Real-Time Landslide Early Warning)
   getActiveAlerts: () => request('/alerts'),
   getAllAlerts: () => request('/alerts/all'),
+  getAlertsByRoad: (roadId) => request(`/alerts/${roadId}`),
+  checkAlerts: (roadId = null, forceRefresh = false) => request('/alerts/check', {
+    method: 'POST',
+    body: JSON.stringify({ road_id: roadId, force_refresh: forceRefresh })
+  }),
 
   // Incidents
   getIncidents: () => request('/incidents'),

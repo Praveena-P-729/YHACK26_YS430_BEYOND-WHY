@@ -109,16 +109,28 @@ class PredictionResponse(PredictionBase):
 
 # Alert Schemas
 class AlertBase(BaseModel):
-    location_id: int
-    alert_level: str
-    title: str
-    message: str
+    location_id: Optional[int] = None
+    alert_id: Optional[str] = None
+    road_id: Optional[str] = None
+    state: Optional[str] = "Assam"
+    latitude: Optional[float] = None
+    longitude: Optional[float] = None
+    probability: Optional[float] = 0.0
+    risk_level: Optional[str] = "Low"
+    alert_level: Optional[str] = "LOW"
+    title: Optional[str] = None
+    message: Optional[str] = None
+    alert_message: Optional[str] = None
     recommended_action: Optional[str] = None
-    broadcast_channels: Optional[str] = "SMS, Push, Siren, NDMA Hub"
+    status: Optional[str] = "ACTIVE"
+    broadcast_channels: Optional[str] = "SMS, Push, Siren, NDMA Hub, WebSocket"
+
+class AlertCreate(AlertBase):
+    pass
 
 class AlertResponse(AlertBase):
     id: int
-    is_active: bool
+    is_active: bool = True
     created_at: datetime.datetime
     resolved_at: Optional[datetime.datetime] = None
     location: Optional[LocationResponse] = None

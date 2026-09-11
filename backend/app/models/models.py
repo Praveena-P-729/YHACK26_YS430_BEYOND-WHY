@@ -153,18 +153,26 @@ class Alert(Base):
     __tablename__ = "alerts"
 
     id = Column(Integer, primary_key=True, index=True)
+    alert_id = Column(String(100), unique=True, index=True, nullable=True)
+    road_id = Column(String(100), index=True, nullable=True) # e.g. "NH-27-SEC-04" or "ROAD-102"
     location_id = Column(Integer, ForeignKey("locations.id"), nullable=True)
     location_name = Column(String(150), nullable=True)
-    hazard_type = Column(String(50), default="LANDSLIDE") # LANDSLIDE, FLASH_FLOOD, SLOPE_FAILURE, ROAD_BLOCKAGE, COMMUNITY_ACCESS
-    alert_level = Column(String(20), nullable=False) # LOW, MEDIUM, HIGH, CRITICAL, Warning, Evacuate
-    title = Column(String(200), nullable=False)
-    message = Column(Text, nullable=False)
+    state = Column(String(100), default="Assam", index=True)
+    latitude = Column(Float, nullable=True)
+    longitude = Column(Float, nullable=True)
+    probability = Column(Float, default=0.0) # Ensemble probability 0.0 - 1.0
+    risk_level = Column(String(20), default="Low", index=True) # Low, Medium, High, Critical
+    alert_level = Column(String(20), nullable=True) # LOW, MEDIUM, HIGH, CRITICAL
+    hazard_type = Column(String(50), default="LANDSLIDE") # LANDSLIDE, FLASH_FLOOD, SLOPE_FAILURE, ROAD_BLOCKAGE
+    title = Column(String(200), nullable=True)
+    message = Column(Text, nullable=True)
+    alert_message = Column(Text, nullable=True)
     recommended_action = Column(Text, nullable=True)
-    status = Column(String(30), default="ACTIVE") # ACTIVE, ACKNOWLEDGED, INVESTIGATING, RESOLVED
+    status = Column(String(30), default="ACTIVE", index=True) # ACTIVE, ACKNOWLEDGED, RESOLVED
     is_active = Column(Boolean, default=True)
     created_at = Column(DateTime, default=datetime.datetime.utcnow, index=True)
     resolved_at = Column(DateTime, nullable=True)
-    broadcast_channels = Column(String(100), default="SMS, Push, Siren, NDMA Hub")
+    broadcast_channels = Column(String(100), default="SMS, Push, Siren, NDMA Hub, WebSocket")
 
     location = relationship("Location", back_populates="alerts")
 

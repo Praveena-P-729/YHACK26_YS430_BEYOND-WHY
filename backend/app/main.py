@@ -51,12 +51,43 @@ app.include_router(weather.router)
 app.include_router(multi_hazard.router)
 app.include_router(alerts.router)
 
+from fastapi import WebSocket, WebSocketDisconnect
+from app.services.websocket_manager import websocket_manager
+from app.services.scheduler_service import scheduler_service
+
+# WebSocket endpoint for real-time alerts stream (Requirement 9 & 12)
+@app.websocket("/ws/alerts")
+async def websocket_alerts_endpoint(websocket: WebSocket):
+    await websocket_manager.connect(websocket)
+    try:
+        while True:
+            # Maintain active connection and listen for client heartbeats
+            data = await websocket.receive_text()
+            if data == "ping":
+                await websocket.send_json({"type": "PONG", "timestamp": datetime.datetime.utcnow().isoformat()})
+    except WebSocketDisconnect:
+        websocket_manager.disconnect(websocket)
+    except Exception:
+        websocket_manager.disconnect(websocket)
+
 @app.on_event("startup")
-def on_startup():
+async def on_startup():
     try:
         seed_database()
     except Exception as e:
         print(f"Startup seed notice: {e}")
+    # Start 30-minute background weather check & inference scheduler (Requirement 13)
+    try:
+        scheduler_service.start()
+    except Exception as e:
+        print(f"Scheduler start notice: {e}")
+
+@app.on_event("shutdown")
+def on_shutdown():
+    try:
+        scheduler_service.stop()
+    except Exception as e:
+        print(f"Scheduler shutdown notice: {e}")
 
 # Mount React frontend static assets if dist exists
 import os

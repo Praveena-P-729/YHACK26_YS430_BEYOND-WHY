@@ -33,14 +33,27 @@ export default function Navbar({ onOpenSimulation }) {
       </div>
 
       {/* Middle Status */}
-      <div className="hidden md:flex items-center gap-2 bg-[#121E1A] px-3 py-1.5 rounded-full border border-white/10 text-xs">
-        <Radio className="w-3.5 h-3.5 text-emerald-400 animate-pulse" />
-        <span className="text-[#8E959E]">Telemetry Grid:</span>
-        <span className="text-emerald-400 font-mono font-semibold">12 STATIONS STREAMING</span>
+      <div className="hidden md:flex items-center gap-3">
+        <div className="flex items-center gap-2 bg-[#121E1A] px-3 py-1.5 rounded-full border border-white/10 text-xs">
+          <Radio className="w-3.5 h-3.5 text-emerald-400 animate-pulse" />
+          <span className="text-[#8E959E]">Telemetry Grid:</span>
+          <span className="text-emerald-400 font-mono font-semibold">NE INDIA (OPEN-METEO LIVE)</span>
+        </div>
       </div>
 
       {/* Right Action Controls */}
       <div className="flex items-center gap-3">
+        {/* Real-time Alerts Link */}
+        <button
+          onClick={() => navigate('/alerts')}
+          className="relative p-2 rounded-xl bg-[#121E1A] hover:bg-[#25323C] border border-amber-500/30 text-amber-300 text-xs font-semibold transition flex items-center gap-1.5 cursor-pointer"
+          title="Live Alerts Feed"
+        >
+          <Bell className="w-4 h-4 text-amber-400" />
+          <span className="w-2 h-2 rounded-full bg-red-500 absolute top-1 right-1 animate-ping" />
+          <span className="hidden sm:inline">Live Alerts</span>
+        </button>
+
         {/* Disaster Simulation Trigger */}
         <button
           onClick={onOpenSimulation}

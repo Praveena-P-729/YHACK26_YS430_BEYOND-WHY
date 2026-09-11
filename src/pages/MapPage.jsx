@@ -4,9 +4,10 @@ import L from 'leaflet';
 import { 
   Layers, ShieldAlert, Droplets, Mountain, Navigation, 
   AlertTriangle, RefreshCw, Search, Filter, Compass, 
-  Eye, CheckCircle2, CloudRain, Building2, Home, ExternalLink
+  Eye, CheckCircle2, CloudRain, Building2, Home, ExternalLink, Bell, AlertOctagon
 } from 'lucide-react';
 import { api } from '../services/api';
+import { alertWebSocketService } from '../services/websocket';
 
 // Fix Leaflet default icon issues
 delete L.Icon.Default.prototype._getIconUrl;
@@ -394,8 +395,20 @@ export default function MapPage() {
     }
   };
 
+  const [liveWsAlert, setLiveWsAlert] = useState(null);
+
   useEffect(() => {
     fetchMapData();
+
+    // Subscribe to real-time WebSocket alerts
+    const unsubscribe = alertWebSocketService.subscribe((incomingAlert) => {
+      console.log('[MapPage] Received real-time alert:', incomingAlert);
+      setLiveWsAlert(incomingAlert);
+    });
+
+    return () => {
+      if (unsubscribe) unsubscribe();
+    };
   }, []);
 
   const toggleLayer = (layerKey) => {
@@ -494,6 +507,32 @@ export default function MapPage() {
           </button>
         </div>
       </div>
+
+      {/* Live WebSocket Real-Time Alert Banner */}
+      {liveWsAlert && (
+        <div className="bg-red-950/80 border-2 border-red-500 rounded-2xl p-4 text-white shadow-2xl flex flex-col md:flex-row items-start md:items-center justify-between gap-3 animate-pulse">
+          <div className="flex items-center gap-3">
+            <AlertOctagon className="w-6 h-6 text-red-400 shrink-0" />
+            <div>
+              <div className="flex items-center gap-2">
+                <span className="text-xs font-black bg-red-600 px-2 py-0.5 rounded text-white font-mono uppercase">
+                  {liveWsAlert.risk_level || 'CRITICAL'} ALERT
+                </span>
+                <span className="font-bold text-sm text-red-200">
+                  ⛔ AVOID ROAD: {liveWsAlert.road_id} ({liveWsAlert.state})
+                </span>
+              </div>
+              <p className="text-xs text-red-200 mt-0.5">{liveWsAlert.alert_message || liveWsAlert.title}</p>
+            </div>
+          </div>
+          <button
+            onClick={() => setLiveWsAlert(null)}
+            className="px-3 py-1 bg-red-900/60 hover:bg-red-800 border border-red-400 rounded-lg text-xs font-semibold shrink-0"
+          >
+            Dismiss
+          </button>
+        </div>
+      )}
 
       {/* 2. SEARCH & FILTER CONTROLS */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-3 bg-[#0D1714] p-4 rounded-2xl border border-white/10 text-xs">

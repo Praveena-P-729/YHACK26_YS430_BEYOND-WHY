@@ -156,6 +156,8 @@ export default function CitizenDashboardPage() {
     try {
       await api.reportIncident({
         title: 'Slope Crack / Subsidence at ' + crackLocation,
+        location_name: crackLocation,
+        location: crackLocation,
         description: crackDescription,
         severity: 'Severe',
         reported_by_id: user?.id || user?.user_id

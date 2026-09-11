@@ -129,19 +129,48 @@ export default function DashboardPage() {
     { id: 3, title: "Severe Slope Slump & Debris Flow", description: "Continuous colluvium debris slide along NH-37 approach road after 165mm continuous monsoon rain. Evacuation requested.", location_name: "Noney Railway Cutting NH-37", severity: "Critical", status: "PENDING", reported_at: "1 hour ago" }
   ];
 
+  // Helper functions for time formatting & location extraction
+  const formatReportedTime = (ts) => {
+    if (!ts) return 'Just now';
+    if (ts.includes('ago')) return ts;
+    try {
+      const d = new Date(ts);
+      if (isNaN(d.getTime())) return ts;
+      const now = new Date();
+      const diffSec = Math.floor((now - d) / 1000);
+      if (diffSec < 60) return 'Just now';
+      if (diffSec < 3600) return `${Math.floor(diffSec / 60)}m ago`;
+      if (diffSec < 86400) return `${Math.floor(diffSec / 3600)}h ago`;
+      return d.toLocaleDateString(undefined, { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
+    } catch {
+      return ts;
+    }
+  };
+
+  const getIncidentLocation = (incident) => {
+    if (incident.location_name && incident.location_name.trim()) return incident.location_name;
+    if (incident.location && incident.location.trim()) return incident.location;
+    if (incident.title && incident.title.includes(' at ')) {
+      const part = incident.title.split(' at ')[1];
+      if (part && part.trim()) return part.trim();
+    }
+    return 'North-Eastern Hill Corridor';
+  };
+
   // Handle Verification Action
   const handleUpdateStatus = async (incidentId, newStatus) => {
+    const note = actionNotes[incidentId] || `Field verified by Officer ${user?.full_name || 'Praveena'}`;
     try {
-      const note = actionNotes[incidentId] || `Field verification by Officer ${user?.full_name || 'Unit'}`;
       await api.updateIncidentStatus(incidentId, newStatus, note);
-      setActionSuccess(`Incident #${incidentId} marked as ${newStatus}`);
+      setActionSuccess(`✓ Incident #${incidentId} successfully marked as ${newStatus}`);
+      setIncidents(prev => prev.map(inc => inc.id === incidentId ? { ...inc, status: newStatus, officer_notes: note } : inc));
       fetchDashboardData();
-      setTimeout(() => setActionSuccess(''), 4000);
+      setTimeout(() => setActionSuccess(''), 5000);
     } catch (err) {
       // Optimistic update
-      setIncidents(prev => prev.map(inc => inc.id === incidentId ? { ...inc, status: newStatus } : inc));
-      setActionSuccess(`Status updated to ${newStatus} (Local State)`);
-      setTimeout(() => setActionSuccess(''), 4000);
+      setIncidents(prev => prev.map(inc => inc.id === incidentId ? { ...inc, status: newStatus, officer_notes: note } : inc));
+      setActionSuccess(`✓ Status updated to ${newStatus} (Offline / Local State)`);
+      setTimeout(() => setActionSuccess(''), 5000);
     }
   };
 
@@ -539,6 +568,18 @@ export default function DashboardPage() {
       {/* 5. FIELD REPORT VERIFICATION & CITIZEN REPORT ACTION CENTER */}
       {/* ========================================================= */}
       <div className="command-card rounded-3xl p-6 border border-white/10 space-y-5">
+        {actionSuccess && (
+          <div className="p-3.5 rounded-2xl bg-emerald-500/20 border border-emerald-500/50 text-emerald-200 text-xs font-bold flex items-center justify-between shadow-lg shadow-emerald-950/40 animate-fade-in">
+            <div className="flex items-center gap-2">
+              <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+              <span>{actionSuccess}</span>
+            </div>
+            <span className="text-[10px] font-mono bg-emerald-900/60 px-2.5 py-1 rounded-lg text-emerald-300 font-bold border border-emerald-500/30">
+              ACTION COMMITTED
+            </span>
+          </div>
+        )}
+
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div>
             <h3 className="text-base font-bold text-white font-heading flex items-center gap-2">
@@ -551,84 +592,154 @@ export default function DashboardPage() {
           </div>
 
           <span className="text-xs font-mono text-[#8E959E]">
-            Pending Review: <strong className="text-amber-400">{defaultIncidents.filter(i => i.status === 'PENDING').length}</strong>
+            Pending Review: <strong className="text-amber-400">{defaultIncidents.filter(i => i.status === 'PENDING' || i.status === 'INVESTIGATING').length}</strong>
           </span>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {defaultIncidents.map((incident) => (
-            <div 
-              key={incident.id} 
-              className={`p-5 rounded-2xl border space-y-3 transition flex flex-col justify-between ${
-                incident.status === 'VERIFIED'
-                  ? 'bg-[#10241A] border-emerald-500/40'
-                  : incident.status === 'REJECTED'
-                  ? 'bg-[#1F1414] border-red-500/20 opacity-70'
-                  : 'bg-[#0D1714] border-white/10 hover:border-white/25'
-              }`}
-            >
-              <div className="space-y-2">
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-bold text-white font-heading">{incident.title}</span>
-                  <span className={`text-[10px] font-mono px-2 py-0.5 rounded-full font-bold ${
-                    incident.severity === 'Critical' ? 'bg-red-500/20 text-red-300' :
-                    incident.severity === 'High' ? 'bg-amber-500/20 text-amber-300' : 'bg-yellow-500/20 text-yellow-300'
-                  }`}>
-                    {incident.severity}
-                  </span>
+          {defaultIncidents.map((incident) => {
+            const locName = getIncidentLocation(incident);
+            const timeStr = formatReportedTime(incident.reported_at);
+            const isVerified = incident.status === 'VERIFIED';
+            const isInvestigating = incident.status === 'INVESTIGATING';
+            const isRejected = incident.status === 'REJECTED';
+
+            return (
+              <div 
+                key={incident.id} 
+                className={`p-5 rounded-2xl border space-y-3 transition flex flex-col justify-between ${
+                  isVerified
+                    ? 'bg-[#10241A] border-emerald-500/40 shadow-lg shadow-emerald-950/30'
+                    : isRejected
+                    ? 'bg-[#1F1414] border-red-500/20 opacity-70'
+                    : isInvestigating
+                    ? 'bg-[#1C180E] border-amber-500/30'
+                    : 'bg-[#0D1714] border-white/10 hover:border-white/25'
+                }`}
+              >
+                <div className="space-y-2.5">
+                  <div className="flex items-start justify-between gap-2">
+                    <span className="text-xs font-bold text-white font-heading leading-snug">{incident.title}</span>
+                    <span className={`text-[10px] font-mono px-2 py-0.5 rounded-full font-bold uppercase shrink-0 ${
+                      incident.severity === 'Critical' || incident.severity === 'Severe' ? 'bg-red-500/20 text-red-300 border border-red-500/30' :
+                      incident.severity === 'High' ? 'bg-amber-500/20 text-amber-300 border border-amber-500/30' : 'bg-yellow-500/20 text-yellow-300 border border-yellow-500/30'
+                    }`}>
+                      {incident.severity}
+                    </span>
+                  </div>
+
+                  <div className="flex items-center gap-1.5 text-xs text-emerald-400 font-semibold">
+                    <MapPin className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                    <span className="truncate">{locName}</span>
+                  </div>
+
+                  <p className="text-xs text-[#CBD1D6] leading-relaxed">
+                    {incident.description}
+                  </p>
+
+                  <div className="flex items-center justify-between text-[10px] text-[#8E959E] font-mono pt-1">
+                    <span>Reported: <strong className="text-white">{timeStr}</strong></span>
+                    <span className={`px-2 py-0.5 rounded font-bold uppercase ${
+                      isVerified ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/40' :
+                      isInvestigating ? 'bg-amber-500/20 text-amber-300 border border-amber-500/40' :
+                      isRejected ? 'bg-red-500/20 text-red-300 border border-red-500/40' :
+                      'bg-blue-500/20 text-blue-300 border border-blue-500/40'
+                    }`}>
+                      {incident.status}
+                    </span>
+                  </div>
+
+                  {/* Verified / Investigating Officer Info Banner */}
+                  {isVerified && (
+                    <div className="p-2.5 rounded-xl bg-emerald-950/40 border border-emerald-500/30 text-xs text-emerald-200 space-y-1.5">
+                      <div className="flex items-center justify-between text-[10px] font-mono">
+                        <span className="flex items-center gap-1 font-bold text-emerald-300">
+                          <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
+                          Verified by Officer {user?.full_name || 'Praveena'}
+                        </span>
+                        <span className="text-emerald-400/80">AUTHENTICATED</span>
+                      </div>
+                      {incident.officer_notes && (
+                        <p className="text-[11px] text-emerald-100/90 italic font-sans bg-black/30 p-2 rounded-lg border border-emerald-500/20">
+                          "{incident.officer_notes}"
+                        </p>
+                      )}
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setDispatchLocationId(1);
+                          window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+                        }}
+                        className="w-full py-1.5 mt-1 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-[11px] transition flex items-center justify-center gap-1 shadow cursor-pointer"
+                      >
+                        <Truck className="w-3.5 h-3.5" />
+                        <span>Dispatch Emergency Response Team</span>
+                      </button>
+                    </div>
+                  )}
+
+                  {isInvestigating && (
+                    <div className="p-2.5 rounded-xl bg-amber-950/40 border border-amber-500/30 text-xs text-amber-200 space-y-1">
+                      <div className="flex items-center justify-between text-[10px] font-mono">
+                        <span className="flex items-center gap-1 font-bold text-amber-300">
+                          <Eye className="w-3.5 h-3.5 text-amber-400" />
+                          Field Inspection In Progress
+                        </span>
+                        <span className="text-amber-400/80">ACTIVE</span>
+                      </div>
+                      {incident.officer_notes && (
+                        <p className="text-[11px] text-amber-100/90 italic font-sans bg-black/30 p-2 rounded-lg border border-amber-500/20">
+                          "{incident.officer_notes}"
+                        </p>
+                      )}
+                    </div>
+                  )}
                 </div>
 
-                <div className="flex items-center gap-2 text-[11px] text-emerald-400">
-                  <MapPin className="w-3.5 h-3.5" />
-                  <span>{incident.location_name}</span>
-                </div>
+                <div className="pt-3 border-t border-white/10 space-y-2">
+                  <input
+                    type="text"
+                    placeholder="Officer verification notes..."
+                    value={actionNotes[incident.id] || ''}
+                    onChange={(e) => setActionNotes({ ...actionNotes, [incident.id]: e.target.value })}
+                    className="w-full px-3 py-1.5 rounded-xl bg-[#121E1A] border border-white/10 text-xs text-white placeholder-[#5E6872] focus:outline-none focus:border-emerald-500"
+                  />
 
-                <p className="text-xs text-[#CBD1D6] leading-relaxed">
-                  {incident.description}
-                </p>
+                  <div className="flex items-center gap-2">
+                    <button
+                      onClick={() => handleUpdateStatus(incident.id, 'VERIFIED')}
+                      className={`flex-1 py-1.5 rounded-xl font-semibold text-xs transition flex items-center justify-center gap-1 cursor-pointer ${
+                        isVerified
+                          ? 'bg-emerald-700/60 text-white border border-emerald-400'
+                          : 'bg-emerald-600 hover:bg-emerald-500 text-white shadow-md'
+                      }`}
+                      title="Verify and confirm incident"
+                    >
+                      <CheckCircle2 className="w-3.5 h-3.5" />
+                      <span>{isVerified ? 'Re-Verify' : 'Verify'}</span>
+                    </button>
 
-                <div className="text-[10px] text-[#8E959E] font-mono">
-                  Reported: {incident.reported_at} &bull; Status: <strong className="text-white">{incident.status}</strong>
+                    <button
+                      onClick={() => handleUpdateStatus(incident.id, 'INVESTIGATING')}
+                      className="flex-1 py-1.5 rounded-xl bg-amber-600/30 hover:bg-amber-600/50 text-amber-300 border border-amber-500/30 font-semibold text-xs transition flex items-center justify-center gap-1 cursor-pointer"
+                      title="Mark as under inspection"
+                    >
+                      <Eye className="w-3.5 h-3.5" />
+                      <span>Inspect</span>
+                    </button>
+
+                    <button
+                      onClick={() => handleUpdateStatus(incident.id, 'REJECTED')}
+                      className="px-2.5 py-1.5 rounded-xl bg-red-950/40 hover:bg-red-900/60 text-red-400 border border-red-500/30 font-semibold text-xs transition flex items-center justify-center cursor-pointer"
+                      title="Reject report / False alarm"
+                    >
+                      <XCircle className="w-3.5 h-3.5" />
+                    </button>
+                  </div>
                 </div>
               </div>
-
-              <div className="pt-3 border-t border-white/10 space-y-2">
-                <input
-                  type="text"
-                  placeholder="Officer verification notes..."
-                  value={actionNotes[incident.id] || ''}
-                  onChange={(e) => setActionNotes({ ...actionNotes, [incident.id]: e.target.value })}
-                  className="w-full px-3 py-1.5 rounded-xl bg-[#121E1A] border border-white/10 text-xs text-white placeholder-[#5E6872] focus:outline-none focus:border-emerald-500"
-                />
-
-                <div className="flex items-center gap-2">
-                  <button
-                    onClick={() => handleUpdateStatus(incident.id, 'VERIFIED')}
-                    className="flex-1 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs transition flex items-center justify-center gap-1"
-                  >
-                    <CheckCircle2 className="w-3.5 h-3.5" />
-                    <span>Verify</span>
-                  </button>
-
-                  <button
-                    onClick={() => handleUpdateStatus(incident.id, 'INVESTIGATING')}
-                    className="flex-1 py-1.5 rounded-xl bg-amber-600/30 hover:bg-amber-600/50 text-amber-300 border border-amber-500/30 font-semibold text-xs transition flex items-center justify-center gap-1"
-                  >
-                    <Eye className="w-3.5 h-3.5" />
-                    <span>Inspect</span>
-                  </button>
-
-                  <button
-                    onClick={() => handleUpdateStatus(incident.id, 'REJECTED')}
-                    className="px-2.5 py-1.5 rounded-xl bg-red-950/40 hover:bg-red-900/60 text-red-400 border border-red-500/30 font-semibold text-xs transition flex items-center justify-center"
-                    title="Reject report"
-                  >
-                    <XCircle className="w-3.5 h-3.5" />
-                  </button>
-                </div>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
 

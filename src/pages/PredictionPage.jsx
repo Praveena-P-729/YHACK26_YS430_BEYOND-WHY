@@ -15,21 +15,21 @@ export default function PredictionPage() {
 
   return (
     <div className="space-y-6">
-      <div>
-        <h1 className="text-2xl font-extrabold text-white font-heading">AI Risk Prediction &amp; SHAP Explainer</h1>
-        <p className="text-xs text-[#8E959E]">Ensemble Machine Learning (Random Forest + XGBoost) failure forecasts</p>
+      <div className="command-card-solid p-6 rounded-3xl border border-slate-300 shadow-xl">
+        <h1 className="text-2xl sm:text-3xl font-black text-slate-950 font-heading tracking-tight">AI Risk Prediction &amp; SHAP Explainer</h1>
+        <p className="text-xs sm:text-sm text-slate-800 font-medium mt-1">Ensemble Machine Learning (Random Forest + XGBoost) failure forecasts across Northeast India</p>
       </div>
 
-      <div className="command-card rounded-3xl p-6 border border-white/10 space-y-5">
+      <div className="command-card-solid rounded-3xl p-6 border border-slate-300 space-y-5 shadow-md">
         <div className="flex items-center justify-between">
-          <h3 className="text-base font-bold text-white font-heading">Multi-Horizon Failure Trajectory</h3>
-          <span className="text-xs font-mono text-[#10B981]">Model: Ensemble-RF-XGB-Physics-v2.1</span>
+          <h3 className="text-base font-extrabold text-slate-950 font-heading">Multi-Horizon Failure Trajectory</h3>
+          <span className="text-xs font-mono font-bold text-emerald-900 bg-emerald-100 px-3 py-1 rounded-full border border-emerald-300">Model: Ensemble-RF-XGB-Physics-v2.1</span>
         </div>
 
         <HorizonTimeline forecasts={forecasts} />
 
-        <div className="pt-4 border-t border-white/5 space-y-4">
-          <h4 className="text-sm font-bold text-white font-heading">Explainable Factor Contributions (SHAP)</h4>
+        <div className="pt-4 border-t border-slate-200 space-y-4">
+          <h4 className="text-sm font-extrabold text-slate-950 font-heading">Explainable Factor Contributions (SHAP)</h4>
           <ExplainableFactorBar
             factors={{
               "Cumulative Rainfall (72h)": 42.5,

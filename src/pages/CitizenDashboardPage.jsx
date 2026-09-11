@@ -184,26 +184,26 @@ export default function CitizenDashboardPage() {
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <span className="font-display font-extrabold text-slate-900 tracking-tight text-lg">LANDSAFE</span>
-                <span className="text-[10px] px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-800 font-mono font-bold uppercase border border-emerald-300">
+                <span className="font-display font-black text-slate-950 tracking-tight text-lg">LANDSAFE</span>
+                <span className="text-[10px] px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-950 font-mono font-black uppercase border border-emerald-300">
                   CITIZEN RESIDENT
                 </span>
               </div>
-              <p className="text-[10px] text-slate-600 font-medium">AI Landslide Hazard Warning &amp; Safe Travel Route Grid</p>
+              <p className="text-[10px] text-slate-700 font-bold">AI Landslide Hazard Warning &amp; Safe Travel Route Grid</p>
             </div>
           </div>
 
           <div className="flex items-center gap-4">
-            <div className="hidden sm:flex items-center gap-2 bg-slate-100 px-3.5 py-1.5 rounded-full border border-slate-200 text-xs">
-              <Radio className="w-3.5 h-3.5 text-emerald-600 animate-pulse" />
-              <span className="text-slate-600 font-medium">Disaster Grid:</span>
-              <span className="text-emerald-700 font-bold font-mono">LIVE (24/7)</span>
+            <div className="hidden sm:flex items-center gap-2 bg-slate-100 px-3.5 py-1.5 rounded-full border border-slate-300 text-xs">
+              <Radio className="w-3.5 h-3.5 text-emerald-700 animate-pulse" />
+              <span className="text-slate-700 font-bold">Disaster Grid:</span>
+              <span className="text-emerald-800 font-black font-mono">LIVE (24/7)</span>
             </div>
 
             <div className="flex items-center gap-3">
               <div className="text-right hidden sm:block">
-                <div className="text-xs font-bold text-slate-900">{user?.full_name || 'Praveena'}</div>
-                <div className="text-[10px] text-emerald-700 font-mono font-bold">Resident Community</div>
+                <div className="text-xs font-black text-slate-950">{user?.full_name || 'Praveena'}</div>
+                <div className="text-[10px] text-emerald-800 font-mono font-black">Resident Community</div>
               </div>
 
               <button
@@ -211,7 +211,7 @@ export default function CitizenDashboardPage() {
                   logout();
                   navigate('/login');
                 }}
-                className="p-2 rounded-xl bg-slate-100 border border-slate-200 text-slate-600 hover:text-red-600 hover:bg-red-50 hover:border-red-300 transition cursor-pointer"
+                className="p-2 rounded-xl bg-slate-100 border border-slate-300 text-slate-700 hover:text-red-700 hover:bg-red-50 hover:border-red-300 transition cursor-pointer"
                 title="Sign Out"
               >
                 <LogOut className="w-4 h-4" />
@@ -222,27 +222,27 @@ export default function CitizenDashboardPage() {
       </header>
 
       <main className="max-w-7xl mx-auto p-4 lg:p-8 space-y-6">
-        <div className="command-card-solid rounded-3xl p-5 border border-slate-200 bg-white/95 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 shadow-xl">
+        <div className="command-card-solid rounded-3xl p-5 border border-slate-300 bg-white/95 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 shadow-xl">
           <div className="space-y-1">
             <div className="flex items-center gap-2">
-              <span className="text-xs font-mono font-bold text-red-600 uppercase tracking-wider flex items-center gap-1.5">
+              <span className="text-xs font-mono font-black text-red-700 uppercase tracking-wider flex items-center gap-1.5">
                 <AlertTriangle className="w-4 h-4 animate-pulse" />
                 <span>CURRENT REGIONAL RISK STATUS</span>
               </span>
-              <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 text-slate-600 font-medium">
+              <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 text-slate-800 font-bold">
                 Last Updated: Just Now
               </span>
             </div>
 
             <div className="flex flex-wrap items-center gap-3 pt-1">
-              <div className="flex items-center gap-1.5 px-3 py-1 rounded-xl bg-red-100 text-red-800 border border-red-300 text-xs font-bold font-mono">
+              <div className="flex items-center gap-1.5 px-3 py-1 rounded-xl bg-red-100 text-red-950 border border-red-300 text-xs font-black font-mono">
                 <span className="w-2 h-2 rounded-full bg-red-600 animate-ping" />
                 <span>3 Critical Zones Nearby</span>
               </div>
-              <div className="flex items-center gap-1.5 px-3 py-1 rounded-xl bg-amber-100 text-amber-800 border border-amber-300 text-xs font-bold font-mono">
+              <div className="flex items-center gap-1.5 px-3 py-1 rounded-xl bg-amber-100 text-amber-950 border border-amber-300 text-xs font-black font-mono">
                 <span>7 High Risk Zones</span>
               </div>
-              <div className="flex items-center gap-1.5 px-3 py-1 rounded-xl bg-emerald-100 text-emerald-800 border border-emerald-300 text-xs font-bold font-mono">
+              <div className="flex items-center gap-1.5 px-3 py-1 rounded-xl bg-emerald-100 text-emerald-950 border border-emerald-300 text-xs font-black font-mono">
                 <span>12 Safe Corridors</span>
               </div>
             </div>
@@ -250,15 +250,15 @@ export default function CitizenDashboardPage() {
 
           <div className="flex items-center gap-2.5 w-full md:w-auto">
             {sosStatus === 'SENT' ? (
-              <div className="px-4 py-2.5 rounded-xl bg-emerald-100 text-emerald-800 border border-emerald-300 text-xs font-bold flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-emerald-700" />
+              <div className="px-4 py-2.5 rounded-xl bg-emerald-100 text-emerald-950 border border-emerald-300 text-xs font-black flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-emerald-800" />
                 <span>SOS Signal Dispatched!</span>
               </div>
             ) : (
               <button
                 onClick={handleSosTrigger}
                 disabled={sosStatus === 'SENDING'}
-                className="px-4 py-2.5 rounded-xl bg-red-600 hover:bg-red-700 text-white text-xs font-bold transition flex items-center justify-center gap-2 shadow-md shadow-red-600/30 cursor-pointer"
+                className="px-4 py-2.5 rounded-xl bg-red-700 hover:bg-red-800 text-white text-xs font-black transition flex items-center justify-center gap-2 shadow-md shadow-red-700/30 cursor-pointer"
               >
                 <Radio className="w-4 h-4 animate-pulse" />
                 <span>1-Click SOS Distress</span>
@@ -267,62 +267,62 @@ export default function CitizenDashboardPage() {
 
             <a
               href="tel:108"
-              className="px-4 py-2.5 rounded-xl bg-emerald-50 hover:bg-emerald-100 border border-emerald-300 text-emerald-800 text-xs font-bold transition flex items-center gap-2 shadow-sm"
+              className="px-4 py-2.5 rounded-xl bg-emerald-100 hover:bg-emerald-200 border border-emerald-300 text-emerald-950 text-xs font-black transition flex items-center gap-2 shadow-sm"
               title="Emergency Ambulance & Disaster Control"
             >
-              <PhoneCall className="w-4 h-4 text-emerald-700" />
+              <PhoneCall className="w-4 h-4 text-emerald-800" />
               <span>Call Emergency 108</span>
             </a>
           </div>
         </div>
 
-        <div className="command-card-solid rounded-3xl p-6 border border-slate-200 space-y-5 relative overflow-hidden shadow-xl">
-          <div className="flex items-center justify-between border-b border-slate-200 pb-3">
+        <div className="command-card-solid rounded-3xl p-6 border border-slate-300 space-y-5 relative overflow-hidden shadow-xl">
+          <div className="flex items-center justify-between border-b border-slate-300 pb-3">
             <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center border border-emerald-300">
+              <div className="w-8 h-8 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center border border-emerald-300">
                 <Route className="w-4 h-4" />
               </div>
               <div>
-                <h3 className="text-base font-bold text-slate-900 font-heading">Interactive Route Landslide Risk Checker</h3>
-                <p className="text-xs text-slate-600 font-medium">Spatial intersection check between your route and AI-predicted hazard zones</p>
+                <h3 className="text-base font-black text-slate-950 font-heading">Interactive Route Landslide Risk Checker</h3>
+                <p className="text-xs text-slate-700 font-bold">Spatial intersection check between your route and AI-predicted hazard zones</p>
               </div>
             </div>
-            <span className="text-[10px] font-mono text-emerald-800 uppercase px-2.5 py-1 rounded-full bg-emerald-100 border border-emerald-300 font-bold">
+            <span className="text-[10px] font-mono text-emerald-950 uppercase px-2.5 py-1 rounded-full bg-emerald-100 border border-emerald-300 font-black">
               Live AI Navigation
             </span>
           </div>
 
           <form onSubmit={handleRouteCheck} className="grid grid-cols-1 md:grid-cols-12 gap-3.5 items-end">
             <div className="md:col-span-5">
-              <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-700 mb-1">
+              <label className="block text-[11px] font-black uppercase tracking-wider text-slate-800 mb-1">
                 From (Starting Point)
               </label>
               <div className="relative">
-                <MapPin className="w-4 h-4 text-emerald-600 absolute left-3.5 top-3" />
+                <MapPin className="w-4 h-4 text-emerald-700 absolute left-3.5 top-3" />
                 <input
                   type="text"
                   required
                   value={origin}
                   onChange={(e) => setOrigin(e.target.value)}
                   placeholder="e.g. Guwahati or Silchar"
-                  className="w-full pl-10 pr-3 py-2.5 rounded-xl bg-white border border-slate-300 text-xs text-slate-900 focus:outline-none focus:border-emerald-600 focus:ring-2 focus:ring-emerald-500/20 font-medium"
+                  className="w-full pl-10 pr-3 py-2.5 rounded-xl bg-white border border-slate-300 text-xs text-slate-950 font-bold focus:outline-none focus:border-emerald-600 focus:ring-2 focus:ring-emerald-500/20"
                 />
               </div>
             </div>
 
             <div className="md:col-span-5">
-              <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-700 mb-1">
+              <label className="block text-[11px] font-black uppercase tracking-wider text-slate-800 mb-1">
                 To (Destination)
               </label>
               <div className="relative">
-                <Navigation className="w-4 h-4 text-emerald-600 absolute left-3.5 top-3" />
+                <Navigation className="w-4 h-4 text-emerald-700 absolute left-3.5 top-3" />
                 <input
                   type="text"
                   required
                   value={destination}
                   onChange={(e) => setDestination(e.target.value)}
                   placeholder="e.g. Shillong (NH-6) or Noney (NH-37)"
-                  className="w-full pl-10 pr-3 py-2.5 rounded-xl bg-white border border-slate-300 text-xs text-slate-900 focus:outline-none focus:border-emerald-600 focus:ring-2 focus:ring-emerald-500/20 font-medium"
+                  className="w-full pl-10 pr-3 py-2.5 rounded-xl bg-white border border-slate-300 text-xs text-slate-950 font-bold focus:outline-none focus:border-emerald-600 focus:ring-2 focus:ring-emerald-500/20"
                 />
               </div>
             </div>
@@ -331,7 +331,7 @@ export default function CitizenDashboardPage() {
               <button
                 type="submit"
                 disabled={routeLoading}
-                className="w-full py-2.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs transition shadow-md shadow-emerald-600/30 flex items-center justify-center gap-1.5 cursor-pointer disabled:opacity-60"
+                className="w-full py-2.5 px-4 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white font-black text-xs transition shadow-md shadow-emerald-700/30 flex items-center justify-center gap-1.5 cursor-pointer disabled:opacity-60"
               >
                 {routeLoading ? (
                   <div className="w-4 h-4 border-2 border-white/40 border-t-white rounded-full animate-spin" />
@@ -345,86 +345,86 @@ export default function CitizenDashboardPage() {
             </div>
           </form>
 
-          <div className="flex items-center gap-2 pt-1 text-[11px] text-slate-600 flex-wrap font-medium">
+          <div className="flex items-center gap-2 pt-1 text-[11px] text-slate-700 flex-wrap font-bold">
             <span>Try sample routes:</span>
             <button
               type="button"
               onClick={() => { setOrigin('Guwahati ISBT'); setDestination('Shillong Peak (NH-6)'); }}
-              className="px-2.5 py-1 rounded-lg bg-slate-100 border border-slate-200 text-slate-700 hover:text-emerald-700 hover:bg-emerald-50 transition cursor-pointer font-medium"
+              className="px-2.5 py-1 rounded-lg bg-slate-100 border border-slate-300 text-slate-800 hover:text-emerald-800 hover:bg-emerald-50 transition cursor-pointer font-bold"
             >
               Guwahati to Shillong (NH-6)
             </button>
             <button
               type="button"
               onClick={() => { setOrigin('Silchar Junction'); setDestination('Imphal via Noney (NH-37)'); }}
-              className="px-2.5 py-1 rounded-lg bg-slate-100 border border-slate-200 text-slate-700 hover:text-emerald-700 hover:bg-emerald-50 transition cursor-pointer font-medium"
+              className="px-2.5 py-1 rounded-lg bg-slate-100 border border-slate-300 text-slate-800 hover:text-emerald-800 hover:bg-emerald-50 transition cursor-pointer font-bold"
             >
               Silchar to Imphal (NH-37 High Risk)
             </button>
             <button
               type="button"
               onClick={() => { setOrigin('Dimapur Bypass'); setDestination('Kohima Zubza Pass (NH-29)'); }}
-              className="px-2.5 py-1 rounded-lg bg-slate-100 border border-slate-200 text-slate-700 hover:text-emerald-700 hover:bg-emerald-50 transition cursor-pointer font-medium"
+              className="px-2.5 py-1 rounded-lg bg-slate-100 border border-slate-300 text-slate-800 hover:text-emerald-800 hover:bg-emerald-50 transition cursor-pointer font-bold"
             >
               Dimapur to Kohima (NH-29 Pass)
             </button>
           </div>
 
           {routeResult && (
-            <div className="mt-4 p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-4 animate-fade-in shadow-sm">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-200 pb-3">
+            <div className="mt-4 p-5 rounded-2xl bg-white border border-slate-300 space-y-4 animate-fade-in shadow-md">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-300 pb-3">
                 <div className="flex items-center gap-2.5">
-                  <div className={`w-3 h-3 rounded-full ${routeResult.route_status === 'LOW_RISK' ? 'bg-emerald-500' : 'bg-red-500 animate-ping'}`} />
-                  <h4 className="text-sm font-extrabold text-slate-900 font-heading">
+                  <div className={`w-3 h-3 rounded-full ${routeResult.route_status === 'LOW_RISK' ? 'bg-emerald-600' : 'bg-red-600 animate-ping'}`} />
+                  <h4 className="text-sm font-black text-slate-950 font-heading">
                     {routeResult.safety_verdict}
                   </h4>
                 </div>
 
-                <div className="flex items-center gap-4 text-xs font-mono font-semibold">
-                  <span className="text-slate-700 flex items-center gap-1">
-                    <Car className="w-3.5 h-3.5 text-emerald-600" />
+                <div className="flex items-center gap-4 text-xs font-mono font-bold">
+                  <span className="text-slate-800 flex items-center gap-1">
+                    <Car className="w-3.5 h-3.5 text-emerald-700" />
                     <span>Distance: {routeResult.distance_km} km</span>
                   </span>
-                  <span className="text-slate-700 flex items-center gap-1">
-                    <Clock className="w-3.5 h-3.5 text-emerald-600" />
+                  <span className="text-slate-800 flex items-center gap-1">
+                    <Clock className="w-3.5 h-3.5 text-emerald-700" />
                     <span>Est. Time: {routeResult.estimated_time}</span>
                   </span>
                 </div>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <div className="p-3.5 rounded-xl bg-white border border-slate-200 space-y-1 shadow-sm">
-                  <div className="text-[10px] uppercase text-slate-500 font-bold">Direct Hazards Encountered</div>
-                  <div className="text-sm font-bold text-slate-900">
+                <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-300 space-y-1 shadow-sm">
+                  <div className="text-[10px] uppercase text-slate-700 font-black">Direct Hazards Encountered</div>
+                  <div className="text-sm font-black text-slate-950">
                     {routeResult.critical_areas_count > 0 ? (
-                      <span className="text-red-600">{routeResult.critical_areas_count} Critical + {routeResult.high_risk_areas_count} High Risk Zones</span>
+                      <span className="text-red-700">{routeResult.critical_areas_count} Critical + {routeResult.high_risk_areas_count} High Risk Zones</span>
                     ) : (
-                      <span className="text-emerald-700">0 Critical Zones - Clear Passage</span>
+                      <span className="text-emerald-800">0 Critical Zones - Clear Passage</span>
                     )}
                   </div>
-                  <p className="text-[11px] text-slate-600 mt-0.5 font-medium">{routeResult.summary_text}</p>
+                  <p className="text-[11px] text-slate-700 mt-0.5 font-bold">{routeResult.summary_text}</p>
                 </div>
 
                 {routeResult.alternative_route ? (
                   <div className="p-3.5 rounded-xl bg-emerald-50 border border-emerald-300 space-y-1.5 shadow-sm">
                     <div className="flex items-center justify-between">
-                      <span className="text-[10px] uppercase text-emerald-800 font-bold font-mono">Recommended Alternative Route</span>
-                      <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-200 text-emerald-900 font-bold">LOW RISK</span>
+                      <span className="text-[10px] uppercase text-emerald-950 font-black font-mono">Recommended Alternative Route</span>
+                      <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-200 text-emerald-950 font-black">LOW RISK</span>
                     </div>
-                    <div className="text-xs font-bold text-slate-900 font-heading">
+                    <div className="text-xs font-black text-slate-950 font-heading">
                       {routeResult.alternative_route.name}
                     </div>
-                    <p className="text-[11px] text-slate-700 leading-relaxed font-medium">
+                    <p className="text-[11px] text-slate-800 leading-relaxed font-bold">
                       {routeResult.alternative_route.safety_note}
                     </p>
-                    <div className="text-[10px] font-mono text-emerald-700 font-bold">
+                    <div className="text-[10px] font-mono text-emerald-800 font-black">
                       {routeResult.alternative_route.distance_km} km &bull; {routeResult.alternative_route.estimated_time}
                     </div>
                   </div>
                 ) : (
                   <div className="p-3.5 rounded-xl bg-emerald-50 border border-emerald-300 flex items-center gap-3 shadow-sm">
-                    <CheckCircle2 className="w-6 h-6 text-emerald-600 flex-shrink-0" />
-                    <div className="text-xs text-slate-700 font-medium">
+                    <CheckCircle2 className="w-6 h-6 text-emerald-700 flex-shrink-0" />
+                    <div className="text-xs text-slate-800 font-bold">
                       Road conditions stable. Maintain standard mountain driving precautions and check rain radar.
                     </div>
                   </div>
@@ -433,17 +433,17 @@ export default function CitizenDashboardPage() {
 
               {routeResult.hazard_locations && routeResult.hazard_locations.length > 0 && (
                 <div className="space-y-2 pt-1">
-                  <div className="text-[11px] font-bold uppercase tracking-wider text-red-700">
+                  <div className="text-[11px] font-black uppercase tracking-wider text-red-800">
                     Specific Critical Hazard Points on Selected Route:
                   </div>
                   <div className="space-y-1.5">
                     {routeResult.hazard_locations.map((hz, idx) => (
                       <div key={idx} className="p-2.5 rounded-xl bg-red-50 border border-red-300 flex items-start justify-between text-xs gap-2 shadow-sm">
                         <div>
-                          <span className="font-bold text-slate-900">{hz.name} ({hz.region})</span>
-                          <p className="text-[11px] text-slate-600 mt-0.5 font-medium">{hz.hazard_cause}</p>
+                          <span className="font-black text-slate-950">{hz.name} ({hz.region})</span>
+                          <p className="text-[11px] text-slate-700 mt-0.5 font-bold">{hz.hazard_cause}</p>
                         </div>
-                        <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-red-100 text-red-800 border border-red-300 font-bold uppercase flex-shrink-0">
+                        <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-red-100 text-red-950 border border-red-300 font-black uppercase flex-shrink-0">
                           {hz.risk_level} ({hz.risk_score})
                         </span>
                       </div>
@@ -456,33 +456,33 @@ export default function CitizenDashboardPage() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-          <div className="lg:col-span-8 command-card-solid rounded-3xl p-6 border border-slate-200 space-y-4 shadow-xl">
+          <div className="lg:col-span-8 command-card-solid rounded-3xl p-6 border border-slate-300 space-y-4 shadow-xl">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
               <div>
-                <h3 className="text-base font-bold text-slate-900 font-heading flex items-center gap-2">
-                  <Compass className="w-4 h-4 text-emerald-600" />
+                <h3 className="text-base font-black text-slate-950 font-heading flex items-center gap-2">
+                  <Compass className="w-4 h-4 text-emerald-700" />
                   <span>Live Landslide GIS Risk Map (AI ML Connected)</span>
                 </h3>
-                <p className="text-xs text-slate-600 font-medium">Dynamic spatial zones driven by ML probability &amp; sensor saturation</p>
+                <p className="text-xs text-slate-700 font-bold">Dynamic spatial zones driven by ML probability &amp; sensor saturation</p>
               </div>
 
-              <div className="flex items-center gap-2 text-[10px] font-mono font-bold">
-                <span className="flex items-center gap-1 text-emerald-700"><span className="w-2 h-2 rounded-full bg-emerald-500" /> Low</span>
-                <span className="flex items-center gap-1 text-amber-700"><span className="w-2 h-2 rounded-full bg-amber-500" /> Med</span>
-                <span className="flex items-center gap-1 text-orange-700"><span className="w-2 h-2 rounded-full bg-orange-500" /> High</span>
-                <span className="flex items-center gap-1 text-red-700"><span className="w-2 h-2 rounded-full bg-red-500" /> Crit</span>
+              <div className="flex items-center gap-2 text-[10px] font-mono font-black">
+                <span className="flex items-center gap-1 text-emerald-800"><span className="w-2 h-2 rounded-full bg-emerald-600" /> Low</span>
+                <span className="flex items-center gap-1 text-amber-800"><span className="w-2 h-2 rounded-full bg-amber-600" /> Med</span>
+                <span className="flex items-center gap-1 text-orange-800"><span className="w-2 h-2 rounded-full bg-orange-600" /> High</span>
+                <span className="flex items-center gap-1 text-red-800"><span className="w-2 h-2 rounded-full bg-red-600" /> Crit</span>
               </div>
             </div>
 
-            <div className="flex items-center gap-2 flex-wrap text-xs font-semibold">
-              <span className="text-[10px] font-mono uppercase text-slate-500 font-bold flex items-center gap-1">
-                <Layers className="w-3 h-3 text-emerald-600" /> Layers:
+            <div className="flex items-center gap-2 flex-wrap text-xs font-bold">
+              <span className="text-[10px] font-mono uppercase text-slate-700 font-black flex items-center gap-1">
+                <Layers className="w-3 h-3 text-emerald-700" /> Layers:
               </span>
               <button
                 type="button"
                 onClick={() => setLayerRiskZones(!layerRiskZones)}
-                className={`px-2.5 py-1 rounded-lg border text-[11px] font-bold transition cursor-pointer ${
-                  layerRiskZones ? 'bg-emerald-100 border-emerald-400 text-emerald-900 shadow-sm' : 'bg-slate-100 border-slate-200 text-slate-600'
+                className={`px-2.5 py-1 rounded-lg border text-[11px] font-black transition cursor-pointer ${
+                  layerRiskZones ? 'bg-emerald-100 border-emerald-400 text-emerald-950 shadow-sm' : 'bg-slate-100 border-slate-300 text-slate-700'
                 }`}
               >
                 Risk Zones
@@ -490,8 +490,8 @@ export default function CitizenDashboardPage() {
               <button
                 type="button"
                 onClick={() => setLayerRoads(!layerRoads)}
-                className={`px-2.5 py-1 rounded-lg border text-[11px] font-bold transition cursor-pointer ${
-                  layerRoads ? 'bg-emerald-100 border-emerald-400 text-emerald-900 shadow-sm' : 'bg-slate-100 border-slate-200 text-slate-600'
+                className={`px-2.5 py-1 rounded-lg border text-[11px] font-black transition cursor-pointer ${
+                  layerRoads ? 'bg-emerald-100 border-emerald-400 text-emerald-950 shadow-sm' : 'bg-slate-100 border-slate-300 text-slate-700'
                 }`}
               >
                 Roads &amp; Passes
@@ -499,8 +499,8 @@ export default function CitizenDashboardPage() {
               <button
                 type="button"
                 onClick={() => setLayerVillages(!layerVillages)}
-                className={`px-2.5 py-1 rounded-lg border text-[11px] font-bold transition cursor-pointer ${
-                  layerVillages ? 'bg-emerald-100 border-emerald-400 text-emerald-900 shadow-sm' : 'bg-slate-100 border-slate-200 text-slate-600'
+                className={`px-2.5 py-1 rounded-lg border text-[11px] font-black transition cursor-pointer ${
+                  layerVillages ? 'bg-emerald-100 border-emerald-400 text-emerald-950 shadow-sm' : 'bg-slate-100 border-slate-300 text-slate-700'
                 }`}
               >
                 Villages
@@ -508,8 +508,8 @@ export default function CitizenDashboardPage() {
               <button
                 type="button"
                 onClick={() => setLayerRivers(!layerRivers)}
-                className={`px-2.5 py-1 rounded-lg border text-[11px] font-bold transition cursor-pointer ${
-                  layerRivers ? 'bg-emerald-100 border-emerald-400 text-emerald-900 shadow-sm' : 'bg-slate-100 border-slate-200 text-slate-600'
+                className={`px-2.5 py-1 rounded-lg border text-[11px] font-black transition cursor-pointer ${
+                  layerRivers ? 'bg-emerald-100 border-emerald-400 text-emerald-950 shadow-sm' : 'bg-slate-100 border-slate-300 text-slate-700'
                 }`}
               >
                 Streams / Rivers
@@ -517,15 +517,15 @@ export default function CitizenDashboardPage() {
               <button
                 type="button"
                 onClick={() => setLayerIncidents(!layerIncidents)}
-                className={`px-2.5 py-1 rounded-lg border text-[11px] font-bold transition cursor-pointer ${
-                  layerIncidents ? 'bg-emerald-100 border-emerald-400 text-emerald-900 shadow-sm' : 'bg-slate-100 border-slate-200 text-slate-600'
+                className={`px-2.5 py-1 rounded-lg border text-[11px] font-black transition cursor-pointer ${
+                  layerIncidents ? 'bg-emerald-100 border-emerald-400 text-emerald-950 shadow-sm' : 'bg-slate-100 border-slate-300 text-slate-700'
                 }`}
               >
                 Incidents
               </button>
             </div>
 
-            <div className="w-full rounded-2xl overflow-hidden border border-slate-200 shadow-md">
+            <div className="w-full rounded-2xl overflow-hidden border border-slate-300 shadow-md">
               <RiskMap isOnline={navigator.onLine} />
             </div>
 
@@ -536,32 +536,32 @@ export default function CitizenDashboardPage() {
                   onClick={() => setSelectedZone(zone)}
                   className={`p-2.5 rounded-xl text-left border transition cursor-pointer shadow-sm ${
                     selectedZone?.id === zone.id
-                      ? 'bg-emerald-50 border-emerald-400 text-emerald-950 ring-2 ring-emerald-400/30'
-                      : 'bg-white border-slate-200 text-slate-800 hover:bg-slate-50'
+                      ? 'bg-emerald-50 border-emerald-500 text-emerald-950 ring-2 ring-emerald-500/30'
+                      : 'bg-white border-slate-300 text-slate-900 hover:bg-slate-50'
                   }`}
                 >
                   <div className="flex items-center justify-between">
-                    <span className="text-xs font-bold font-heading truncate">{zone.name}</span>
-                    <span className={`w-2 h-2 rounded-full ${zone.level === 'Critical' ? 'bg-red-500 animate-pulse' : zone.level === 'High' ? 'bg-orange-500' : 'bg-emerald-500'}`} />
+                    <span className="text-xs font-black font-heading truncate">{zone.name}</span>
+                    <span className={`w-2 h-2 rounded-full ${zone.level === 'Critical' ? 'bg-red-600 animate-pulse' : zone.level === 'High' ? 'bg-orange-600' : 'bg-emerald-600'}`} />
                   </div>
-                  <div className="text-[10px] text-slate-500 font-medium">{zone.region}</div>
-                  <div className="mt-1 flex items-center justify-between text-[10px] font-mono font-bold">
-                    <span className="text-emerald-700">{zone.score}%</span>
-                    <span className="uppercase opacity-75">{zone.level}</span>
+                  <div className="text-[10px] text-slate-700 font-bold">{zone.region}</div>
+                  <div className="mt-1 flex items-center justify-between text-[10px] font-mono font-black">
+                    <span className="text-emerald-800">{zone.score}%</span>
+                    <span className="uppercase opacity-90">{zone.level}</span>
                   </div>
                 </button>
               ))}
             </div>
           </div>
 
-          <div className="lg:col-span-4 command-card-solid rounded-3xl p-6 border border-slate-200 space-y-4 shadow-xl">
+          <div className="lg:col-span-4 command-card-solid rounded-3xl p-6 border border-slate-300 space-y-4 shadow-xl">
             <div className="flex items-center justify-between">
-              <span className="text-xs font-mono uppercase text-slate-500 font-bold">Zone Inspector</span>
+              <span className="text-xs font-mono uppercase text-slate-700 font-black">Zone Inspector</span>
               {selectedZone && (
-                <span className={`text-[10px] font-mono px-2.5 py-0.5 rounded-full font-bold uppercase ${
-                  selectedZone.level === 'Critical' ? 'bg-red-100 text-red-800 border border-red-300' :
-                  selectedZone.level === 'High' ? 'bg-orange-100 text-orange-800 border border-orange-300' :
-                  'bg-emerald-100 text-emerald-800 border border-emerald-300'
+                <span className={`text-[10px] font-mono px-2.5 py-0.5 rounded-full font-black uppercase ${
+                  selectedZone.level === 'Critical' ? 'bg-red-100 text-red-950 border border-red-300' :
+                  selectedZone.level === 'High' ? 'bg-orange-100 text-orange-950 border border-orange-300' :
+                  'bg-emerald-100 text-emerald-950 border border-emerald-300'
                 }`}>
                   {selectedZone.level} ({selectedZone.score})
                 </span>
@@ -571,22 +571,22 @@ export default function CitizenDashboardPage() {
             {selectedZone && (
               <div className="space-y-3">
                 <div>
-                  <h4 className="text-base font-bold text-slate-900 font-heading">{selectedZone.name}</h4>
-                  <p className="text-xs text-slate-600 font-medium">{selectedZone.region} Corridor &bull; {selectedZone.lat}, {selectedZone.lon}</p>
+                  <h4 className="text-base font-black text-slate-950 font-heading">{selectedZone.name}</h4>
+                  <p className="text-xs text-slate-700 font-bold">{selectedZone.region} Corridor &bull; {selectedZone.lat}, {selectedZone.lon}</p>
                 </div>
 
-                <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200 space-y-2 text-xs shadow-sm">
+                <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-300 space-y-2 text-xs shadow-sm">
                   <div className="flex justify-between">
-                    <span className="text-slate-500 font-medium">ML Probability:</span>
-                    <span className="text-slate-900 font-bold font-mono">{selectedZone.score}%</span>
+                    <span className="text-slate-700 font-bold">ML Probability:</span>
+                    <span className="text-slate-950 font-black font-mono">{selectedZone.score}%</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-slate-500 font-medium">Nearby Assets:</span>
-                    <span className="text-slate-900 font-mono text-[11px] font-semibold">{selectedZone.nearby}</span>
+                    <span className="text-slate-700 font-bold">Nearby Assets:</span>
+                    <span className="text-slate-950 font-mono text-[11px] font-black">{selectedZone.nearby}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-slate-500 font-medium">Safety Advice:</span>
-                    <span className="text-red-700 font-bold font-mono">
+                    <span className="text-slate-700 font-bold">Safety Advice:</span>
+                    <span className="text-red-800 font-black font-mono">
                       {selectedZone.level === 'Critical' ? 'Evacuate low slope' : 'Caution advised'}
                     </span>
                   </div>
@@ -594,50 +594,50 @@ export default function CitizenDashboardPage() {
               </div>
             )}
 
-            <div className="pt-2 border-t border-slate-200">
+            <div className="pt-2 border-t border-slate-300">
               <button
                 type="button"
                 onClick={() => setReportingOpen(!reportingOpen)}
-                className="w-full py-2.5 px-3 rounded-xl bg-emerald-50 hover:bg-emerald-100 border border-emerald-300 text-xs font-bold text-emerald-800 transition flex items-center justify-center gap-1.5 cursor-pointer shadow-sm"
+                className="w-full py-2.5 px-3 rounded-xl bg-emerald-100 hover:bg-emerald-200 border border-emerald-400 text-xs font-black text-emerald-950 transition flex items-center justify-center gap-1.5 cursor-pointer shadow-sm"
               >
-                <AlertOctagon className="w-4 h-4 text-emerald-700" />
+                <AlertOctagon className="w-4 h-4 text-emerald-800" />
                 <span>{reportingOpen ? 'Close Reporter' : 'Report Slope Crack / Landslide'}</span>
               </button>
 
               {reportingOpen && (
-                <form onSubmit={handleCrackReport} className="mt-3 space-y-2.5 p-3.5 rounded-2xl bg-white border border-slate-200 animate-fade-in shadow-md">
+                <form onSubmit={handleCrackReport} className="mt-3 space-y-2.5 p-3.5 rounded-2xl bg-white border border-slate-300 animate-fade-in shadow-md">
                   {crackSuccess ? (
-                    <div className="p-3 rounded-xl bg-emerald-100 text-emerald-800 text-xs flex items-center gap-2 font-bold">
-                      <CheckCircle2 className="w-4 h-4 flex-shrink-0 text-emerald-700" />
+                    <div className="p-3 rounded-xl bg-emerald-100 text-emerald-950 text-xs flex items-center gap-2 font-black">
+                      <CheckCircle2 className="w-4 h-4 flex-shrink-0 text-emerald-800" />
                       <span>Observation dispatched to Response Team!</span>
                     </div>
                   ) : (
                     <>
                       <div>
-                        <label className="block text-[10px] uppercase font-bold text-slate-700 mb-1">Landmark / Road</label>
+                        <label className="block text-[10px] uppercase font-black text-slate-800 mb-1">Landmark / Road</label>
                         <input
                           type="text"
                           required
                           value={crackLocation}
                           onChange={(e) => setCrackLocation(e.target.value)}
                           placeholder="e.g. Near Shillong NH-6 km 48.5"
-                          className="w-full px-3 py-2 rounded-xl bg-white border border-slate-300 text-xs text-slate-900 focus:outline-none focus:border-emerald-600 font-medium"
+                          className="w-full px-3 py-2 rounded-xl bg-white border border-slate-300 text-xs text-slate-950 font-bold focus:outline-none focus:border-emerald-600"
                         />
                       </div>
                       <div>
-                        <label className="block text-[10px] uppercase font-bold text-slate-700 mb-1">Observation</label>
+                        <label className="block text-[10px] uppercase font-black text-slate-800 mb-1">Observation</label>
                         <textarea
                           rows={2}
                           required
                           value={crackDescription}
                           onChange={(e) => setCrackDescription(e.target.value)}
                           placeholder="e.g. Fresh 2-inch crack across road surface"
-                          className="w-full px-3 py-2 rounded-xl bg-white border border-slate-300 text-xs text-slate-900 focus:outline-none focus:border-emerald-600 font-medium"
+                          className="w-full px-3 py-2 rounded-xl bg-white border border-slate-300 text-xs text-slate-950 font-bold focus:outline-none focus:border-emerald-600"
                         />
                       </div>
                       <button
                         type="submit"
-                        className="w-full py-2 rounded-xl bg-emerald-600 text-white font-bold text-xs hover:bg-emerald-700 transition cursor-pointer flex items-center justify-center gap-1 shadow-sm"
+                        className="w-full py-2 rounded-xl bg-emerald-700 text-white font-black text-xs hover:bg-emerald-800 transition cursor-pointer flex items-center justify-center gap-1 shadow-sm"
                       >
                         <Send className="w-3.5 h-3.5" />
                         <span>Submit Field Report</span>
@@ -650,30 +650,30 @@ export default function CitizenDashboardPage() {
           </div>
         </div>
 
-        <div className="command-card-solid rounded-3xl p-6 border border-slate-200 space-y-4 shadow-xl">
+        <div className="command-card-solid rounded-3xl p-6 border border-slate-300 space-y-4 shadow-xl">
           <div className="flex items-center justify-between">
             <div>
-              <h3 className="text-base font-bold text-slate-900 font-heading">Safe Evacuation Relief Shelters</h3>
-              <p className="text-xs text-slate-600 font-medium">Verified SDMA &amp; NDMA Community Shelters</p>
+              <h3 className="text-base font-black text-slate-950 font-heading">Safe Evacuation Relief Shelters</h3>
+              <p className="text-xs text-slate-700 font-bold">Verified SDMA &amp; NDMA Community Shelters</p>
             </div>
-            <span className="text-xs font-mono text-emerald-800 px-2.5 py-1 rounded-full bg-emerald-100 border border-emerald-300 font-bold">
+            <span className="text-xs font-mono text-emerald-950 px-2.5 py-1 rounded-full bg-emerald-100 border border-emerald-300 font-black">
               {shelters.length} OPEN CAMPS
             </span>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {shelters.map((s) => (
-              <div key={s.id} className="p-4 rounded-2xl bg-white border border-slate-200 space-y-2.5 shadow-sm">
+              <div key={s.id} className="p-4 rounded-2xl bg-white border border-slate-300 space-y-2.5 shadow-sm">
                 <div className="flex items-start justify-between">
-                  <h4 className="text-xs font-bold text-slate-900 font-heading">{s.name}</h4>
-                  <span className="text-[9px] font-mono px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 font-bold uppercase border border-emerald-300">
+                  <h4 className="text-xs font-black text-slate-950 font-heading">{s.name}</h4>
+                  <span className="text-[9px] font-mono px-2 py-0.5 rounded bg-emerald-100 text-emerald-950 font-black uppercase border border-emerald-300">
                     {s.status}
                   </span>
                 </div>
-                <p className="text-[11px] text-slate-600 font-medium">{s.address}</p>
-                <div className="flex items-center justify-between pt-2 border-t border-slate-200 text-xs">
-                  <span className="text-slate-700 font-mono font-bold">Cap: {s.capacity}</span>
-                  <a href={`tel:${s.contact_phone}`} className="text-emerald-700 font-bold hover:underline flex items-center gap-1">
+                <p className="text-[11px] text-slate-700 font-bold">{s.address}</p>
+                <div className="flex items-center justify-between pt-2 border-t border-slate-300 text-xs">
+                  <span className="text-slate-800 font-mono font-black">Cap: {s.capacity}</span>
+                  <a href={`tel:${s.contact_phone}`} className="text-emerald-800 font-black hover:underline flex items-center gap-1">
                     <PhoneCall className="w-3.5 h-3.5" />
                     <span>Contact</span>
                   </a>

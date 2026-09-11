@@ -25,24 +25,24 @@ export default function LocationsPage() {
 
   return (
     <div className="space-y-6">
-      <div>
-        <h1 className="text-2xl font-extrabold text-white font-heading">Monitored Sensor Stations</h1>
-        <p className="text-xs text-[#8E959E]">Geological attributes, slope gradients, and elevation telemetry</p>
+      <div className="command-card-solid p-6 rounded-3xl border border-slate-300 shadow-xl">
+        <h1 className="text-2xl sm:text-3xl font-black text-slate-950 font-heading tracking-tight">Monitored Sensor Stations</h1>
+        <p className="text-xs sm:text-sm text-slate-800 font-medium mt-1">Geological attributes, slope gradients, and elevation telemetry across Northeast India</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {locations.map((loc) => (
-          <div key={loc.id} className="command-card rounded-2xl p-5 border border-white/10 space-y-3">
+          <div key={loc.id} className="command-card-solid rounded-3xl p-5 border border-slate-300 space-y-3 shadow-md">
             <div className="flex items-start justify-between">
               <div>
-                <h3 className="text-sm font-bold text-white font-heading">{loc.name}</h3>
-                <p className="text-xs text-[#8E959E]">{loc.region}, {loc.state}</p>
+                <h3 className="text-sm font-extrabold text-slate-950 font-heading">{loc.name}</h3>
+                <p className="text-xs text-slate-700 font-semibold">{loc.region}, {loc.state}</p>
               </div>
               <RiskBadge level={loc.current_risk_level} score={loc.current_risk_score} />
             </div>
-            <div className="flex items-center gap-4 text-xs text-[#A8ADB2]">
-              <span>Elevation: {loc.elevation}m</span>
-              <span>Slope: {loc.slope_angle}&deg;</span>
+            <div className="flex items-center gap-4 text-xs text-slate-800 font-semibold bg-slate-50 p-2.5 rounded-xl border border-slate-200">
+              <span>Elevation: <strong className="text-slate-950 font-bold">{loc.elevation}m</strong></span>
+              <span>Slope: <strong className="text-slate-950 font-bold">{loc.slope_angle}&deg;</strong></span>
             </div>
           </div>
         ))}

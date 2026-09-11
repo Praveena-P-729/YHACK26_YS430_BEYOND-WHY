@@ -131,27 +131,27 @@ export default function RegisterPage() {
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <span className="text-xl font-display font-bold text-slate-900 tracking-tight">LANDGUARD</span>
-                <span className="text-[10px] px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-800 font-mono font-bold tracking-widest uppercase border border-emerald-300">AI</span>
+                <span className="text-xl font-display font-black text-slate-950 tracking-tight">LANDGUARD</span>
+                <span className="text-[10px] px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-950 font-mono font-black tracking-widest uppercase border border-emerald-300">AI</span>
               </div>
-              <p className="text-[10px] text-slate-600 font-medium">Disaster Intelligence Platform Account Creation</p>
+              <p className="text-[10px] text-slate-700 font-bold">Disaster Intelligence Platform Account Creation</p>
             </div>
           </div>
 
           {/* Form Container */}
-          <div className="command-card-solid rounded-3xl p-6 md:p-8 shadow-2xl relative overflow-hidden border border-slate-200/90">
+          <div className="command-card-solid rounded-3xl p-6 md:p-8 shadow-2xl relative overflow-hidden border border-slate-300">
             <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#10B981] to-transparent" />
 
             <div className="flex items-center justify-between mb-4">
               <div>
-                <h2 className="text-2xl font-bold text-slate-900 font-heading">Create Account</h2>
-                <p className="text-xs text-slate-600 mt-0.5 font-medium">
+                <h2 className="text-2xl font-black text-slate-950 font-heading">Create Account</h2>
+                <p className="text-xs text-slate-700 mt-0.5 font-bold">
                   Join LandGuard early warning network for real-time safety alerts.
                 </p>
               </div>
               <Link 
                 to="/login"
-                className="text-xs font-bold text-emerald-700 hover:underline flex items-center gap-1"
+                className="text-xs font-black text-emerald-800 hover:text-emerald-950 hover:underline flex items-center gap-1"
               >
                 <span>Sign in instead</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -159,51 +159,51 @@ export default function RegisterPage() {
             </div>
 
             {/* Role Switcher Pill Tabs */}
-            <div className="mb-5 p-1 rounded-2xl bg-slate-100/90 border border-slate-200 grid grid-cols-3 gap-1">
+            <div className="mb-5 p-1 rounded-2xl bg-slate-100 border border-slate-300 grid grid-cols-3 gap-1">
               <button
                 type="button"
                 onClick={() => handleRoleSelect('citizen')}
-                className={`py-2 text-xs font-bold rounded-xl transition cursor-pointer flex flex-col items-center ${
+                className={`py-2 text-xs font-black rounded-xl transition cursor-pointer flex flex-col items-center ${
                   formData.role === 'citizen'
-                    ? 'bg-emerald-600 text-white shadow-md shadow-emerald-600/30'
-                    : 'text-slate-600 hover:text-slate-900'
+                    ? 'bg-emerald-700 text-white shadow-md shadow-emerald-700/30'
+                    : 'text-slate-700 hover:text-slate-950'
                 }`}
               >
                 <span>Citizen</span>
-                <span className="text-[9px] opacity-90 font-medium">Resident Safety</span>
+                <span className="text-[9px] opacity-90 font-bold">Resident Safety</span>
               </button>
 
               <button
                 type="button"
                 onClick={() => handleRoleSelect('field_officer')}
-                className={`py-2 text-xs font-bold rounded-xl transition cursor-pointer flex flex-col items-center ${
+                className={`py-2 text-xs font-black rounded-xl transition cursor-pointer flex flex-col items-center ${
                   formData.role === 'field_officer'
-                    ? 'bg-emerald-600 text-white shadow-md shadow-emerald-600/30'
-                    : 'text-slate-600 hover:text-slate-900'
+                    ? 'bg-emerald-700 text-white shadow-md shadow-emerald-700/30'
+                    : 'text-slate-700 hover:text-slate-950'
                 }`}
               >
                 <span>Field Officer</span>
-                <span className="text-[9px] opacity-90 font-medium">Officer Portal</span>
+                <span className="text-[9px] opacity-90 font-bold">Officer Portal</span>
               </button>
 
               <button
                 type="button"
                 onClick={() => handleRoleSelect('admin')}
-                className={`py-2 text-xs font-bold rounded-xl transition cursor-pointer flex flex-col items-center ${
+                className={`py-2 text-xs font-black rounded-xl transition cursor-pointer flex flex-col items-center ${
                   formData.role === 'admin'
-                    ? 'bg-emerald-600 text-white shadow-md shadow-emerald-600/30'
-                    : 'text-slate-600 hover:text-slate-900'
+                    ? 'bg-emerald-700 text-white shadow-md shadow-emerald-700/30'
+                    : 'text-slate-700 hover:text-slate-950'
                 }`}
               >
                 <span>Admin</span>
-                <span className="text-[9px] opacity-90 font-medium">Disaster Mgmt</span>
+                <span className="text-[9px] opacity-90 font-bold">Disaster Mgmt</span>
               </button>
             </div>
 
             {/* Error Banner */}
             {error && (
-              <div className="mb-4 p-3.5 rounded-xl bg-red-50 border border-red-300 text-red-700 text-xs flex items-center gap-2 animate-fade-in font-medium">
-                <AlertCircle className="w-4 h-4 flex-shrink-0 text-red-600" />
+              <div className="mb-4 p-3.5 rounded-xl bg-red-100 border border-red-400 text-red-950 text-xs flex items-center gap-2 animate-fade-in font-bold">
+                <AlertCircle className="w-4 h-4 flex-shrink-0 text-red-700" />
                 <span>{error}</span>
               </div>
             )}
@@ -212,11 +212,11 @@ export default function RegisterPage() {
               {/* Row 1: Full Name & Phone */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                 <div>
-                  <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-700 mb-1">
+                  <label className="block text-[11px] font-black uppercase tracking-wider text-slate-800 mb-1">
                     Full Name *
                   </label>
                   <div className="relative">
-                    <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                    <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-600">
                       <User className="w-4 h-4" />
                     </div>
                     <input
@@ -225,18 +225,18 @@ export default function RegisterPage() {
                       name="full_name"
                       value={formData.full_name}
                       onChange={handleChange}
-                      className="w-full pl-10 pr-3 py-2.5 rounded-xl bg-white border border-slate-300 text-xs text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-emerald-600 focus:ring-2 focus:ring-emerald-500/20 transition font-medium"
+                      className="w-full pl-10 pr-3 py-2.5 rounded-xl bg-white border border-slate-300 text-xs text-slate-950 font-bold placeholder:text-slate-400 focus:outline-none focus:border-emerald-600 focus:ring-2 focus:ring-emerald-500/20 transition"
                       placeholder={formData.role === 'citizen' ? 'Aarav Sharma' : 'Capt. Vikramaditya'}
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-700 mb-1">
+                  <label className="block text-[11px] font-black uppercase tracking-wider text-slate-800 mb-1">
                     Phone Number (SOS SMS)
                   </label>
                   <div className="relative">
-                    <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                    <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-600">
                       <Phone className="w-4 h-4" />
                     </div>
                     <input
@@ -244,7 +244,7 @@ export default function RegisterPage() {
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      className="w-full pl-10 pr-3 py-2.5 rounded-xl bg-white border border-slate-300 text-xs text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-emerald-600 focus:ring-2 focus:ring-emerald-500/20 transition font-medium"
+                      className="w-full pl-10 pr-3 py-2.5 rounded-xl bg-white border border-slate-300 text-xs text-slate-950 font-bold placeholder:text-slate-400 focus:outline-none focus:border-emerald-600 focus:ring-2 focus:ring-emerald-500/20 transition"
                       placeholder="+91 98401 99887"
                     />
                   </div>
@@ -253,11 +253,11 @@ export default function RegisterPage() {
 
               {/* Row 2: Email */}
               <div>
-                <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-700 mb-1">
+                <label className="block text-[11px] font-black uppercase tracking-wider text-slate-800 mb-1">
                   Email Address *
                 </label>
                 <div className="relative">
-                  <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                  <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-600">
                     <Mail className="w-4 h-4" />
                   </div>
                   <input
@@ -266,7 +266,7 @@ export default function RegisterPage() {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full pl-10 pr-3 py-2.5 rounded-xl bg-white border border-slate-300 text-xs text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-emerald-600 focus:ring-2 focus:ring-emerald-500/20 transition font-medium"
+                    className="w-full pl-10 pr-3 py-2.5 rounded-xl bg-white border border-slate-300 text-xs text-slate-950 font-bold placeholder:text-slate-400 focus:outline-none focus:border-emerald-600 focus:ring-2 focus:ring-emerald-500/20 transition"
                     placeholder="name@landguard.ai or yourname@gmail.com"
                   />
                 </div>
@@ -276,11 +276,11 @@ export default function RegisterPage() {
               {formData.role !== 'citizen' && (
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 animate-fade-in">
                   <div>
-                    <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-700 mb-1">
+                    <label className="block text-[11px] font-black uppercase tracking-wider text-slate-800 mb-1">
                       Department / Authority
                     </label>
                     <div className="relative">
-                      <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                      <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-600">
                         <Building className="w-4 h-4" />
                       </div>
                       <input
@@ -288,18 +288,18 @@ export default function RegisterPage() {
                         name="department"
                         value={formData.department}
                         onChange={handleChange}
-                        className="w-full pl-10 pr-3 py-2.5 rounded-xl bg-white border border-slate-300 text-xs text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-emerald-600 font-medium"
+                        className="w-full pl-10 pr-3 py-2.5 rounded-xl bg-white border border-slate-300 text-xs text-slate-950 font-bold placeholder:text-slate-400 focus:outline-none focus:border-emerald-600"
                         placeholder="e.g. State Disaster Authority"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-700 mb-1">
+                    <label className="block text-[11px] font-black uppercase tracking-wider text-slate-800 mb-1">
                       Badge / Agency ID
                     </label>
                     <div className="relative">
-                      <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                      <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-600">
                         <BadgeCheck className="w-4 h-4" />
                       </div>
                       <input
@@ -307,7 +307,7 @@ export default function RegisterPage() {
                         name="badge_number"
                         value={formData.badge_number}
                         onChange={handleChange}
-                        className="w-full pl-10 pr-3 py-2.5 rounded-xl bg-white border border-slate-300 text-xs text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-emerald-600 font-medium"
+                        className="w-full pl-10 pr-3 py-2.5 rounded-xl bg-white border border-slate-300 text-xs text-slate-950 font-bold placeholder:text-slate-400 focus:outline-none focus:border-emerald-600"
                         placeholder="e.g. SDMA-402"
                       />
                     </div>
@@ -318,11 +318,11 @@ export default function RegisterPage() {
               {/* Row 4: Password & Confirm Password with Show/Hide */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                 <div>
-                  <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-700 mb-1">
+                  <label className="block text-[11px] font-black uppercase tracking-wider text-slate-800 mb-1">
                     Password *
                   </label>
                   <div className="relative">
-                    <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                    <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-600">
                       <Lock className="w-4 h-4" />
                     </div>
                     <input
@@ -331,13 +331,13 @@ export default function RegisterPage() {
                       name="password"
                       value={formData.password}
                       onChange={handleChange}
-                      className="w-full pl-10 pr-10 py-2.5 rounded-xl bg-white border border-slate-300 text-xs text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-emerald-600 focus:ring-2 focus:ring-emerald-500/20 transition font-medium"
+                      className="w-full pl-10 pr-10 py-2.5 rounded-xl bg-white border border-slate-300 text-xs text-slate-950 font-bold placeholder:text-slate-400 focus:outline-none focus:border-emerald-600 focus:ring-2 focus:ring-emerald-500/20 transition"
                       placeholder="••••••••"
                     />
                     <button
                       type="button"
                       onClick={() => setShowPassword(!showPassword)}
-                      className="absolute inset-y-0 right-0 pr-3 flex items-center text-slate-400 hover:text-slate-700 transition cursor-pointer"
+                      className="absolute inset-y-0 right-0 pr-3 flex items-center text-slate-600 hover:text-slate-950 transition cursor-pointer"
                     >
                       {showPassword ? <EyeOff className="w-3.5 h-3.5" /> : <Eye className="w-3.5 h-3.5" />}
                     </button>
@@ -345,11 +345,11 @@ export default function RegisterPage() {
                 </div>
 
                 <div>
-                  <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-700 mb-1">
+                  <label className="block text-[11px] font-black uppercase tracking-wider text-slate-800 mb-1">
                     Confirm Password *
                   </label>
                   <div className="relative">
-                    <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                    <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-600">
                       <Lock className="w-4 h-4" />
                     </div>
                     <input
@@ -358,13 +358,13 @@ export default function RegisterPage() {
                       name="confirmPassword"
                       value={formData.confirmPassword}
                       onChange={handleChange}
-                      className="w-full pl-10 pr-10 py-2.5 rounded-xl bg-white border border-slate-300 text-xs text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-emerald-600 focus:ring-2 focus:ring-emerald-500/20 transition font-medium"
+                      className="w-full pl-10 pr-10 py-2.5 rounded-xl bg-white border border-slate-300 text-xs text-slate-950 font-bold placeholder:text-slate-400 focus:outline-none focus:border-emerald-600 focus:ring-2 focus:ring-emerald-500/20 transition"
                       placeholder="••••••••"
                     />
                     <button
                       type="button"
                       onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                      className="absolute inset-y-0 right-0 pr-3 flex items-center text-slate-400 hover:text-slate-700 transition cursor-pointer"
+                      className="absolute inset-y-0 right-0 pr-3 flex items-center text-slate-600 hover:text-slate-950 transition cursor-pointer"
                     >
                       {showConfirmPassword ? <EyeOff className="w-3.5 h-3.5" /> : <Eye className="w-3.5 h-3.5" />}
                     </button>
@@ -376,10 +376,10 @@ export default function RegisterPage() {
               {formData.password && (
                 <div className="space-y-1 pt-1 animate-fade-in">
                   <div className="flex items-center justify-between text-[10px]">
-                    <span className="text-slate-500 font-medium">Security Strength:</span>
-                    <span className="font-bold text-slate-900 font-mono">{strength.label}</span>
+                    <span className="text-slate-700 font-bold">Security Strength:</span>
+                    <span className="font-black text-slate-950 font-mono">{strength.label}</span>
                   </div>
-                  <div className="w-full h-1.5 bg-slate-200 rounded-full overflow-hidden">
+                  <div className="w-full h-1.5 bg-slate-300 rounded-full overflow-hidden">
                     <div 
                       className={`h-full ${strength.color} transition-all duration-300 rounded-full`}
                       style={{ width: strength.width }}
@@ -390,12 +390,12 @@ export default function RegisterPage() {
 
               {/* Terms Checkbox */}
               <div className="pt-2">
-                <label className="flex items-start gap-2 cursor-pointer select-none text-xs text-slate-600 font-medium">
+                <label className="flex items-start gap-2 cursor-pointer select-none text-xs text-slate-800 font-bold">
                   <input
                     type="checkbox"
                     required
                     defaultChecked
-                    className="w-4 h-4 mt-0.5 rounded bg-white border-slate-300 accent-emerald-600 cursor-pointer flex-shrink-0"
+                    className="w-4 h-4 mt-0.5 rounded bg-white border-slate-400 accent-emerald-700 cursor-pointer flex-shrink-0"
                   />
                   <span>
                     I agree to receive regional landslide early warning broadcasts and adhere to emergency safety protocols.
@@ -407,7 +407,7 @@ export default function RegisterPage() {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full mt-2 py-3.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 active:scale-[0.99] text-white font-bold text-sm transition-all duration-200 shadow-md shadow-emerald-600/30 emerald-btn-glow flex items-center justify-center gap-2 cursor-pointer disabled:opacity-60"
+                className="w-full mt-2 py-3.5 px-4 rounded-xl bg-emerald-700 hover:bg-emerald-800 active:scale-[0.99] text-white font-black text-sm transition-all duration-200 shadow-md shadow-emerald-700/30 flex items-center justify-center gap-2 cursor-pointer disabled:opacity-60"
               >
                 {loading ? (
                   <div className="flex items-center gap-2">
@@ -423,9 +423,9 @@ export default function RegisterPage() {
               </button>
             </form>
 
-            <div className="mt-5 pt-4 border-t border-slate-200 text-center text-xs text-slate-600 font-medium">
+            <div className="mt-5 pt-4 border-t border-slate-300 text-center text-xs text-slate-800 font-bold">
               <span>Already registered on LandGuard? </span>
-              <Link to="/login" className="text-emerald-700 font-bold hover:underline">
+              <Link to="/login" className="text-emerald-800 font-black hover:underline">
                 Sign in to your account
               </Link>
             </div>
@@ -433,57 +433,57 @@ export default function RegisterPage() {
         </div>
 
         {/* Right Side: Educational & Features Info */}
-        <div className="hidden lg:flex flex-col justify-between lg:col-span-5 h-[640px] rounded-3xl command-card-solid border border-slate-200/90 p-7 shadow-2xl relative overflow-hidden backdrop-blur-2xl">
+        <div className="hidden lg:flex flex-col justify-between lg:col-span-5 h-[640px] rounded-3xl command-card-solid border border-slate-300 p-7 shadow-2xl relative overflow-hidden backdrop-blur-2xl">
           <div className="relative z-10">
-            <span className="text-[11px] font-mono px-3 py-1 rounded-full bg-emerald-50 border border-emerald-300 text-emerald-800 font-bold shadow-sm">
+            <span className="text-[11px] font-mono px-3 py-1 rounded-full bg-emerald-100 border border-emerald-300 text-emerald-950 font-black shadow-sm">
               COMMUNITY RESILIENCE NETWORK
             </span>
-            <h3 className="text-xl font-bold text-slate-900 font-heading mt-4">
+            <h3 className="text-xl font-black text-slate-950 font-heading mt-4">
               Why Register with LandGuard AI?
             </h3>
           </div>
 
           <div className="space-y-4 relative z-10 my-auto">
-            <div className="p-4 rounded-2xl bg-white/90 border border-slate-200 flex gap-3.5 items-start shadow-sm">
-              <div className="w-8 h-8 rounded-lg bg-emerald-100 flex items-center justify-center flex-shrink-0 text-emerald-700 mt-0.5 border border-emerald-300">
+            <div className="p-4 rounded-2xl bg-white/95 border border-slate-300 flex gap-3.5 items-start shadow-sm">
+              <div className="w-8 h-8 rounded-lg bg-emerald-100 flex items-center justify-center flex-shrink-0 text-emerald-800 mt-0.5 border border-emerald-300">
                 <CheckCircle2 className="w-4 h-4" />
               </div>
               <div>
-                <h4 className="text-xs font-bold text-slate-900 font-heading">Localized SMS / Web Warnings</h4>
-                <p className="text-[11px] text-slate-600 mt-0.5 leading-relaxed font-medium">
+                <h4 className="text-xs font-black text-slate-950 font-heading">Localized SMS / Web Warnings</h4>
+                <p className="text-[11px] text-slate-700 mt-0.5 leading-relaxed font-bold">
                   Receive instant alerts when pore pressure and soil moisture exceed critical thresholds in your hill station.
                 </p>
               </div>
             </div>
 
-            <div className="p-4 rounded-2xl bg-white/90 border border-slate-200 flex gap-3.5 items-start shadow-sm">
-              <div className="w-8 h-8 rounded-lg bg-emerald-100 flex items-center justify-center flex-shrink-0 text-emerald-700 mt-0.5 border border-emerald-300">
+            <div className="p-4 rounded-2xl bg-white/95 border border-slate-300 flex gap-3.5 items-start shadow-sm">
+              <div className="w-8 h-8 rounded-lg bg-emerald-100 flex items-center justify-center flex-shrink-0 text-emerald-800 mt-0.5 border border-emerald-300">
                 <ShieldCheck className="w-4 h-4" />
               </div>
               <div>
-                <h4 className="text-xs font-bold text-slate-900 font-heading">1-Click SOS Slope Reporting</h4>
-                <p className="text-[11px] text-slate-600 mt-0.5 leading-relaxed font-medium">
+                <h4 className="text-xs font-black text-slate-950 font-heading">1-Click SOS Slope Reporting</h4>
+                <p className="text-[11px] text-slate-700 mt-0.5 leading-relaxed font-bold">
                   Notice fresh hillside fissures or road subsidence? Report with GPS coordinates directly to NDRF and district responders.
                 </p>
               </div>
             </div>
 
-            <div className="p-4 rounded-2xl bg-white/90 border border-slate-200 flex gap-3.5 items-start shadow-sm">
-              <div className="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center flex-shrink-0 text-blue-700 mt-0.5 border border-blue-300">
+            <div className="p-4 rounded-2xl bg-white/95 border border-slate-300 flex gap-3.5 items-start shadow-sm">
+              <div className="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center flex-shrink-0 text-blue-800 mt-0.5 border border-blue-300">
                 <Mountain className="w-4 h-4" />
               </div>
               <div>
-                <h4 className="text-xs font-bold text-slate-900 font-heading">Verified Safe Relief Shelters</h4>
-                <p className="text-[11px] text-slate-600 mt-0.5 leading-relaxed font-medium">
+                <h4 className="text-xs font-black text-slate-950 font-heading">Verified Safe Relief Shelters</h4>
+                <p className="text-[11px] text-slate-700 mt-0.5 leading-relaxed font-bold">
                   Live occupancy, contact numbers, and turn-by-turn evacuation routes to NDMA-cleared community halls and shelters.
                 </p>
               </div>
             </div>
           </div>
 
-          <div className="flex items-center justify-between text-xs text-slate-600 pt-4 border-t border-slate-200 relative z-10 font-medium">
+          <div className="flex items-center justify-between text-xs text-slate-800 pt-4 border-t border-slate-300 relative z-10 font-bold">
             <span>Free Public Community Service</span>
-            <Link to="/" className="text-emerald-700 font-bold hover:underline">Explore Public Portal &rarr;</Link>
+            <Link to="/" className="text-emerald-800 font-black hover:underline">Explore Public Portal &rarr;</Link>
           </div>
         </div>
       </div>

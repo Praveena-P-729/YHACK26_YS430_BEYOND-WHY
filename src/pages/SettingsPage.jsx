@@ -7,25 +7,25 @@ export default function SettingsPage() {
 
   return (
     <div className="space-y-6">
-      <div>
-        <h1 className="text-2xl font-extrabold text-white font-heading">System &amp; Station Configuration</h1>
-        <p className="text-xs text-[#8E959E]">Authentication credentials, threshold calibration, and broadcast gateways</p>
+      <div className="command-card-solid p-6 rounded-3xl border border-slate-300 shadow-xl">
+        <h1 className="text-2xl sm:text-3xl font-black text-slate-950 font-heading tracking-tight">System &amp; Station Configuration</h1>
+        <p className="text-xs sm:text-sm text-slate-800 font-medium mt-1">Authentication credentials, threshold calibration, and broadcast gateways</p>
       </div>
 
-      <div className="command-card rounded-3xl p-6 border border-white/10 space-y-4">
-        <h3 className="text-sm font-bold text-white font-heading">Active User Profile</h3>
-        <div className="p-4 rounded-2xl bg-[#0D1714] border border-white/5 space-y-2 text-xs">
+      <div className="command-card-solid rounded-3xl p-6 border border-slate-300 space-y-4 shadow-md">
+        <h3 className="text-sm font-extrabold text-slate-950 font-heading">Active User Profile</h3>
+        <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2.5 text-xs">
           <div className="flex justify-between">
-            <span className="text-[#8E959E]">Full Name:</span>
-            <span className="text-white font-semibold">{user?.full_name || 'Officer'}</span>
+            <span className="text-slate-700 font-bold">Full Name:</span>
+            <span className="text-slate-950 font-extrabold">{user?.full_name || 'Praveena'}</span>
           </div>
           <div className="flex justify-between">
-            <span className="text-[#8E959E]">Email:</span>
-            <span className="text-white font-mono">{user?.email || 'officer@landguard.ai'}</span>
+            <span className="text-slate-700 font-bold">Email:</span>
+            <span className="text-slate-950 font-mono font-bold">{user?.email || 'praveena@landguard.ai'}</span>
           </div>
           <div className="flex justify-between">
-            <span className="text-[#8E959E]">Assigned Role:</span>
-            <span className="text-[#10B981] font-bold uppercase font-mono">{user?.role || 'field_officer'}</span>
+            <span className="text-slate-700 font-bold">Assigned Role:</span>
+            <span className="text-emerald-900 font-extrabold uppercase font-mono bg-emerald-100 px-2.5 py-0.5 rounded-full border border-emerald-300">{user?.role || 'field_officer'}</span>
           </div>
         </div>
       </div>

@@ -34,30 +34,30 @@ export default function SimulationModal({ isOpen, onClose }) {
   };
 
   return (
-    <div className="fixed inset-0 z-50 bg-black/75 backdrop-blur-sm flex items-center justify-center p-4">
-      <div className="command-card w-full max-w-lg rounded-3xl p-6 border border-white/15 shadow-2xl relative">
+    <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
+      <div className="command-card-solid w-full max-w-lg rounded-3xl p-6 border border-slate-300 shadow-2xl relative">
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 p-1.5 rounded-xl bg-[#0D1714] text-[#8E959E] hover:text-white transition"
+          className="absolute top-4 right-4 p-1.5 rounded-xl bg-slate-100 text-slate-700 hover:text-slate-950 transition cursor-pointer"
         >
           <X className="w-4 h-4" />
         </button>
 
         <div className="flex items-center gap-2.5 mb-4">
-          <div className="w-8 h-8 rounded-xl bg-[#10B981]/20 text-[#10B981] flex items-center justify-center">
+          <div className="w-8 h-8 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold">
             <Flame className="w-4 h-4" />
           </div>
           <div>
-            <h3 className="text-base font-bold text-white font-heading">Monsoon Stress Simulator</h3>
-            <p className="text-xs text-[#8E959E]">Simulate rainfall cloudburst &amp; pore water surges</p>
+            <h3 className="text-base font-extrabold text-slate-950 font-heading">Monsoon Stress Simulator</h3>
+            <p className="text-xs text-slate-700 font-medium">Simulate rainfall cloudburst &amp; pore water surges</p>
           </div>
         </div>
 
         <div className="space-y-4 py-2">
           <div>
-            <div className="flex justify-between text-xs text-[#CBD1D6] mb-1">
+            <div className="flex justify-between text-xs text-slate-900 font-bold mb-1">
               <span>24h Rainfall Surge:</span>
-              <span className="font-mono text-[#10B981] font-bold">{rainfall} mm</span>
+              <span className="font-mono text-emerald-800 font-extrabold">{rainfall} mm</span>
             </div>
             <input
               type="range"
@@ -65,14 +65,14 @@ export default function SimulationModal({ isOpen, onClose }) {
               max="350"
               value={rainfall}
               onChange={(e) => setRainfall(e.target.value)}
-              className="w-full accent-[#10B981]"
+              className="w-full accent-emerald-600"
             />
           </div>
 
           <div>
-            <div className="flex justify-between text-xs text-[#CBD1D6] mb-1">
+            <div className="flex justify-between text-xs text-slate-900 font-bold mb-1">
               <span>Hydrostatic Pore Water Pressure:</span>
-              <span className="font-mono text-[#10B981] font-bold">{porePressure} kPa</span>
+              <span className="font-mono text-emerald-800 font-extrabold">{porePressure} kPa</span>
             </div>
             <input
               type="range"
@@ -80,14 +80,14 @@ export default function SimulationModal({ isOpen, onClose }) {
               max="60"
               value={porePressure}
               onChange={(e) => setPorePressure(e.target.value)}
-              className="w-full accent-[#10B981]"
+              className="w-full accent-emerald-600"
             />
           </div>
 
           <div>
-            <div className="flex justify-between text-xs text-[#CBD1D6] mb-1">
+            <div className="flex justify-between text-xs text-slate-900 font-bold mb-1">
               <span>Slope Gradient Angle:</span>
-              <span className="font-mono text-[#10B981] font-bold">{slope}&deg;</span>
+              <span className="font-mono text-emerald-800 font-extrabold">{slope}&deg;</span>
             </div>
             <input
               type="range"
@@ -95,14 +95,14 @@ export default function SimulationModal({ isOpen, onClose }) {
               max="60"
               value={slope}
               onChange={(e) => setSlope(e.target.value)}
-              className="w-full accent-[#10B981]"
+              className="w-full accent-emerald-600"
             />
           </div>
 
           <button
             onClick={handleRun}
             disabled={loading}
-            className="w-full py-3 rounded-xl bg-[#10B981] hover:bg-[#059669] text-white font-semibold text-xs transition shadow-lg shadow-[#10B981]/30 flex items-center justify-center gap-2 cursor-pointer disabled:opacity-60"
+            className="w-full py-3 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-xs transition shadow-md shadow-emerald-900/20 flex items-center justify-center gap-2 cursor-pointer disabled:opacity-60"
           >
             {loading ? (
               <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
@@ -115,20 +115,20 @@ export default function SimulationModal({ isOpen, onClose }) {
           </button>
 
           {result && (
-            <div className="p-4 rounded-2xl bg-[#0D1714] border border-white/10 space-y-2 animate-fade-in">
+            <div className="p-4 rounded-2xl bg-slate-50 border border-slate-300 space-y-2 animate-fade-in shadow-sm">
               <div className="flex items-center justify-between">
-                <span className="text-xs text-[#8E959E]">Simulated Risk Level:</span>
-                <span className="text-xs font-mono font-bold px-2 py-0.5 rounded bg-red-500/20 text-red-300 border border-red-500/40 uppercase">
+                <span className="text-xs text-slate-800 font-bold">Simulated Risk Level:</span>
+                <span className="text-xs font-mono font-black px-2 py-0.5 rounded bg-red-100 text-red-900 border border-red-300 uppercase">
                   {result.simulated_risk_level} ({result.simulated_risk_score}/100)
                 </span>
               </div>
               <div className="flex items-center justify-between text-xs">
-                <span className="text-[#8E959E]">Estimated Failure Lead Time:</span>
-                <span className="text-white font-mono font-bold">{result.estimated_lead_time_hours} Hours</span>
+                <span className="text-slate-800 font-semibold">Estimated Failure Lead Time:</span>
+                <span className="text-slate-950 font-mono font-black">{result.estimated_lead_time_hours} Hours</span>
               </div>
               <div className="flex items-center justify-between text-xs">
-                <span className="text-[#8E959E]">Evacuation Recommended:</span>
-                <span className="text-red-400 font-bold font-mono">
+                <span className="text-slate-800 font-semibold">Evacuation Recommended:</span>
+                <span className="text-red-700 font-black font-mono">
                   {result.evacuation_recommended ? 'YES (IMMEDIATE)' : 'NO (WATCH)'}
                 </span>
               </div>

@@ -12,21 +12,21 @@ const mockArchive = [
 export default function HistoricalPage() {
   return (
     <div className="space-y-6">
-      <div>
-        <h1 className="text-2xl font-extrabold text-white font-heading">Historical Landslide Archive</h1>
-        <p className="text-xs text-[#8E959E]">Precipitation threshold records and major disaster event database</p>
+      <div className="command-card-solid p-6 rounded-3xl border border-slate-300 shadow-xl">
+        <h1 className="text-2xl sm:text-3xl font-black text-slate-950 font-heading tracking-tight">Historical Landslide Archive</h1>
+        <p className="text-xs sm:text-sm text-slate-800 font-medium mt-1">Precipitation threshold records and major disaster event database across Northeast India</p>
       </div>
 
       <div className="space-y-3">
         {mockArchive.map((item) => (
-          <div key={item.id} className="command-card rounded-2xl p-5 border border-white/10 flex items-center justify-between gap-4">
+          <div key={item.id} className="command-card-solid rounded-3xl p-5 border border-slate-300 flex items-center justify-between gap-4 shadow-md">
             <div>
-              <h3 className="text-sm font-bold text-white font-heading">{item.event}</h3>
-              <p className="text-xs text-[#8E959E] mt-0.5">Trigger: {item.trigger}</p>
+              <h3 className="text-sm font-extrabold text-slate-950 font-heading">{item.event}</h3>
+              <p className="text-xs text-slate-700 font-medium mt-0.5">Trigger: <strong className="text-slate-900">{item.trigger}</strong></p>
             </div>
             <div className="text-right text-xs">
-              <div className="text-white font-mono">{item.date}</div>
-              <div className="text-[#10B981] font-semibold">{item.state}</div>
+              <div className="text-slate-950 font-mono font-black">{item.date}</div>
+              <div className="text-emerald-900 font-bold bg-emerald-100 px-2.5 py-0.5 rounded-full border border-emerald-300 inline-block mt-1">{item.state}</div>
             </div>
           </div>
         ))}

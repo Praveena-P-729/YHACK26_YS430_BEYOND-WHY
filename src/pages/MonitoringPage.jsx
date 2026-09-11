@@ -40,16 +40,16 @@ export default function MonitoringPage() {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
+      <div className="command-card-solid p-6 rounded-3xl border border-slate-300 shadow-xl flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-extrabold text-white font-heading">Live Sensor Telemetry Array</h1>
-          <p className="text-xs text-[#8E959E]">Direct sensor stream (Rainfall, Pore Pressure, Soil Moisture, InSAR Displacement)</p>
+          <h1 className="text-2xl sm:text-3xl font-black text-slate-950 font-heading tracking-tight">Live Sensor Telemetry Array</h1>
+          <p className="text-xs sm:text-sm text-slate-800 font-medium mt-1">Direct sensor stream (Rainfall, Pore Pressure, Soil Moisture, InSAR Displacement) across Northeast India</p>
         </div>
 
         <button
           onClick={fetchLive}
           disabled={loading}
-          className="px-3.5 py-2 rounded-xl bg-[#121E1A] hover:bg-[#25323C] border border-white/10 text-xs font-semibold text-[#10B981] transition flex items-center gap-2"
+          className="px-4 py-2.5 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-xs font-bold text-white transition flex items-center gap-2 cursor-pointer disabled:opacity-50 shadow-sm"
         >
           <RefreshCw className={`w-3.5 h-3.5 ${loading ? 'animate-spin' : ''}`} />
           <span>Refresh Feeds</span>
@@ -63,37 +63,37 @@ export default function MonitoringPage() {
           };
 
           return (
-            <div key={loc.id} className="command-card rounded-3xl p-6 border border-white/10 space-y-4">
+            <div key={loc.id} className="command-card-solid rounded-3xl p-6 border border-slate-300 space-y-4 shadow-md">
               <div className="flex items-start justify-between">
                 <div>
-                  <h3 className="text-sm font-bold text-white font-heading">{loc.name}</h3>
-                  <p className="text-[11px] text-[#8E959E]">{loc.region}, {loc.state}</p>
+                  <h3 className="text-sm font-extrabold text-slate-950 font-heading">{loc.name}</h3>
+                  <p className="text-[11px] text-slate-700 font-semibold">{loc.region}, {loc.state}</p>
                 </div>
                 <RiskBadge level={loc.current_risk_level} score={loc.current_risk_score} />
               </div>
 
               <div className="grid grid-cols-2 gap-2.5 pt-1">
-                <div className="p-3 rounded-2xl bg-[#0D1714] border border-white/5 space-y-1">
-                  <div className="text-[10px] uppercase text-[#8E959E]">24h Rainfall</div>
-                  <div className="text-base font-bold text-white font-mono">{reading.rainfall_24h} mm</div>
+                <div className="p-3 rounded-2xl bg-slate-50 border border-slate-200 space-y-1">
+                  <div className="text-[10px] uppercase font-bold text-slate-700">24h Rainfall</div>
+                  <div className="text-base font-black text-slate-950 font-mono">{reading.rainfall_24h} mm</div>
                 </div>
-                <div className="p-3 rounded-2xl bg-[#0D1714] border border-white/5 space-y-1">
-                  <div className="text-[10px] uppercase text-[#8E959E]">Pore Pressure</div>
-                  <div className="text-base font-bold text-[#10B981] font-mono">{reading.pore_pressure} kPa</div>
+                <div className="p-3 rounded-2xl bg-slate-50 border border-slate-200 space-y-1">
+                  <div className="text-[10px] uppercase font-bold text-slate-700">Pore Pressure</div>
+                  <div className="text-base font-black text-emerald-800 font-mono">{reading.pore_pressure} kPa</div>
                 </div>
-                <div className="p-3 rounded-2xl bg-[#0D1714] border border-white/5 space-y-1">
-                  <div className="text-[10px] uppercase text-[#8E959E]">Soil Moisture</div>
-                  <div className="text-base font-bold text-blue-400 font-mono">{reading.soil_moisture}%</div>
+                <div className="p-3 rounded-2xl bg-slate-50 border border-slate-200 space-y-1">
+                  <div className="text-[10px] uppercase font-bold text-slate-700">Soil Moisture</div>
+                  <div className="text-base font-black text-blue-800 font-mono">{reading.soil_moisture}%</div>
                 </div>
-                <div className="p-3 rounded-2xl bg-[#0D1714] border border-white/5 space-y-1">
-                  <div className="text-[10px] uppercase text-[#8E959E]">InSAR Shift</div>
-                  <div className="text-base font-bold text-red-400 font-mono">{reading.displacement_rate} mm/d</div>
+                <div className="p-3 rounded-2xl bg-slate-50 border border-slate-200 space-y-1">
+                  <div className="text-[10px] uppercase font-bold text-slate-700">InSAR Shift</div>
+                  <div className="text-base font-black text-red-700 font-mono">{reading.displacement_rate} mm/d</div>
                 </div>
               </div>
 
-              <div className="flex items-center justify-between text-[11px] text-[#8E959E] pt-2 border-t border-white/5">
-                <span>Array Battery: {reading.sensor_battery}%</span>
-                <span className="font-mono text-emerald-400 font-semibold">{reading.sensor_status}</span>
+              <div className="flex items-center justify-between text-[11px] text-slate-700 font-semibold pt-2 border-t border-slate-200">
+                <span>Array Battery: <strong className="text-slate-950 font-bold">{reading.sensor_battery}%</strong></span>
+                <span className="font-mono text-emerald-900 font-extrabold bg-emerald-100 px-2 py-0.5 rounded border border-emerald-300">{reading.sensor_status}</span>
               </div>
             </div>
           );

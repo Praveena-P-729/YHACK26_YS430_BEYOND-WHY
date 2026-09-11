@@ -459,48 +459,48 @@ export default function MapPage() {
   return (
     <div className="space-y-6 pb-12">
       {/* 1. TOP TITLE & SYSTEM STATUS BAR */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-[#121E1A] p-5 rounded-3xl border border-white/10 shadow-2xl">
+      <div className="command-card-solid p-6 rounded-3xl border border-slate-300 shadow-xl flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
           <div className="flex items-center gap-2 mb-1">
-            <span className="px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 font-mono text-[10px] font-bold border border-emerald-500/30">
+            <span className="px-3 py-1 rounded-full bg-emerald-100 text-emerald-900 font-mono text-[10px] font-extrabold border border-emerald-300 shadow-sm">
               GIS RISK MONITORING
             </span>
-            <span className="text-[10px] text-[#8E959E] font-mono">
-              TARGET REGION: <strong className="text-white">North-Eastern Region of India</strong>
+            <span className="text-[11px] text-slate-700 font-mono font-bold">
+              TARGET REGION: <strong className="text-slate-950">North-Eastern Region of India</strong>
             </span>
             {isDemoData && (
-              <span className="px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 font-mono text-[10px] border border-amber-500/30">
+              <span className="px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-900 font-mono text-[10px] font-bold border border-amber-300">
                 Representative Dataset
               </span>
             )}
           </div>
-          <h1 className="text-2xl font-extrabold text-white font-heading">
+          <h1 className="text-2xl sm:text-3xl font-black text-slate-950 font-heading tracking-tight mt-1">
             AI-POWERED LANDSLIDE EARLY WARNING &amp; MONITORING SYSTEM
           </h1>
-          <p className="text-xs text-[#8E959E]">
+          <p className="text-xs sm:text-sm text-slate-800 font-medium mt-1">
             Multi-hazard geospatial intelligence across Arunachal Pradesh, Assam, Manipur, Meghalaya, Mizoram, Nagaland, Sikkim, &amp; Tripura.
           </p>
         </div>
 
         <div className="flex flex-wrap items-center gap-3">
           <div className="text-right hidden sm:block">
-            <div className="text-[10px] text-[#8E959E] font-mono">LAST SYNC</div>
-            <div className="text-xs text-white font-mono font-bold">{lastUpdated}</div>
+            <div className="text-[10px] text-slate-600 font-mono font-bold">LAST SYNC</div>
+            <div className="text-xs text-slate-950 font-mono font-black">{lastUpdated}</div>
           </div>
 
           <button
             onClick={resetView}
-            className="px-3.5 py-2 rounded-xl bg-[#0D1714] border border-white/10 hover:border-emerald-500/40 text-[#CBD1D6] hover:text-white text-xs transition flex items-center gap-1.5"
+            className="px-3.5 py-2.5 rounded-xl bg-white border border-slate-300 hover:border-emerald-600 text-slate-900 font-bold text-xs transition flex items-center gap-1.5 cursor-pointer shadow-sm"
             title="Reset Map to Northeast Region Center [25.5, 93.5]"
           >
-            <Compass className="w-3.5 h-3.5 text-emerald-400" />
+            <Compass className="w-3.5 h-3.5 text-emerald-700" />
             <span>Center NE</span>
           </button>
 
           <button
             onClick={fetchMapData}
             disabled={loading}
-            className="px-3.5 py-2 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-semibold text-xs shadow-lg shadow-emerald-950/40 transition flex items-center gap-2"
+            className="px-4 py-2.5 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-xs shadow-md transition flex items-center gap-2 cursor-pointer disabled:opacity-50"
           >
             <RefreshCw className={`w-3.5 h-3.5 ${loading ? 'animate-spin' : ''}`} />
             <span>Refresh GIS</span>
@@ -510,24 +510,24 @@ export default function MapPage() {
 
       {/* Live WebSocket Real-Time Alert Banner */}
       {liveWsAlert && (
-        <div className="bg-red-950/80 border-2 border-red-500 rounded-2xl p-4 text-white shadow-2xl flex flex-col md:flex-row items-start md:items-center justify-between gap-3 animate-pulse">
+        <div className="bg-red-50 border-2 border-red-400 rounded-2xl p-4 text-red-950 shadow-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-3 animate-pulse">
           <div className="flex items-center gap-3">
-            <AlertOctagon className="w-6 h-6 text-red-400 shrink-0" />
+            <AlertOctagon className="w-6 h-6 text-red-700 shrink-0" />
             <div>
               <div className="flex items-center gap-2">
-                <span className="text-xs font-black bg-red-600 px-2 py-0.5 rounded text-white font-mono uppercase">
+                <span className="text-xs font-black bg-red-600 px-2.5 py-0.5 rounded text-white font-mono uppercase">
                   {liveWsAlert.risk_level || 'CRITICAL'} ALERT
                 </span>
-                <span className="font-bold text-sm text-red-200">
+                <span className="font-extrabold text-sm text-red-950">
                   ⛔ AVOID ROAD: {liveWsAlert.road_id} ({liveWsAlert.state})
                 </span>
               </div>
-              <p className="text-xs text-red-200 mt-0.5">{liveWsAlert.alert_message || liveWsAlert.title}</p>
+              <p className="text-xs text-red-900 font-semibold mt-0.5">{liveWsAlert.alert_message || liveWsAlert.title}</p>
             </div>
           </div>
           <button
             onClick={() => setLiveWsAlert(null)}
-            className="px-3 py-1 bg-red-900/60 hover:bg-red-800 border border-red-400 rounded-lg text-xs font-semibold shrink-0"
+            className="px-3 py-1 bg-white hover:bg-red-100 border border-red-300 rounded-lg text-xs font-bold text-red-900 shrink-0 cursor-pointer shadow-sm"
           >
             Dismiss
           </button>
@@ -535,16 +535,16 @@ export default function MapPage() {
       )}
 
       {/* 2. SEARCH & FILTER CONTROLS */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-3 bg-[#0D1714] p-4 rounded-2xl border border-white/10 text-xs">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-3 bg-white/95 p-4 rounded-3xl border border-slate-300 shadow-md text-xs">
         {/* Search */}
         <div className="lg:col-span-4 relative">
-          <Search className="w-4 h-4 text-[#8E959E] absolute left-3 top-1/2 -translate-y-1/2" />
+          <Search className="w-4 h-4 text-slate-500 absolute left-3 top-1/2 -translate-y-1/2" />
           <input
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Search station, highway (e.g. NH-6, NH-37, Shillong)..."
-            className="w-full bg-[#121E1A] border border-white/10 rounded-xl pl-9 pr-3 py-2 text-white placeholder:text-[#5E666E] focus:outline-none focus:border-emerald-500"
+            className="w-full bg-white border border-slate-300 rounded-xl pl-9 pr-3 py-2 text-slate-950 font-semibold placeholder:text-slate-400 focus:outline-none focus:border-emerald-600"
           />
         </div>
 
@@ -553,7 +553,7 @@ export default function MapPage() {
           <select
             value={stateFilter}
             onChange={(e) => setStateFilter(e.target.value)}
-            className="w-full bg-[#121E1A] border border-white/10 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-emerald-500"
+            className="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-slate-950 font-semibold focus:outline-none focus:border-emerald-600"
           >
             <option value="ALL">All 8 Northeast States</option>
             <option value="Arunachal Pradesh">Arunachal Pradesh</option>
@@ -572,7 +572,7 @@ export default function MapPage() {
           <select
             value={hazardFilter}
             onChange={(e) => setHazardFilter(e.target.value)}
-            className="w-full bg-[#121E1A] border border-white/10 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-emerald-500"
+            className="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-slate-950 font-semibold focus:outline-none focus:border-emerald-600"
           >
             <option value="ALL">All Hazard Layers</option>
             <option value="LANDSLIDE">Landslide Threat Priority</option>
@@ -586,7 +586,7 @@ export default function MapPage() {
           <select
             value={riskFilter}
             onChange={(e) => setRiskFilter(e.target.value)}
-            className="w-full bg-[#121E1A] border border-white/10 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-emerald-500"
+            className="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-slate-950 font-semibold focus:outline-none focus:border-emerald-600"
           >
             <option value="ALL">All Risk Tiers</option>
             <option value="CRITICAL">🔴 Critical (&ge;80%)</option>
@@ -601,72 +601,72 @@ export default function MapPage() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
         
         {/* LEFT: LEAFLET GIS MAP CONTAINER (8 COLS) */}
-        <div className="lg:col-span-8 command-card rounded-3xl p-4 border border-white/10 relative overflow-hidden flex flex-col justify-between shadow-2xl h-[650px]">
+        <div className="lg:col-span-8 command-card-solid rounded-3xl p-4 border border-slate-300 relative overflow-hidden flex flex-col justify-between shadow-2xl h-[650px]">
           
           {/* Top Floating Layer Controls */}
-          <div className="absolute top-6 left-6 right-6 z-[1000] flex flex-wrap items-center justify-between gap-2 bg-[#0D1714]/90 backdrop-blur-md p-3 rounded-2xl border border-white/15 shadow-xl pointer-events-auto">
-            <div className="flex items-center gap-1.5 text-xs text-white font-mono font-bold">
-              <Layers className="w-4 h-4 text-emerald-400" />
+          <div className="absolute top-6 left-6 right-6 z-[1000] flex flex-wrap items-center justify-between gap-2 bg-white/95 backdrop-blur-md p-3 rounded-2xl border border-slate-300 shadow-xl pointer-events-auto">
+            <div className="flex items-center gap-1.5 text-xs text-slate-950 font-mono font-extrabold">
+              <Layers className="w-4 h-4 text-emerald-700" />
               <span>GIS LAYERS:</span>
             </div>
 
-            <div className="flex flex-wrap items-center gap-2 text-[11px]">
-              <label className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-[#121E1A] border border-white/10 text-white cursor-pointer hover:border-emerald-500">
+            <div className="flex flex-wrap items-center gap-2 text-[11px] font-bold">
+              <label className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-100 border border-slate-300 text-slate-900 cursor-pointer hover:border-emerald-600">
                 <input
                   type="checkbox"
                   checked={layers.landslide}
                   onChange={() => toggleLayer('landslide')}
-                  className="accent-red-500"
+                  className="accent-red-600"
                 />
                 <span>Landslide</span>
               </label>
 
-              <label className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-[#121E1A] border border-white/10 text-white cursor-pointer hover:border-emerald-500">
+              <label className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-100 border border-slate-300 text-slate-900 cursor-pointer hover:border-emerald-600">
                 <input
                   type="checkbox"
                   checked={layers.flood}
                   onChange={() => toggleLayer('flood')}
-                  className="accent-blue-500"
+                  className="accent-blue-600"
                 />
                 <span>Flash Flood</span>
               </label>
 
-              <label className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-[#121E1A] border border-white/10 text-white cursor-pointer hover:border-emerald-500">
+              <label className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-100 border border-slate-300 text-slate-900 cursor-pointer hover:border-emerald-600">
                 <input
                   type="checkbox"
                   checked={layers.slope}
                   onChange={() => toggleLayer('slope')}
-                  className="accent-purple-500"
+                  className="accent-purple-600"
                 />
                 <span>Slope FoS</span>
               </label>
 
-              <label className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-[#121E1A] border border-white/10 text-white cursor-pointer hover:border-emerald-500">
+              <label className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-100 border border-slate-300 text-slate-900 cursor-pointer hover:border-emerald-600">
                 <input
                   type="checkbox"
                   checked={layers.rainfall}
                   onChange={() => toggleLayer('rainfall')}
-                  className="accent-cyan-500"
+                  className="accent-teal-600"
                 />
                 <span>Rainfall</span>
               </label>
 
-              <label className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-[#121E1A] border border-white/10 text-white cursor-pointer hover:border-emerald-500">
+              <label className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-100 border border-slate-300 text-slate-900 cursor-pointer hover:border-emerald-600">
                 <input
                   type="checkbox"
                   checked={layers.roads}
                   onChange={() => toggleLayer('roads')}
-                  className="accent-amber-500"
+                  className="accent-amber-600"
                 />
                 <span>Roads (NH)</span>
               </label>
 
-              <label className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-[#121E1A] border border-white/10 text-white cursor-pointer hover:border-emerald-500">
+              <label className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-100 border border-slate-300 text-slate-900 cursor-pointer hover:border-emerald-600">
                 <input
                   type="checkbox"
                   checked={layers.communities}
                   onChange={() => toggleLayer('communities')}
-                  className="accent-emerald-500"
+                  className="accent-emerald-600"
                 />
                 <span>Communities</span>
               </label>
@@ -674,16 +674,15 @@ export default function MapPage() {
           </div>
 
           {/* Real Leaflet Map */}
-          <div className="w-full h-full rounded-2xl overflow-hidden relative z-10 border border-white/10">
+          <div className="w-full h-full rounded-2xl overflow-hidden relative z-10 border border-slate-300">
             <MapContainer
               center={mapCenter}
               zoom={mapZoom}
               scrollWheelZoom={true}
-              style={{ width: '100%', height: '100%', backgroundColor: '#0B1410' }}
+              style={{ width: '100%', height: '100%', backgroundColor: '#F1F5F9' }}
             >
               <MapRecenter center={mapCenter} zoom={mapZoom} />
 
-              {/* CartoDB Dark Matter Basemap for high-contrast command center feel */}
               <TileLayer
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
                 url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
@@ -694,11 +693,11 @@ export default function MapPage() {
                 <Polygon
                   positions={northeastBoundary}
                   pathOptions={{
-                    color: '#10B981',
+                    color: '#059669',
                     weight: 2,
                     dashArray: '6, 6',
                     fillColor: '#10B981',
-                    fillOpacity: 0.04
+                    fillOpacity: 0.06
                   }}
                 />
               )}
@@ -707,7 +706,7 @@ export default function MapPage() {
               {filteredStations.map((st) => {
                 const isCrit = st.landslide_level === 'CRITICAL' || st.landslide_probability >= 80;
                 const isHigh = st.landslide_level === 'HIGH' || (st.landslide_probability >= 60 && st.landslide_probability < 80);
-                const markerColor = isCrit ? '#EF4444' : (isHigh ? '#F59E0B' : '#10B981');
+                const markerColor = isCrit ? '#DC2626' : (isHigh ? '#D97706' : '#059669');
                 const markerIcon = isCrit ? redIcon : (isHigh ? orangeIcon : greenIcon);
 
                 return (
@@ -732,7 +731,7 @@ export default function MapPage() {
                         center={[st.latitude, st.longitude]}
                         radius={20}
                         pathOptions={{
-                          color: '#3B82F6',
+                          color: '#2563EB',
                           fillColor: '#3B82F6',
                           fillOpacity: 0.25,
                           dashArray: '3, 4',
@@ -751,14 +750,14 @@ export default function MapPage() {
                     >
                       {/* Rich Professional Map Popup */}
                       <Popup className="custom-leaflet-popup">
-                        <div className="p-3 text-xs text-gray-900 max-w-[280px] font-sans space-y-2">
-                          <div className="border-b pb-1.5 flex items-center justify-between">
+                        <div className="p-3 text-xs text-slate-950 max-w-[280px] font-sans space-y-2">
+                          <div className="border-b border-slate-200 pb-1.5 flex items-center justify-between">
                             <div>
-                              <h4 className="font-bold text-sm text-gray-900 leading-tight">{st.name}</h4>
-                              <p className="text-[11px] text-gray-600">{st.region}, {st.state}</p>
+                              <h4 className="font-extrabold text-sm text-slate-950 leading-tight">{st.name}</h4>
+                              <p className="text-[11px] text-slate-700 font-semibold">{st.region}, {st.state}</p>
                             </div>
                             <span 
-                              className="px-2 py-0.5 rounded font-mono font-bold text-[10px] text-white"
+                              className="px-2 py-0.5 rounded font-mono font-extrabold text-[10px] text-white"
                               style={{ backgroundColor: markerColor }}
                             >
                               {st.landslide_level}
@@ -767,39 +766,39 @@ export default function MapPage() {
 
                           <div className="grid grid-cols-2 gap-1.5 text-[11px]">
                             <div>
-                              <span className="text-gray-500 block">Probability:</span>
-                              <strong className="text-gray-900 font-mono text-xs">{st.landslide_probability}%</strong>
+                              <span className="text-slate-600 block font-semibold">Probability:</span>
+                              <strong className="text-slate-950 font-mono text-xs font-black">{st.landslide_probability}%</strong>
                             </div>
                             <div>
-                              <span className="text-gray-500 block">24h Rainfall:</span>
-                              <strong className="text-blue-600 font-mono text-xs">{st.rainfall_24h} mm</strong>
+                              <span className="text-slate-600 block font-semibold">24h Rainfall:</span>
+                              <strong className="text-blue-700 font-mono text-xs font-black">{st.rainfall_24h} mm</strong>
                             </div>
                             <div>
-                              <span className="text-gray-500 block">Slope Angle:</span>
-                              <strong className="text-gray-900 font-mono text-xs">{st.slope}&deg;</strong>
+                              <span className="text-slate-600 block font-semibold">Slope Angle:</span>
+                              <strong className="text-slate-950 font-mono text-xs font-black">{st.slope}&deg;</strong>
                             </div>
                             <div>
-                              <span className="text-gray-500 block">Slope Risk:</span>
-                              <strong className="text-purple-700 font-mono text-xs">{st.slope_risk}</strong>
+                              <span className="text-slate-600 block font-semibold">Slope Risk:</span>
+                              <strong className="text-purple-800 font-mono text-xs font-black">{st.slope_risk}</strong>
                             </div>
                           </div>
 
-                          <div className="bg-amber-50 p-2 rounded border border-amber-200 text-[11px] space-y-0.5">
-                            <div className="font-bold text-amber-900">Road Impact: {st.road_impact}</div>
-                            <div className="text-gray-700">{st.nearest_road} ({st.road_distance_m}m)</div>
-                            <div className="text-red-700 font-semibold">{st.road_status}</div>
+                          <div className="bg-amber-50 p-2 rounded-xl border border-amber-300 text-[11px] space-y-0.5">
+                            <div className="font-extrabold text-amber-950">Road Impact: {st.road_impact}</div>
+                            <div className="text-slate-800 font-medium">{st.nearest_road} ({st.road_distance_m}m)</div>
+                            <div className="text-red-700 font-bold">{st.road_status}</div>
                           </div>
 
                           <div className="text-[11px] space-y-0.5">
-                            <div className="text-gray-600">
-                              Exposure: <strong className="text-gray-900">{st.infrastructure_exposure}</strong> | Access: <strong className="text-gray-900">{st.community_access}</strong>
+                            <div className="text-slate-700">
+                              Exposure: <strong className="text-slate-950">{st.infrastructure_exposure}</strong> | Access: <strong className="text-slate-950">{st.community_access}</strong>
                             </div>
-                            <div className="text-gray-500 italic text-[10px]">
+                            <div className="text-slate-600 italic text-[10px]">
                               Bypass: {st.alt_route}
                             </div>
                           </div>
 
-                          <div className="bg-red-50 p-1.5 rounded border border-red-200 text-red-800 text-[10px] font-semibold">
+                          <div className="bg-red-50 p-2 rounded-xl border border-red-300 text-red-950 text-[10px] font-bold">
                             ⚠️ {st.warning}
                           </div>
                         </div>
@@ -812,31 +811,31 @@ export default function MapPage() {
           </div>
 
           {/* Bottom Floating Legend */}
-          <div className="absolute bottom-6 left-6 right-6 z-[1000] flex flex-wrap items-center justify-between gap-3 bg-[#0D1714]/90 backdrop-blur-md p-3 rounded-2xl border border-white/15 text-[11px] text-[#A8ADB2] pointer-events-auto">
+          <div className="absolute bottom-6 left-6 right-6 z-[1000] flex flex-wrap items-center justify-between gap-3 bg-white/95 backdrop-blur-md p-3 rounded-2xl border border-slate-300 text-[11px] text-slate-800 font-bold pointer-events-auto shadow-md">
             <div className="flex items-center gap-4">
-              <span className="font-bold text-white font-mono text-xs">HAZARD LEGEND:</span>
+              <span className="font-black text-slate-950 font-mono text-xs">HAZARD LEGEND:</span>
               <span className="flex items-center gap-1.5">
-                <span className="w-3 h-3 rounded-full bg-red-500 inline-block shadow-sm shadow-red-500"></span>
-                <strong className="text-red-400">Critical (&ge;80%)</strong>
+                <span className="w-3 h-3 rounded-full bg-red-600 inline-block shadow-sm"></span>
+                <strong className="text-red-900">Critical (&ge;80%)</strong>
               </span>
               <span className="flex items-center gap-1.5">
-                <span className="w-3 h-3 rounded-full bg-amber-500 inline-block shadow-sm shadow-amber-500"></span>
-                <strong className="text-amber-400">High (60-79%)</strong>
+                <span className="w-3 h-3 rounded-full bg-amber-500 inline-block shadow-sm"></span>
+                <strong className="text-amber-900">High (60-79%)</strong>
               </span>
               <span className="flex items-center gap-1.5">
-                <span className="w-3 h-3 rounded-full bg-emerald-500 inline-block shadow-sm shadow-emerald-500"></span>
-                <strong className="text-emerald-400">Low (&lt;30%)</strong>
+                <span className="w-3 h-3 rounded-full bg-emerald-600 inline-block shadow-sm"></span>
+                <strong className="text-emerald-900">Low (&lt;30%)</strong>
               </span>
             </div>
 
             <div className="flex items-center gap-3 font-mono text-[10px]">
-              <span className="text-blue-400 flex items-center gap-1">
+              <span className="text-blue-800 flex items-center gap-1 font-bold">
                 <span>🌊</span> Flood Runoff
               </span>
-              <span className="text-purple-400 flex items-center gap-1">
+              <span className="text-purple-800 flex items-center gap-1 font-bold">
                 <span>📐</span> Escarpment FoS
               </span>
-              <span className="text-emerald-400 font-bold">
+              <span className="text-emerald-900 font-black bg-emerald-100 px-2 py-0.5 rounded border border-emerald-300">
                 {filteredStations.length} of {stations.length} Nodes Displayed
               </span>
             </div>
@@ -847,100 +846,100 @@ export default function MapPage() {
         <div className="lg:col-span-4 space-y-4">
           
           {/* Selected Station Telemetry Inspector */}
-          <div className="command-card rounded-3xl p-5 border border-white/10 space-y-4 shadow-xl">
-            <div className="flex items-center justify-between border-b border-white/10 pb-3">
-              <span className="text-xs font-mono uppercase text-[#8E959E] flex items-center gap-1.5">
-                <Eye className="w-3.5 h-3.5 text-emerald-400" />
+          <div className="command-card-solid rounded-3xl p-5 border border-slate-300 space-y-4 shadow-xl">
+            <div className="flex items-center justify-between border-b border-slate-200 pb-3">
+              <span className="text-xs font-mono uppercase text-slate-800 font-extrabold flex items-center gap-1.5">
+                <Eye className="w-3.5 h-3.5 text-emerald-700" />
                 <span>Station Inspector</span>
               </span>
-              <span className={`px-2.5 py-0.5 rounded-full font-mono text-xs font-bold ${
-                selectedStation.landslide_probability >= 80 ? 'bg-red-500/20 text-red-400 border border-red-500/40' :
-                selectedStation.landslide_probability >= 60 ? 'bg-amber-500/20 text-amber-400 border border-amber-500/40' :
-                'bg-emerald-500/20 text-emerald-400 border border-emerald-500/40'
+              <span className={`px-2.5 py-0.5 rounded-full font-mono text-xs font-black ${
+                selectedStation.landslide_probability >= 80 ? 'bg-red-100 text-red-900 border border-red-300' :
+                selectedStation.landslide_probability >= 60 ? 'bg-amber-100 text-amber-900 border border-amber-300' :
+                'bg-emerald-100 text-emerald-900 border border-emerald-300'
               }`}>
                 {selectedStation.landslide_level} ({selectedStation.landslide_probability}%)
               </span>
             </div>
 
             <div>
-              <h3 className="text-lg font-bold text-white font-heading">{selectedStation.name}</h3>
-              <p className="text-xs text-[#8E959E]">{selectedStation.region}, {selectedStation.state}</p>
+              <h3 className="text-lg font-black text-slate-950 font-heading">{selectedStation.name}</h3>
+              <p className="text-xs text-slate-700 font-semibold">{selectedStation.region}, {selectedStation.state}</p>
             </div>
 
             {/* Quick Metrics Grid */}
             <div className="grid grid-cols-2 gap-2.5 text-xs">
-              <div className="p-3 rounded-xl bg-[#0D1714] border border-white/5 space-y-1">
-                <span className="text-[10px] text-[#8E959E] flex items-center gap-1">
-                  <CloudRain className="w-3 h-3 text-blue-400" />
+              <div className="p-3 rounded-2xl bg-slate-50 border border-slate-200 space-y-1">
+                <span className="text-[10px] text-slate-700 font-bold flex items-center gap-1">
+                  <CloudRain className="w-3 h-3 text-blue-700" />
                   <span>24h Rainfall</span>
                 </span>
-                <div className="text-sm font-bold text-white font-mono">{selectedStation.rainfall_24h} mm</div>
-                <div className="text-[10px] text-blue-400 font-mono">1h: {selectedStation.rainfall_1h} mm</div>
+                <div className="text-sm font-black text-slate-950 font-mono">{selectedStation.rainfall_24h} mm</div>
+                <div className="text-[10px] text-blue-800 font-mono font-bold">1h: {selectedStation.rainfall_1h} mm</div>
               </div>
 
-              <div className="p-3 rounded-xl bg-[#0D1714] border border-white/5 space-y-1">
-                <span className="text-[10px] text-[#8E959E] flex items-center gap-1">
-                  <Mountain className="w-3 h-3 text-purple-400" />
+              <div className="p-3 rounded-2xl bg-slate-50 border border-slate-200 space-y-1">
+                <span className="text-[10px] text-slate-700 font-bold flex items-center gap-1">
+                  <Mountain className="w-3 h-3 text-purple-700" />
                   <span>Slope &amp; Lithology</span>
                 </span>
-                <div className="text-sm font-bold text-white font-mono">{selectedStation.slope}&deg; / {selectedStation.elevation}m</div>
-                <div className="text-[10px] text-[#8E959E] truncate">{selectedStation.soil_type}</div>
+                <div className="text-sm font-black text-slate-950 font-mono">{selectedStation.slope}&deg; / {selectedStation.elevation}m</div>
+                <div className="text-[10px] text-slate-800 font-bold truncate">{selectedStation.soil_type}</div>
               </div>
             </div>
 
             {/* Road Network & Impact */}
-            <div className="p-3.5 rounded-2xl bg-[#1A130E] border border-amber-500/30 space-y-2 text-xs">
+            <div className="p-3.5 rounded-2xl bg-amber-50 border border-amber-300 space-y-2 text-xs">
               <div className="flex items-center justify-between">
-                <span className="font-bold text-amber-400 flex items-center gap-1.5 font-mono text-[11px]">
-                  <Navigation className="w-3.5 h-3.5" />
+                <span className="font-extrabold text-amber-950 flex items-center gap-1.5 font-mono text-[11px]">
+                  <Navigation className="w-3.5 h-3.5 text-amber-700" />
                   <span>ROAD IMPACT: {selectedStation.road_impact}</span>
                 </span>
-                <span className="text-[10px] font-mono text-[#CBD1D6]">{selectedStation.road_distance_m}m away</span>
+                <span className="text-[10px] font-mono font-bold text-slate-700">{selectedStation.road_distance_m}m away</span>
               </div>
-              <div className="text-white font-semibold text-xs">{selectedStation.nearest_road}</div>
-              <div className="text-[11px] text-red-400 font-semibold">{selectedStation.road_status}</div>
+              <div className="text-slate-950 font-extrabold text-xs">{selectedStation.nearest_road}</div>
+              <div className="text-[11px] text-red-800 font-bold">{selectedStation.road_status}</div>
             </div>
 
             {/* Infrastructure & Community Access */}
-            <div className="p-3.5 rounded-2xl bg-[#0D1714] border border-white/5 space-y-2 text-xs">
+            <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200 space-y-2 text-xs">
               <div className="flex items-center justify-between">
-                <span className="text-[#8E959E] flex items-center gap-1">
-                  <Building2 className="w-3.5 h-3.5 text-indigo-400" />
+                <span className="text-slate-700 font-semibold flex items-center gap-1">
+                  <Building2 className="w-3.5 h-3.5 text-indigo-700" />
                   <span>Potential Infrastructure Exposure:</span>
                 </span>
-                <span className="text-white font-bold font-mono">{selectedStation.infrastructure_exposure}</span>
+                <span className="text-slate-950 font-black font-mono">{selectedStation.infrastructure_exposure}</span>
               </div>
 
               <div className="flex items-center justify-between">
-                <span className="text-[#8E959E] flex items-center gap-1">
-                  <Home className="w-3.5 h-3.5 text-emerald-400" />
+                <span className="text-slate-700 font-semibold flex items-center gap-1">
+                  <Home className="w-3.5 h-3.5 text-emerald-700" />
                   <span>Community Access:</span>
                 </span>
-                <span className={`font-bold font-mono ${
-                  selectedStation.community_access === 'NORMAL' ? 'text-emerald-400' : 'text-red-400'
+                <span className={`font-black font-mono ${
+                  selectedStation.community_access === 'NORMAL' ? 'text-emerald-800' : 'text-red-700'
                 }`}>
                   {selectedStation.community_access}
                 </span>
               </div>
 
-              <div className="pt-1 border-t border-white/5 text-[10px] text-[#8E959E]">
-                <strong className="text-[#CBD1D6]">Evacuation Bypass:</strong> {selectedStation.alt_route}
+              <div className="pt-1 border-t border-slate-200 text-[10px] text-slate-700 font-medium">
+                <strong className="text-slate-950 font-bold">Evacuation Bypass:</strong> {selectedStation.alt_route}
               </div>
             </div>
 
             {/* Recommended Action / Warning */}
-            <div className="p-3 rounded-2xl bg-red-950/30 border border-red-500/40 text-red-300 text-xs space-y-1">
-              <div className="font-bold flex items-center gap-1.5 font-mono text-[11px]">
-                <AlertTriangle className="w-3.5 h-3.5 text-red-400" />
+            <div className="p-3.5 rounded-2xl bg-red-50 border border-red-300 text-red-950 text-xs space-y-1">
+              <div className="font-extrabold flex items-center gap-1.5 font-mono text-[11px] text-red-900">
+                <AlertTriangle className="w-3.5 h-3.5 text-red-700" />
                 <span>OPERATIONAL ADVISORY</span>
               </div>
-              <p className="text-[11px] text-[#E2E8F0]">{selectedStation.warning}</p>
+              <p className="text-[11px] text-red-950 font-medium">{selectedStation.warning}</p>
             </div>
           </div>
 
           {/* Quick List of High-Risk Nodes */}
-          <div className="command-card rounded-3xl p-4 border border-white/10 space-y-2">
-            <h4 className="text-xs font-bold text-white uppercase tracking-wider font-mono px-1">
+          <div className="command-card-solid rounded-3xl p-4 border border-slate-300 space-y-2 shadow-md">
+            <h4 className="text-xs font-black text-slate-950 uppercase tracking-wider font-mono px-1">
               Northeast Monitored Stations ({filteredStations.length})
             </h4>
 
@@ -951,18 +950,18 @@ export default function MapPage() {
                   onClick={() => selectStationAndPan(st)}
                   className={`w-full p-2.5 rounded-xl text-left border transition cursor-pointer flex items-center justify-between ${
                     selectedStation.id === st.id
-                      ? 'bg-emerald-500/20 border-emerald-500 text-white'
-                      : 'bg-[#0D1714] border-white/5 text-[#CBD1D6] hover:border-white/20'
+                      ? 'bg-emerald-100 border-emerald-500 text-slate-950 shadow-sm'
+                      : 'bg-white border-slate-200 text-slate-900 hover:border-slate-400'
                   }`}
                 >
                   <div className="truncate pr-2">
-                    <div className="text-xs font-bold text-white truncate">{st.name}</div>
-                    <div className="text-[10px] text-[#8E959E]">{st.state}</div>
+                    <div className="text-xs font-extrabold text-slate-950 truncate">{st.name}</div>
+                    <div className="text-[10px] text-slate-700 font-semibold">{st.state}</div>
                   </div>
-                  <span className={`px-2 py-0.5 rounded font-mono text-[10px] font-bold ${
-                    st.landslide_probability >= 80 ? 'bg-red-500/20 text-red-400' :
-                    st.landslide_probability >= 60 ? 'bg-amber-500/20 text-amber-400' :
-                    'bg-emerald-500/20 text-emerald-400'
+                  <span className={`px-2 py-0.5 rounded font-mono text-[10px] font-black ${
+                    st.landslide_probability >= 80 ? 'bg-red-100 text-red-900 border border-red-300' :
+                    st.landslide_probability >= 60 ? 'bg-amber-100 text-amber-900 border border-amber-300' :
+                    'bg-emerald-100 text-emerald-900 border border-emerald-300'
                   }`}>
                     {st.landslide_probability}%
                   </span>

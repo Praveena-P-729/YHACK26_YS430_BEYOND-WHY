@@ -45,7 +45,7 @@ export default function LandingPage() {
               to="/login"
               className="px-4 py-2 rounded-xl bg-[#10B981] hover:bg-[#059669] text-xs font-semibold text-white transition shadow-lg shadow-[#10B981]/30 flex items-center gap-1.5"
             >
-              <span>Sign In / Access Terminal</span>
+              <span>Sign In</span>
               <ChevronRight className="w-4 h-4" />
             </Link>
           </div>
@@ -59,7 +59,7 @@ export default function LandingPage() {
         <div className="max-w-5xl mx-auto text-center space-y-6 relative z-10">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#121E1A] border border-[#10B981]/30 text-xs font-mono text-[#10B981]">
             <Radio className="w-3.5 h-3.5 animate-pulse" />
-            <span>REAL-TIME DISASTER TELEMETRY &bull; 24/7 AI PREDICTION</span>
+            <span>REAL-TIME DISASTER MONITORING &bull; 24/7 AI EARLY WARNING</span>
           </div>
 
           <h1 className="text-4xl sm:text-6xl font-extrabold text-white font-heading tracking-tight leading-tight">
@@ -70,7 +70,7 @@ export default function LandingPage() {
           </h1>
 
           <p className="text-base sm:text-lg text-[#CBD1D6] max-w-2xl mx-auto leading-relaxed">
-            LANDGUARD AI integrates satellite InSAR displacement, pore water sensors, and physics-informed machine learning to protect vulnerable communities across the Western Ghats and Himalayas.
+            LANDGUARD AI integrates satellite radar displacement, weather forecasts, and machine learning to protect Northeast India communities from landslide risks.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
@@ -78,7 +78,7 @@ export default function LandingPage() {
               to="/login"
               className="w-full sm:w-auto px-8 py-4 rounded-2xl bg-[#10B981] hover:bg-[#059669] text-white font-bold text-sm shadow-xl shadow-[#10B981]/30 emerald-btn-glow flex items-center justify-center gap-2 transition"
             >
-              <span>Launch Command Center</span>
+              <span>Open Landslide Dashboard</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
 
@@ -86,7 +86,7 @@ export default function LandingPage() {
               to="/register"
               className="w-full sm:w-auto px-8 py-4 rounded-2xl bg-[#121E1A] hover:bg-[#25323C] border border-white/10 text-white font-semibold text-sm transition flex items-center justify-center gap-2"
             >
-              <span>Create Citizen / Officer Account</span>
+              <span>Create Account</span>
             </Link>
           </div>
         </div>

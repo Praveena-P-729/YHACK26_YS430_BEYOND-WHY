@@ -13,7 +13,7 @@ export default function SettingsPage() {
       </div>
 
       <div className="command-card rounded-3xl p-6 border border-white/10 space-y-4">
-        <h3 className="text-sm font-bold text-white font-heading">Active Terminal Profile</h3>
+        <h3 className="text-sm font-bold text-white font-heading">Active User Profile</h3>
         <div className="p-4 rounded-2xl bg-[#0D1714] border border-white/5 space-y-2 text-xs">
           <div className="flex justify-between">
             <span className="text-[#8E959E]">Full Name:</span>

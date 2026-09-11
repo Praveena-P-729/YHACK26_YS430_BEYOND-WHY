@@ -26,9 +26,9 @@ export default function Navbar({ onOpenSimulation }) {
         <div className="hidden sm:block">
           <div className="flex items-center gap-2">
             <span className="font-display font-bold text-white tracking-tight text-base">LANDGUARD</span>
-            <span className="text-[10px] px-1.5 py-0.5 rounded bg-[#10B981]/20 text-[#10B981] font-mono font-bold tracking-widest uppercase border border-[#10B981]/30">AI COMMAND HUD</span>
+            <span className="text-[10px] px-1.5 py-0.5 rounded bg-[#10B981]/20 text-[#10B981] font-mono font-bold tracking-widest uppercase border border-[#10B981]/30">AI EARLY WARNING</span>
           </div>
-          <p className="text-[10px] text-[#8E959E]">National Disaster Telemetry &bull; GSI &bull; NDMA Synced</p>
+          <p className="text-[10px] text-[#8E959E]">Northeast India Landslide Monitoring &amp; Alert System</p>
         </div>
       </div>
 

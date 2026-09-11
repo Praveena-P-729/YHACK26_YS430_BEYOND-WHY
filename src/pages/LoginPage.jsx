@@ -129,7 +129,7 @@ export default function LoginPage() {
                 }`}
               >
                 <span>Citizen</span>
-                <span className="text-[9px] font-mono opacity-80">Resident Portal</span>
+                <span className="text-[9px] opacity-80">Resident Safety</span>
               </button>
 
               <button
@@ -142,7 +142,7 @@ export default function LoginPage() {
                 }`}
               >
                 <span>Field Officer</span>
-                <span className="text-[9px] font-mono opacity-80">Command HUD</span>
+                <span className="text-[9px] opacity-80">Officer Portal</span>
               </button>
 
               <button
@@ -155,7 +155,7 @@ export default function LoginPage() {
                 }`}
               >
                 <span>Admin</span>
-                <span className="text-[9px] font-mono opacity-80">State NDMA</span>
+                <span className="text-[9px] opacity-80">Disaster Mgmt</span>
               </button>
             </div>
 
@@ -186,7 +186,7 @@ export default function LoginPage() {
                       setIdentifier(e.target.value);
                       if (error) setError('');
                     }}
-                    placeholder="e.g. officer@landguard.ai or +91 94432 98765"
+                    placeholder="e.g. praveena@landguard.ai or +91 94432 98765"
                     className="w-full pl-10 pr-4 py-3 rounded-xl bg-[#0D1714] border border-white/10 text-sm text-[#F5F1EA] placeholder-[#606774] focus:outline-none focus:border-[#10B981] focus:ring-2 focus:ring-[#10B981]/20 transition"
                   />
                 </div>
@@ -243,7 +243,7 @@ export default function LoginPage() {
                     defaultChecked
                     className="w-4 h-4 rounded bg-[#0D1714] border-white/20 accent-[#10B981] cursor-pointer"
                   />
-                  <span className="text-xs text-[#A8ADB2]">Remember terminal session (30 days)</span>
+                  <span className="text-xs text-[#A8ADB2]">Keep me signed in on this device</span>
                 </label>
               </div>
 
@@ -256,11 +256,11 @@ export default function LoginPage() {
                 {loading ? (
                   <div className="flex items-center gap-2">
                     <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                    <span>Verifying Credentials...</span>
+                    <span>Signing In...</span>
                   </div>
                 ) : (
                   <>
-                    <span>🔐 Sign In to {selectedRole === 'citizen' ? 'Resident Safety Portal' : 'Command Center'}</span>
+                    <span>Sign In to {selectedRole === 'citizen' ? 'Citizen Safety Portal' : 'Landslide Dashboard'}</span>
                     <ArrowRight className="w-4 h-4" />
                   </>
                 )}

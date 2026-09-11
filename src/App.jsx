@@ -27,8 +27,8 @@ function ProtectedRoute({ children, allowedRoles }) {
   if (loading) {
     return (
       <div className="min-h-screen bg-[#0A100D] text-white flex items-center justify-center">
-        <div className="text-xs font-mono text-[#10B981] animate-pulse">
-          Authenticating Secure Terminal Session...
+        <div className="text-xs font-medium text-[#10B981] animate-pulse">
+          Loading Landslide Monitoring Dashboard...
         </div>
       </div>
     );

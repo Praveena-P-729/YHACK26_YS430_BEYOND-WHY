@@ -17,3 +17,5 @@ landguard.db
 public_url.txt
 .DS_Store
 *.log
+
+.vercel

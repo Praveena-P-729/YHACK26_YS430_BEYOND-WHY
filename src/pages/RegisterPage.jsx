@@ -183,7 +183,7 @@ export default function RegisterPage() {
                 }`}
               >
                 <span>Citizen</span>
-                <span className="text-[9px] font-mono opacity-80">Resident Portal</span>
+                <span className="text-[9px] opacity-80">Resident Safety</span>
               </button>
 
               <button
@@ -196,7 +196,7 @@ export default function RegisterPage() {
                 }`}
               >
                 <span>Field Officer</span>
-                <span className="text-[9px] font-mono opacity-80">Responder HUD</span>
+                <span className="text-[9px] opacity-80">Officer Portal</span>
               </button>
 
               <button
@@ -209,7 +209,7 @@ export default function RegisterPage() {
                 }`}
               >
                 <span>Admin</span>
-                <span className="text-[9px] font-mono opacity-80">State NDMA</span>
+                <span className="text-[9px] opacity-80">Disaster Mgmt</span>
               </button>
             </div>
 

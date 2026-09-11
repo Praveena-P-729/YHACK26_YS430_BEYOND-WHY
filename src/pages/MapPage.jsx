@@ -463,7 +463,7 @@ export default function MapPage() {
         <div>
           <div className="flex items-center gap-2 mb-1">
             <span className="px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 font-mono text-[10px] font-bold border border-emerald-500/30">
-              GIS COMMAND CENTER
+              GIS RISK MONITORING
             </span>
             <span className="text-[10px] text-[#8E959E] font-mono">
               TARGET REGION: <strong className="text-white">North-Eastern Region of India</strong>

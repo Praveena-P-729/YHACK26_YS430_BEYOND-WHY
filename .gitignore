@@ -1,0 +1,19 @@
+# Node modules
+node_modules/
+dist/
+
+# Python Virtual Environment & Bytecode
+ml/venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Local database & temp
+landguard.db
+public_url.txt
+.DS_Store
+*.log

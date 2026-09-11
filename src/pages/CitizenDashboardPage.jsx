@@ -27,8 +27,8 @@ export default function CitizenDashboardPage() {
   const navigate = useNavigate();
 
   // Route Risk Checker State
-  const [origin, setOrigin] = useState('Ooty Central');
-  const [destination, setDestination] = useState('Coonoor Ghat km 14');
+  const [origin, setOrigin] = useState('Guwahati ISBT');
+  const [destination, setDestination] = useState('Shillong Peak (NH-6)');
   const [routeLoading, setRouteLoading] = useState(false);
   const [routeResult, setRouteResult] = useState(null);
 

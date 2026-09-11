@@ -25,7 +25,7 @@ export default function RegisterPage() {
     password: '',
     confirmPassword: '',
     role: 'citizen', // 'citizen', 'field_officer', 'admin'
-    department: 'Resident Community & Nilgiris Panchayat',
+    department: 'North-Eastern Resident Community & Hill Panchayat',
     badge_number: ''
   });
 

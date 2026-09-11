@@ -105,27 +105,27 @@ export default function DashboardPage() {
   };
 
   const defaultLocations = locations.length > 0 ? locations : [
-    { id: 1, name: "Coonoor Ghat Section (km 14)", region: "Nilgiris", state: "Tamil Nadu", current_risk_score: 84.5, current_risk_level: "Severe", latitude: 11.3530, longitude: 76.7959 },
-    { id: 2, name: "Kotagiri - Mettupalayam Highway (SH-15)", region: "Nilgiris", state: "Tamil Nadu", current_risk_score: 72.0, current_risk_level: "High", latitude: 11.4200, longitude: 76.8800 },
-    { id: 3, name: "Avalanche Lake & Emerald Ridge", region: "Nilgiris", state: "Tamil Nadu", current_risk_score: 89.2, current_risk_level: "Severe", latitude: 11.2900, longitude: 76.5900 },
-    { id: 4, name: "Kodaikanal - Batlagundu Ghat (Dum Dum Rock)", region: "Dindigul", state: "Tamil Nadu", current_risk_score: 88.5, current_risk_level: "Severe", latitude: 10.2300, longitude: 77.5600 },
-    { id: 5, name: "Valparai - Pollachi 40-Hairpin Ghat Road", region: "Coimbatore", state: "Tamil Nadu", current_risk_score: 74.2, current_risk_level: "High", latitude: 10.4200, longitude: 76.9800 },
-    { id: 6, name: "Yercaud 60-Foot Bridge Ghat Section", region: "Salem", state: "Tamil Nadu", current_risk_score: 81.0, current_risk_level: "Severe", latitude: 11.7500, longitude: 78.1800 }
+    { id: 1, name: "Shillong - Mawlai Escarpment (NH-6)", region: "East Khasi Hills", state: "Meghalaya", current_risk_score: 84.5, current_risk_level: "Critical", latitude: 25.5788, longitude: 91.8933 },
+    { id: 2, name: "Cherrapunji - Shella Ghat Pass (SH-12)", region: "East Khasi Hills", state: "Meghalaya", current_risk_score: 91.5, current_risk_level: "Critical", latitude: 25.2702, longitude: 91.7323 },
+    { id: 3, name: "Noney Colluvium Railway Cutting (NH-37)", region: "Noney", state: "Manipur", current_risk_score: 88.2, current_risk_level: "Critical", latitude: 24.8170, longitude: 93.6000 },
+    { id: 4, name: "Kohima - Zubza Sinking Pass (NH-29)", region: "Kohima", state: "Nagaland", current_risk_score: 74.0, current_risk_level: "High", latitude: 25.6751, longitude: 94.1086 },
+    { id: 5, name: "Gangtok - Deorali Sinking Zone (NH-10)", region: "East Sikkim", state: "Sikkim", current_risk_score: 86.0, current_risk_level: "Critical", latitude: 27.3389, longitude: 88.6065 },
+    { id: 6, name: "Jatinga Valley Slip Corridor (NH-27)", region: "Dima Hasao", state: "Assam", current_risk_score: 78.0, current_risk_level: "High", latitude: 25.1200, longitude: 92.9800 }
   ];
 
   const defaultPriorities = priorities.length > 0 ? priorities : [
-    { rank: 1, location_id: 3, location_name: "Avalanche Lake & Emerald Ridge", region: "Nilgiris, Tamil Nadu", risk_score: 89.2, risk_tier: "Critical", vulnerability: "High (Kundah Dam Catchment | Tribal Settlements)", recommended_action: "Immediate evacuation & TNDMA QRT quick response dispatch", active_reports_count: 3 },
-    { rank: 2, location_id: 4, location_name: "Kodaikanal - Batlagundu Ghat (Dum Dum Rock)", region: "Dindigul, Tamil Nadu", risk_score: 88.5, risk_tier: "Critical", vulnerability: "High (SH-156 Arterial Route | 2 Hill Resorts)", recommended_action: "Stage-3 Evacuation & pre-position heavy earth-movers", active_reports_count: 2 },
-    { rank: 3, location_id: 1, location_name: "Coonoor Ghat Section (km 14)", region: "Nilgiris, Tamil Nadu", risk_score: 84.5, risk_tier: "Critical", vulnerability: "High (NH-181 Arterial Corridor | Burliar Tea Estate)", recommended_action: "Close Ghat lane & deploy heavy clearing patrol", active_reports_count: 3 },
-    { rank: 4, location_id: 6, location_name: "Yercaud 60-Foot Bridge Ghat Section", region: "Salem, Tamil Nadu", risk_score: 81.0, risk_tier: "Critical", vulnerability: "High (12th Hairpin Corridor | Shevaroy Settlements)", recommended_action: "Traffic diversion via Kuppanur road & sensor watch", active_reports_count: 2 },
-    { rank: 5, location_id: 5, location_name: "Valparai - Pollachi 40-Hairpin Ghat Road", region: "Coimbatore, Tamil Nadu", risk_score: 74.2, risk_tier: "High", vulnerability: "Medium (Attakatti Hairpins | Tea Plantation Workers)", recommended_action: "Night transit restriction & emergency escort", active_reports_count: 1 },
-    { rank: 6, location_id: 2, location_name: "Kotagiri - Mettupalayam Highway (SH-15)", region: "Nilgiris, Tamil Nadu", risk_score: 72.0, risk_tier: "High", vulnerability: "Medium (SH-15 Pass | Katteri School)", recommended_action: "Night travel embargo & inclinometer alert watch", active_reports_count: 1 }
+    { rank: 1, location_id: 2, location_name: "Cherrapunji - Shella Ghat Pass (SH-12)", region: "East Khasi Hills, Meghalaya", risk_score: 91.5, risk_tier: "Critical", vulnerability: "Critical (Sohra Escarpment | Gorge Highway)", recommended_action: "Immediate traffic embargo & NDRF mountain team dispatch", active_reports_count: 3 },
+    { rank: 2, location_id: 3, location_name: "Noney Colluvium Railway Cutting (NH-37)", region: "Noney, Manipur", risk_score: 88.2, risk_tier: "Critical", vulnerability: "High (NH-37 Lifeline | Tupul Rail Approaches)", recommended_action: "Stage-3 Evacuation & pre-position heavy earth-movers", active_reports_count: 2 },
+    { rank: 3, location_id: 5, location_name: "Gangtok - Deorali Sinking Zone (NH-10)", region: "East Sikkim, Sikkim", risk_score: 86.0, risk_tier: "Critical", vulnerability: "High (NH-10 Mountain Lifeline | Teesta Valley)", recommended_action: "Close single-lane pass & deploy heavy clearing patrol", active_reports_count: 3 },
+    { rank: 4, location_id: 1, location_name: "Shillong - Mawlai Escarpment (NH-6)", region: "East Khasi Hills, Meghalaya", risk_score: 84.5, risk_tier: "Critical", vulnerability: "High (Guwahati-Shillong Expressway Corridor)", recommended_action: "Traffic diversion via Shillong Peak Bypass & sensor watch", active_reports_count: 2 },
+    { rank: 5, location_id: 6, location_name: "Jatinga Valley Slip Corridor (NH-27)", region: "Dima Hasao, Assam", risk_score: 78.0, risk_tier: "High", vulnerability: "Medium (East-West Highway | Hill Settlements)", recommended_action: "Night transit restriction & emergency escort", active_reports_count: 1 },
+    { rank: 6, location_id: 4, location_name: "Kohima - Zubza Sinking Pass (NH-29)", region: "Kohima, Nagaland", risk_score: 74.0, risk_tier: "High", vulnerability: "Medium (Dimapur-Kohima Pass | Peducha Link)", recommended_action: "Night travel embargo & inclinometer alert watch", active_reports_count: 1 }
   ];
 
   const defaultIncidents = incidents.length > 0 ? incidents : [
-    { id: 1, title: "Transverse Slope Tension Crack", description: "2.5 cm wide fissure expanding along upper road cut near Burliar tea warehouse.", location_name: "Coonoor Ghat km 14.2", severity: "High", status: "PENDING", reported_at: "18 mins ago" },
-    { id: 2, title: "Rockfall & Mud Spillage", description: "Boulders (~1.5m diameter) detached from 45-degree granite outcrop near Dum Dum Rock.", location_name: "Kodaikanal Ghat km 22", severity: "Medium", status: "INVESTIGATING", reported_at: "42 mins ago" },
-    { id: 3, title: "Severe Slope Slump & Debris Flow", description: "Continuous soil liquefaction downslope along Emerald catchment after 160mm continuous rain. Evacuation requested.", location_name: "Avalanche Kundah Sector 2", severity: "Critical", status: "PENDING", reported_at: "1 hour ago" }
+    { id: 1, title: "Transverse Slope Tension Crack", description: "2.5 cm wide fissure expanding along upper road cut near Shillong NH-6 km 48.2.", location_name: "Shillong Ridge NH-6", severity: "High", status: "PENDING", reported_at: "18 mins ago" },
+    { id: 2, title: "Rockfall & Mud Spillage", description: "Boulders (~1.5m diameter) detached from 45-degree granite outcrop along Dimapur-Kohima ghat.", location_name: "Kohima Zubza Pass NH-29", severity: "Medium", status: "INVESTIGATING", reported_at: "42 mins ago" },
+    { id: 3, title: "Severe Slope Slump & Debris Flow", description: "Continuous colluvium debris slide along NH-37 approach road after 165mm continuous monsoon rain. Evacuation requested.", location_name: "Noney Railway Cutting NH-37", severity: "Critical", status: "PENDING", reported_at: "1 hour ago" }
   ];
 
   // Handle Verification Action

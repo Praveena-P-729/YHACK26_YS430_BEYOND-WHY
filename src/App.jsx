@@ -64,6 +64,7 @@ export default function App() {
               </ProtectedRoute>
             } 
           />
+          <Route path="/citizen" element={<Navigate to="/citizen-dashboard" replace />} />
 
           {/* Field Officer & Admin Command Center HUD Routes */}
           <Route 

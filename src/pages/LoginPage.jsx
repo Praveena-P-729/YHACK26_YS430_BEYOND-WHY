@@ -30,10 +30,10 @@ export default function LoginPage() {
     setSelectedRole(role);
     setError('');
     if (role === 'citizen') {
-      setIdentifier('praveena@landguard.ai');
+      setIdentifier('praveena.citizen@landguard.ai');
       setPassword('Praveena@2026');
     } else if (role === 'field_officer') {
-      setIdentifier('praveena@landguard.ai');
+      setIdentifier('praveena.officer@landguard.ai');
       setPassword('Praveena@2026');
     } else if (role === 'admin') {
       setIdentifier('praveena.admin@landguard.ai');
@@ -56,9 +56,9 @@ export default function LoginPage() {
 
     setLoading(true);
     try {
-      const loggedUser = await login(identifier, password);
+      const loggedUser = await login(identifier, password, selectedRole);
       // Role-based redirection
-      if (loggedUser.role === 'citizen') {
+      if (loggedUser?.role === 'citizen' || selectedRole === 'citizen' || identifier.includes('citizen')) {
         navigate('/citizen-dashboard');
       } else {
         navigate('/dashboard');

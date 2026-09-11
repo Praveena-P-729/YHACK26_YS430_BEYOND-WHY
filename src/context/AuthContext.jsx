@@ -28,25 +28,54 @@ export function AuthProvider({ children }) {
     initAuth();
   }, []);
 
-  const login = async (emailOrPhone, password) => {
+  const login = async (emailOrPhone, password, preferredRole = null) => {
     try {
       const data = await api.login(emailOrPhone, password);
+      let userObj = data.user;
+      if (preferredRole) {
+        userObj = { ...userObj, role: preferredRole };
+      }
       localStorage.setItem('landguard_token', data.access_token);
-      localStorage.setItem('landguard_user', JSON.stringify(data.user));
-      setUser(data.user);
-      return data.user;
+      localStorage.setItem('landguard_user', JSON.stringify(userObj));
+      setUser(userObj);
+      return userObj;
     } catch (err) {
       // Offline fallback profiles for resilient demo testing
       const demoUsers = {
+        'praveena.citizen@landguard.ai': {
+          id: 4,
+          user_id: 4,
+          full_name: 'Praveena',
+          email: 'praveena.citizen@landguard.ai',
+          phone: '+91 98401 99887',
+          role: 'citizen',
+          department: 'North-Eastern Resident Community & Hill Panchayat',
+          avatar_url: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=150',
+          created_at: new Date().toISOString(),
+          last_login_at: new Date().toISOString()
+        },
+        'praveena.officer@landguard.ai': {
+          id: 1,
+          user_id: 1,
+          full_name: 'Praveena',
+          email: 'praveena.officer@landguard.ai',
+          phone: '+91 94432 98765',
+          role: 'field_officer',
+          badge_number: 'NER-CMD-729',
+          department: 'North-Eastern Regional Disaster Management Authority (NER-SDMA)',
+          avatar_url: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=150',
+          created_at: new Date().toISOString(),
+          last_login_at: new Date().toISOString()
+        },
         'praveena': {
           id: 1,
           user_id: 1,
           full_name: 'Praveena',
           email: 'praveena@landguard.ai',
           phone: '+91 94432 98765',
-          role: 'field_officer',
+          role: preferredRole || 'citizen',
           badge_number: 'NER-CMD-729',
-          department: 'North-Eastern Regional Disaster Management Authority (NER-SDMA)',
+          department: (preferredRole === 'citizen' || !preferredRole) ? 'North-Eastern Resident Community & Hill Panchayat' : 'North-Eastern Regional Disaster Management Authority (NER-SDMA)',
           avatar_url: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=150',
           created_at: new Date().toISOString(),
           last_login_at: new Date().toISOString()
@@ -57,9 +86,9 @@ export function AuthProvider({ children }) {
           full_name: 'Praveena',
           email: 'praveena@landguard.ai',
           phone: '+91 94432 98765',
-          role: 'field_officer',
+          role: preferredRole || 'citizen',
           badge_number: 'NER-CMD-729',
-          department: 'North-Eastern Regional Disaster Management Authority (NER-SDMA)',
+          department: (preferredRole === 'citizen' || !preferredRole) ? 'North-Eastern Resident Community & Hill Panchayat' : 'North-Eastern Regional Disaster Management Authority (NER-SDMA)',
           avatar_url: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=150',
           created_at: new Date().toISOString(),
           last_login_at: new Date().toISOString()
@@ -118,7 +147,10 @@ export function AuthProvider({ children }) {
       };
 
       if (demoUsers[emailOrPhone]) {
-        const u = demoUsers[emailOrPhone];
+        let u = demoUsers[emailOrPhone];
+        if (preferredRole) {
+          u = { ...u, role: preferredRole };
+        }
         localStorage.setItem('landguard_token', 'demo-jwt-token-2026');
         localStorage.setItem('landguard_user', JSON.stringify(u));
         setUser(u);

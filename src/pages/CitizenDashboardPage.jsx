@@ -175,8 +175,8 @@ export default function CitizenDashboardPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0A100D] text-[#F5F1EA] selection:bg-[#10B981] selection:text-[#0A100D]">
-      <header className="border-b border-white/10 bg-[#101A16]/90 backdrop-blur sticky top-0 z-30 px-4 lg:px-8 py-3.5">
+    <div className="min-h-screen bg-[#0A100D] text-[#F5F1EA] selection:bg-[#10B981] selection:text-[#0A100D] bg-ner-backdrop">
+      <header className="border-b border-white/10 bg-[#0D1714]/92 backdrop-blur-md sticky top-0 z-30 px-4 lg:px-8 py-3.5 shadow-lg">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#10B981] to-[#047857] flex items-center justify-center shadow-md shadow-[#10B981]/30">
@@ -184,12 +184,12 @@ export default function CitizenDashboardPage() {
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <span className="font-display font-extrabold text-white tracking-tight text-lg">LANDSAFE</span>
+                <span className="font-display font-extrabold text-white tracking-tight text-lg text-contrast-glow">LANDSAFE</span>
                 <span className="text-[10px] px-1.5 py-0.5 rounded bg-[#10B981]/20 text-[#10B981] font-mono font-bold uppercase border border-[#10B981]/30">
                   CITIZEN RESIDENT
                 </span>
               </div>
-              <p className="text-[10px] text-[#A8ADB2]">AI Landslide Hazard Warning &amp; Safe Travel Route Grid</p>
+              <p className="text-[10px] text-[#CBD1D6] text-subtle-glow">AI Landslide Hazard Warning &amp; Safe Travel Route Grid</p>
             </div>
           </div>
 

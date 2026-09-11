@@ -71,20 +71,10 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0A100D] text-[#F5F1EA] flex items-center justify-center p-4 relative overflow-hidden selection:bg-[#10B981] selection:text-white">
+    <div className="min-h-screen bg-[#0A100D] text-[#F5F1EA] flex items-center justify-center p-4 relative overflow-hidden selection:bg-[#10B981] selection:text-white bg-ner-backdrop">
       
-      {/* Background Mountain Contours & Ambient Atmospheric Glow */}
-      <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-[#10B981]/12 rounded-full blur-[100px] pointer-events-none" />
-      <div className="absolute bottom-0 left-10 w-[500px] h-[500px] bg-[#12201C]/70 rounded-full blur-[90px] pointer-events-none" />
-
-      {/* Subtle Mountain Topography SVG Pattern */}
-      <div 
-        className="absolute inset-0 opacity-[0.04] pointer-events-none" 
-        style={{
-          backgroundImage: `radial-gradient(#10B981 1px, transparent 1px)`,
-          backgroundSize: '32px 32px'
-        }}
-      />
+      {/* Subtle Dark Radial Gradient Vignette for text contrast */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0A100D]/80 via-[#0A100D]/65 to-[#0A100D]/90 pointer-events-none" />
 
       <div className="w-full max-w-5xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
         
@@ -98,27 +88,27 @@ export default function LoginPage() {
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <span className="text-xl font-display font-bold text-white tracking-tight">LANDGUARD</span>
+                <span className="text-xl font-display font-bold text-white tracking-tight text-contrast-glow">LANDGUARD</span>
                 <span className="text-[10px] px-1.5 py-0.5 rounded bg-[#10B981]/20 text-[#10B981] font-mono font-bold tracking-widest uppercase border border-[#10B981]/30">AI</span>
               </div>
-              <p className="text-[10px] text-[#A8ADB2]">AI Landslide Early Warning &amp; Monitoring</p>
+              <p className="text-[10px] text-[#CBD1D6] text-subtle-glow">AI Landslide Early Warning &amp; Monitoring</p>
             </div>
           </div>
 
-          {/* Main Card Container */}
-          <div className="command-card rounded-3xl p-7 md:p-8 shadow-2xl relative overflow-hidden border border-white/10">
-            {/* Top orange highlight line */}
+          {/* Main Card Container with Frosted Glass & Strong Contrast */}
+          <div className="command-card rounded-3xl p-7 md:p-8 shadow-2xl relative overflow-hidden border border-white/20 backdrop-blur-2xl bg-[#0C1613]/92">
+            {/* Top emerald highlight line */}
             <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#10B981] to-transparent" />
 
             <div className="mb-5">
-              <h2 className="text-2xl font-bold text-white font-heading">Welcome Back</h2>
-              <p className="text-xs text-[#A8ADB2] mt-1">
+              <h2 className="text-2xl font-bold text-white font-heading text-contrast-glow">Welcome Back</h2>
+              <p className="text-xs text-[#CBD1D6] mt-1 font-medium">
                 Sign in to access real-time landslide monitoring &amp; emergency alerts.
               </p>
             </div>
 
             {/* Role Switcher Pill Tabs (Citizen vs Field Officer vs Admin) */}
-            <div className="mb-5 p-1 rounded-2xl bg-[#0D1714] border border-white/5 grid grid-cols-3 gap-1">
+            <div className="mb-5 p-1 rounded-2xl bg-[#08100D] border border-white/10 grid grid-cols-3 gap-1">
               <button
                 type="button"
                 onClick={() => handleRoleSelect('citizen')}
@@ -278,28 +268,28 @@ export default function LoginPage() {
         </div>
 
         {/* Right Side: Mountain Imagery & Safety Showcase */}
-        <div className="hidden lg:flex flex-col justify-between lg:col-span-6 h-[660px] rounded-3xl bg-[#101A16] border border-white/10 p-8 shadow-2xl relative overflow-hidden">
+        <div className="hidden lg:flex flex-col justify-between lg:col-span-6 h-[660px] rounded-3xl bg-[#0C1613]/92 border border-white/20 p-8 shadow-2xl relative overflow-hidden backdrop-blur-2xl">
           <div className="absolute top-10 right-10 w-72 h-72 bg-[#10B981]/15 rounded-full blur-3xl pointer-events-none" />
 
           <div className="flex items-center justify-between relative z-10">
-            <span className="text-[11px] font-mono px-3 py-1 rounded-full bg-[#14221E] border border-white/10 text-[#10B981]">
+            <span className="text-[11px] font-mono px-3 py-1 rounded-full bg-[#14221E] border border-white/20 text-[#10B981] font-bold shadow-md">
               ROLE-BASED DISASTER INTELLIGENCE (RBAC)
             </span>
-            <span className="text-xs text-[#8E959E]">NDMA &bull; GSI Synchronized</span>
+            <span className="text-xs text-[#CBD1D6] font-medium">NDMA &bull; GSI Synchronized</span>
           </div>
 
           <div className="my-auto space-y-5 relative z-10">
             {/* Visual Callout Card */}
-            <div className="p-6 rounded-2xl bg-[#121E1A]/90 border border-white/10 space-y-3">
-              <div className="text-xs font-mono text-[#10B981] uppercase tracking-wider">
-                {selectedRole === 'citizen' ? 'PUBLIC RESIDENT SAFETY GRID' : 'EMERGENCY COMMAND CONSOLE'}
+            <div className="p-6 rounded-2xl bg-[#08100D]/90 border border-white/15 space-y-3 shadow-xl">
+              <div className="text-xs font-mono text-[#10B981] font-bold uppercase tracking-wider">
+                {selectedRole === 'citizen' ? 'PUBLIC RESIDENT SAFETY GRID' : 'DISASTER OPERATIONS CONSOLE'}
               </div>
-              <h3 className="text-2xl font-bold text-white font-heading leading-snug">
+              <h3 className="text-2xl font-bold text-white font-heading leading-snug text-contrast-glow">
                 {selectedRole === 'citizen'
                   ? 'Real-time safety advisories & safe relief shelters for local hill communities.'
                   : 'Predicting slope failure before the mountain moves with 24/7 AI telemetry.'}
               </h3>
-              <p className="text-xs text-[#A8ADB2] leading-relaxed">
+              <p className="text-xs text-[#E2E8F0] leading-relaxed font-normal">
                 {selectedRole === 'citizen'
                   ? 'Access nearby safe evacuation camps across Assam, Meghalaya, Manipur, and Sikkim, receive instant flash flood alerts, and report hillside cracks directly to disaster responders.'
                   : 'Real-time telemetry ingestion across 12 high-hazard corridors with explainable SHAP weights and multi-horizon failure forecasts.'}
@@ -307,27 +297,27 @@ export default function LoginPage() {
 
               {/* Mini Stats */}
               <div className="grid grid-cols-3 gap-2.5 pt-3">
-                <div className="p-3 rounded-xl bg-[#0D1714] border border-white/5 text-center">
+                <div className="p-3 rounded-xl bg-[#0F1B16] border border-white/10 text-center shadow-md">
                   <div className="text-lg font-bold text-[#10B981] font-heading">
                     {selectedRole === 'citizen' ? '4 Shelters' : '12 Stations'}
                   </div>
-                  <div className="text-[10px] text-[#8E959E]">
+                  <div className="text-[10px] text-[#CBD1D6] font-medium">
                     {selectedRole === 'citizen' ? 'Open & Ready' : 'Active Telemetry'}
                   </div>
                 </div>
-                <div className="p-3 rounded-xl bg-[#0D1714] border border-white/5 text-center">
-                  <div className="text-lg font-bold text-white font-heading">
+                <div className="p-3 rounded-xl bg-[#0F1B16] border border-white/10 text-center shadow-md">
+                  <div className="text-lg font-bold text-white font-heading text-contrast-glow">
                     {selectedRole === 'citizen' ? '108' : '6-24h'}
                   </div>
-                  <div className="text-[10px] text-[#8E959E]">
+                  <div className="text-[10px] text-[#CBD1D6] font-medium">
                     {selectedRole === 'citizen' ? 'Helpline 108' : 'Lead Time'}
                   </div>
                 </div>
-                <div className="p-3 rounded-xl bg-[#0D1714] border border-white/5 text-center">
-                  <div className="text-lg font-bold text-emerald-400 font-heading">
+                <div className="p-3 rounded-xl bg-[#0F1B16] border border-white/10 text-center shadow-md">
+                  <div className="text-lg font-bold text-emerald-400 font-heading text-contrast-glow">
                     {selectedRole === 'citizen' ? 'Free SOS' : '92.4%'}
                   </div>
-                  <div className="text-[10px] text-[#8E959E]">
+                  <div className="text-[10px] text-[#CBD1D6] font-medium">
                     {selectedRole === 'citizen' ? 'Direct Dispatch' : 'Model Accuracy'}
                   </div>
                 </div>
@@ -335,9 +325,9 @@ export default function LoginPage() {
             </div>
           </div>
 
-          <div className="flex items-center justify-between text-xs text-[#7E8793] pt-4 border-t border-white/10 relative z-10">
-            <span>256-bit SSL Encrypted Token Verification</span>
-            <Link to="/" className="text-[#10B981] hover:underline">Return to Public Portal &rarr;</Link>
+          <div className="flex items-center justify-between text-xs text-[#CBD1D6] pt-4 border-t border-white/15 relative z-10">
+            <span className="font-medium">256-bit SSL Encrypted Token Verification</span>
+            <Link to="/" className="text-emerald-400 font-semibold hover:underline">Return to Home &rarr;</Link>
           </div>
         </div>
       </div>

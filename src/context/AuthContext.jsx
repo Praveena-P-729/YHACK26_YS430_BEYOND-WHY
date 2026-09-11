@@ -38,10 +38,49 @@ export function AuthProvider({ children }) {
     } catch (err) {
       // Offline fallback profiles for resilient demo testing
       const demoUsers = {
-        'citizen@landguard.ai': {
+        'praveena': {
           id: 1,
           user_id: 1,
-          full_name: 'Aarav Sharma',
+          full_name: 'Praveena',
+          email: 'praveena@landguard.ai',
+          phone: '+91 94432 98765',
+          role: 'field_officer',
+          badge_number: 'NER-CMD-729',
+          department: 'North-Eastern Regional Disaster Management Authority (NER-SDMA)',
+          avatar_url: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=150',
+          created_at: new Date().toISOString(),
+          last_login_at: new Date().toISOString()
+        },
+        'praveena@landguard.ai': {
+          id: 1,
+          user_id: 1,
+          full_name: 'Praveena',
+          email: 'praveena@landguard.ai',
+          phone: '+91 94432 98765',
+          role: 'field_officer',
+          badge_number: 'NER-CMD-729',
+          department: 'North-Eastern Regional Disaster Management Authority (NER-SDMA)',
+          avatar_url: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=150',
+          created_at: new Date().toISOString(),
+          last_login_at: new Date().toISOString()
+        },
+        'praveena.admin@landguard.ai': {
+          id: 3,
+          user_id: 3,
+          full_name: 'Praveena (State Administrator)',
+          email: 'praveena.admin@landguard.ai',
+          phone: '+91 98401 23456',
+          role: 'admin',
+          badge_number: 'NER-ADMIN-729',
+          department: 'National Disaster Management Authority (NDMA)',
+          avatar_url: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=150',
+          created_at: new Date().toISOString(),
+          last_login_at: new Date().toISOString()
+        },
+        'citizen@landguard.ai': {
+          id: 4,
+          user_id: 4,
+          full_name: 'Praveena',
           email: 'citizen@landguard.ai',
           phone: '+91 98401 99887',
           role: 'citizen',
@@ -51,13 +90,13 @@ export function AuthProvider({ children }) {
           last_login_at: new Date().toISOString()
         },
         'officer@landguard.ai': {
-          id: 2,
-          user_id: 2,
-          full_name: 'Major Vikramaditya Rathore',
+          id: 1,
+          user_id: 1,
+          full_name: 'Praveena',
           email: 'officer@landguard.ai',
           phone: '+91 94432 98765',
           role: 'field_officer',
-          badge_number: 'NER-DISASTER-108',
+          badge_number: 'NER-CMD-729',
           department: 'North-Eastern Regional Disaster Management Authority (NER-SDMA)',
           avatar_url: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=150',
           created_at: new Date().toISOString(),
@@ -66,11 +105,11 @@ export function AuthProvider({ children }) {
         'admin@landguard.ai': {
           id: 3,
           user_id: 3,
-          full_name: 'Dr. Rajeshwari Sundaram',
+          full_name: 'Praveena (Admin)',
           email: 'admin@landguard.ai',
           phone: '+91 98401 23456',
           role: 'admin',
-          badge_number: 'NDMA-CMD-001',
+          badge_number: 'NER-ADMIN-729',
           department: 'National Disaster Management Authority (NDMA)',
           avatar_url: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=150',
           created_at: new Date().toISOString(),

@@ -16,7 +16,20 @@ def seed_database():
         print("Seeding initial RBAC user profiles...")
         users = [
             User(
-                full_name="Aarav Sharma",
+                full_name="Praveena",
+                email="praveena@landguard.ai",
+                phone="+91 94432 98765",
+                password_hash=get_password_hash("Praveena@2026"),
+                role="field_officer",
+                badge_number="NER-CMD-729",
+                department="North-Eastern Regional Disaster Management Authority (NER-SDMA)",
+                avatar_url="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=150",
+                is_active=True,
+                created_at=datetime.datetime.utcnow(),
+                last_login_at=datetime.datetime.utcnow()
+            ),
+            User(
+                full_name="Praveena",
                 email="citizen@landguard.ai",
                 phone="+91 98401 99887",
                 password_hash=get_password_hash("Citizen@2026"),

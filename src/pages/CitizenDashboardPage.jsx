@@ -200,7 +200,7 @@ export default function CitizenDashboardPage() {
 
             <div className="flex items-center gap-3">
               <div className="text-right hidden sm:block">
-                <div className="text-xs font-semibold text-white">{user?.full_name || 'Aarav Sharma'}</div>
+                <div className="text-xs font-semibold text-white">{user?.full_name || 'Praveena'}</div>
                 <div className="text-[10px] text-[#10B981] font-mono">Resident Community</div>
               </div>
 

@@ -15,8 +15,8 @@ import {
 import { useAuth } from '../context/AuthContext';
 
 export default function LoginPage() {
-  const [identifier, setIdentifier] = useState('officer@landguard.ai');
-  const [password, setPassword] = useState('Officer@2026');
+  const [identifier, setIdentifier] = useState('praveena@landguard.ai');
+  const [password, setPassword] = useState('Praveena@2026');
   const [selectedRole, setSelectedRole] = useState('field_officer'); // 'citizen', 'field_officer', 'admin'
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
@@ -30,14 +30,14 @@ export default function LoginPage() {
     setSelectedRole(role);
     setError('');
     if (role === 'citizen') {
-      setIdentifier('citizen@landguard.ai');
-      setPassword('Citizen@2026');
+      setIdentifier('praveena@landguard.ai');
+      setPassword('Praveena@2026');
     } else if (role === 'field_officer') {
-      setIdentifier('officer@landguard.ai');
-      setPassword('Officer@2026');
+      setIdentifier('praveena@landguard.ai');
+      setPassword('Praveena@2026');
     } else if (role === 'admin') {
-      setIdentifier('admin@landguard.ai');
-      setPassword('Admin@2026');
+      setIdentifier('praveena.admin@landguard.ai');
+      setPassword('Praveena@2026');
     }
   };
 
